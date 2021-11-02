@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@800&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@800&display=swap');
+body, html{
+    height: 100vh;
+    // font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: 'Paytone One', sans-serif;
+}
+#contenedor .row > :first-child{
+    // box-shadow: 0 0 12px #000;
+}
+#contenedor .row{
+    height: 400px;
+    margin: 50px 50px;
+}
+#left{
+    position: relative;
+}
+
+#left-side{
+    background-image: url("https://images.unsplash.com/photo-1635096331084-87f3f64027d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100%;
+    width: 100%;
+}
+#text{
+   position: absolute;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.4); 
+   width: 50%;
+   text-align: center;
+}
+#text h1{
+    color: #ffffff;
+}
+#text small{
+    color: #ffffff;
+}
+

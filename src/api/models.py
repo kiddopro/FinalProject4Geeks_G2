@@ -3,6 +3,28 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
+class Producto(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(80), unique=False, nullable=False)
+    marca = db.Column(db.String(80), unique=False, nullable=False)
+    precio = db.Column(db.Float, unique=False, nullable=False)
+    imagen = db.Column(db.String(200),unique=False,nullable=False)
+    descripcion = db.Column(db.String(100),unique=False, nullable=False)
+    
+
+    def __repr__(self):
+        return '<Producto %r >' % self.nombre
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "marca":self.marca,
+            "precio":self.precio,
+            "imagen":self.imagen,
+            "descripcion":self.descripcion
+        }
+
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True, nullable=False)
@@ -15,7 +37,7 @@ class Usuario(db.Model):
     fecha_nac = db.Column(db.DateTime,unique=False,nullable=True)
 
     def __repr__(self):
-        return '<Usuario %r>' % self.nombre
+        return '<Usuario %r >' % self.nombre
 
     def serialize(self):
         return {
@@ -28,4 +50,4 @@ class Usuario(db.Model):
             "fecha_nac":self.fecha_nac,
             "is_active":self.is_active
             # do not serialize the password, its a security breach
-        }
+        }        

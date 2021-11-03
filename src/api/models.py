@@ -4,6 +4,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 class Producto(db.Model):
+    __tablename__='producto'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(80), unique=False, nullable=False)
     marca = db.Column(db.String(80), unique=False, nullable=False)
@@ -26,6 +27,7 @@ class Producto(db.Model):
         }
 
 class Usuario(db.Model):
+    __tablename__='usuario'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)

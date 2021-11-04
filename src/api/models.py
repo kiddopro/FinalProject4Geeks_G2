@@ -3,6 +3,8 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
+
+
 class Producto(db.Model):
     __tablename__='producto'
     id = db.Column(db.Integer, primary_key=True)
@@ -11,7 +13,7 @@ class Producto(db.Model):
     precio = db.Column(db.Float, unique=False, nullable=False)
     imagen = db.Column(db.String(200),unique=False,nullable=False)
     descripcion = db.Column(db.String(100),unique=False, nullable=False)
-    
+    usuarios = db.relationship('Carrito', backref='producto', lazy=True)
 
     def __repr__(self):
         return '<Producto %r >' % self.nombre
@@ -37,6 +39,7 @@ class Usuario(db.Model):
     telefono = db.Column(db.String(100),unique=False, nullable=True)
     documento = db.Column(db.String(30),unique=False, nullable=True)
     fecha_nac = db.Column(db.DateTime,unique=False,nullable=True)
+    productos = db.relationship('Carrito', backref='usuario', lazy=True)
 
     def __repr__(self):
         return '<Usuario %r >' % self.nombre
@@ -52,4 +55,19 @@ class Usuario(db.Model):
             "fecha_nac":self.fecha_nac,
             "is_active":self.is_active
             # do not serialize the password, its a security breach
+        }        
+
+class Carrito(db.Model):
+    __tablename__='carrito'
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
+    prod_id = db.Column(db.Integer, db.ForeignKey('producto.id'))
+    cantidad = db.Column(db.Integer, unique=False, nullable=False)
+    
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "usuario_id": self.usuario_id,
+            "prod_id": self.prod_id
         }        

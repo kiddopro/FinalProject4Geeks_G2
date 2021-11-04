@@ -30,10 +30,10 @@ const LoginContainer = () => {
 								📧
 							</span>
 							<input
-								type="text"
+								type="email"
 								className="form-control"
-								placeholder="Email"
-								aria-label="Email"
+								placeholder="email"
+								aria-label="email"
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
@@ -42,10 +42,10 @@ const LoginContainer = () => {
 								🔑
 							</span>
 							<input
-								type="text"
+								type="password"
 								className="form-control"
-								placeholder="Username"
-								aria-label="Username"
+								placeholder="password"
+								aria-label="password"
 								aria-describedby="addon-wrapping"
 							/>
 						</div>

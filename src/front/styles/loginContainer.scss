@@ -1,8 +1,6 @@
 $background-logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635995084/gradienta-m_7p45JfXQo-unsplash_mtxnu5.jpg";
 $logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png";
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@800&family=Paytone+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Fira+Sans+Condensed:wght@800&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Fira+Sans+Condensed:wght@800&family=Montserrat:wght@500&family=Paytone+One&display=swap');
 
 
 
@@ -11,13 +9,17 @@ body, html{
     height: 100vh;
     // font-family: 'Fira Sans Condensed', sans-serif;
     // font-family: 'Paytone One', sans-serif;
-    font-family: 'ABeeZee', sans-serif;
+    // font-family: 'ABeeZee', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 input:focus{
     box-shadow: none !important;
 }
 .buttons button{
     width: 120px !important;
+}
+.buttons button:focus{
+    box-shadow: none !important;
 }
 #contenedor .row{
     height: 400px;

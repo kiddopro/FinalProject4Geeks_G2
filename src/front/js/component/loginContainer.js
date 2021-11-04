@@ -11,9 +11,9 @@ const LoginContainer = () => {
 						{/* <h1>Login</h1> */}
 						<img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
-							style={{ width: "50%" }}
+							style={{ width: "60%" }}
 						/>
-						<small>To our website and buy anything!</small>
+						<small>You want it, you got it!</small>
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">

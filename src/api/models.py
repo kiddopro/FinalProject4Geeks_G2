@@ -14,6 +14,7 @@ class Producto(db.Model):
     imagen = db.Column(db.String(200),unique=False,nullable=False)
     descripcion = db.Column(db.String(100),unique=False, nullable=False)
     usuarios = db.relationship('Carrito', backref='producto', lazy=True)
+    detalles = db.relationship('Detalle_Venta', backref='producto', lazy=True)
 
     def __repr__(self):
         return '<Producto %r >' % self.nombre
@@ -25,7 +26,9 @@ class Producto(db.Model):
             "marca":self.marca,
             "precio":self.precio,
             "imagen":self.imagen,
-            "descripcion":self.descripcion
+            "descripcion":self.descripcion,
+            "usuarios":self.usuarios,
+            "detalles":self.detalles
         }
 
 class Usuario(db.Model):
@@ -37,9 +40,10 @@ class Usuario(db.Model):
     nombre = db.Column(db.String(50),unique=False,nullable=False)
     direccion = db.Column(db.String(100),unique=False, nullable=True)
     telefono = db.Column(db.String(100),unique=False, nullable=True)
-    documento = db.Column(db.String(30),unique=False, nullable=True)
+    documento = db.Column(db.String(30),unique=True, nullable=True)
     fecha_nac = db.Column(db.DateTime,unique=False,nullable=True)
     productos = db.relationship('Carrito', backref='usuario', lazy=True)
+    ventas = db.relationship('Venta',backref='usuario',lazy=True)
 
     def __repr__(self):
         return '<Usuario %r >' % self.nombre
@@ -53,7 +57,9 @@ class Usuario(db.Model):
             "telefono":self.telefono,
             "documento":self.docuemnto,
             "fecha_nac":self.fecha_nac,
-            "is_active":self.is_active
+            "is_active":self.is_active,
+            "productos":self.productos,
+            "ventas":self.ventas
             # do not serialize the password, its a security breach
         }        
 
@@ -78,14 +84,15 @@ class Venta(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
     fecha = db.Column(db.DateTime, unique=False, nullable=False)
-    
+    detalles = db.relationship('Detalle_Venta',backref='venta',lazy=True)
     
 
     def serialize(self):
         return {
             "id": self.id,
             "usuario_id": self.usuario_id,
-            "fecha": self.fecha
+            "fecha": self.fecha,
+            "detalles": self.detalles
         }                
 
 class Detalle_Venta(db.Model):

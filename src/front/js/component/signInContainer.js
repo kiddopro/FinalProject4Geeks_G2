@@ -1,8 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "../../styles/loginContainer.scss";
-import { Link } from "react-router-dom";
-
-const LoginContainer = () => {
+const SignInContainer = () => {
 	return (
 		<div id="contenedor" className="container">
 			<div className="row">
@@ -19,7 +17,7 @@ const LoginContainer = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div className="title text-center">
-						<h1>Login</h1>
+						<h1>Sign In</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}
@@ -27,8 +25,20 @@ const LoginContainer = () => {
 					</div>
 					<div className="inputs m-2">
 						<div className="input-group flex-nowrap">
-							<span className="input-group-text text-center" id="addon-wrapping">
-								<i className="fas fa-at" />
+							<span className="input-group-text" id="addon-wrapping">
+								<i className="fas fa-user" />
+							</span>
+							<input
+								type="text"
+								className="form-control"
+								placeholder="fullname"
+								aria-label="fullname"
+								aria-describedby="addon-wrapping"
+							/>
+						</div>
+						<div className="input-group flex-nowrap">
+							<span className="input-group-text" id="addon-wrapping">
+								<i className="fas fa-envelope" />
 							</span>
 							<input
 								type="email"
@@ -50,6 +60,30 @@ const LoginContainer = () => {
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
+						<div className="input-group flex-nowrap">
+							<span className="input-group-text" id="addon-wrapping">
+								<i className="fas fa-phone" />
+							</span>
+							<input
+								type="number"
+								className="form-control"
+								placeholder="phone (optional)"
+								aria-label="phone"
+								aria-describedby="addon-wrapping"
+							/>
+						</div>
+						<div className="input-group flex-nowrap">
+							<span className="input-group-text" id="addon-wrapping">
+								<i className="fas fa-map-marker-alt" />
+							</span>
+							<input
+								type="text"
+								className="form-control"
+								placeholder="address (optional)"
+								aria-label="address"
+								aria-describedby="addon-wrapping"
+							/>
+						</div>
 					</div>
 					<div className="options d-flex justify-content-between m-2">
 						<div>
@@ -61,13 +95,11 @@ const LoginContainer = () => {
 					</div>
 					<div className="buttons d-flex justify-content-between m-2">
 						<button type="button" className="btn btn-primary">
+							Submit
+						</button>
+						<button type="button" className="btn btn-primary">
 							Login
 						</button>
-						<Link to="/signin">
-							<button type="button" className="btn btn-primary">
-								Register
-							</button>
-						</Link>
 					</div>
 				</div>
 			</div>
@@ -75,4 +107,4 @@ const LoginContainer = () => {
 	);
 };
 
-export default LoginContainer;
+export default SignInContainer;

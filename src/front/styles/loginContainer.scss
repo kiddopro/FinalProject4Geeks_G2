@@ -4,7 +4,12 @@ $logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL
 
 
 
-
+span#addon-wrapping{
+    width: 7.5%;
+}
+span#addon-wrapping i{
+    width: 100%;
+}
 body, html{
     height: 100vh;
     // font-family: 'Fira Sans Condensed', sans-serif;
@@ -22,8 +27,13 @@ input:focus{
     box-shadow: none !important;
 }
 #contenedor .row{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 10px;
     height: 400px;
     // margin: 100px 100px;
+    box-shadow: 0 0 12px #000;
+    padding: 10px;
 }
 #left{
     // position: relative;

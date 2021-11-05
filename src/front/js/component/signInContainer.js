@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/loginContainer.scss";
 const SignInContainer = () => {
 	return (
@@ -97,9 +98,11 @@ const SignInContainer = () => {
 						<button type="button" className="btn btn-primary">
 							Submit
 						</button>
-						<button type="button" className="btn btn-primary">
-							Login
-						</button>
+						<Link to="/login">
+							<button type="button" className="btn btn-primary">
+								Login
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

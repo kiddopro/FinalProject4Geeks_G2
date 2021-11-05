@@ -18,7 +18,7 @@ const LoginContainer = () => {
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
-					<div className="title text-center">
+					<div id="titulo" className="title text-center">
 						<h1>Login</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"

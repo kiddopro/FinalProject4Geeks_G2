@@ -5,10 +5,11 @@ $logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL
 
 
 span#addon-wrapping{
-    width: 7.5%;
+    width: 8%;
 }
 span#addon-wrapping i{
     width: 100%;
+    box-sizing: border-box;
 }
 body, html{
     height: 100vh;
@@ -41,7 +42,9 @@ input:focus{
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
+
 }
+
 
 // #left-side{
 //     background-image: url("https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635995084/gradienta-m_7p45JfXQo-unsplash_mtxnu5.jpg");

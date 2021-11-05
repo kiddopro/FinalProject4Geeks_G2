@@ -69,5 +69,38 @@ class Carrito(db.Model):
         return {
             "id": self.id,
             "usuario_id": self.usuario_id,
-            "prod_id": self.prod_id
+            "prod_id": self.prod_id,
+            "cantidad": self.cantidad
         }        
+
+class Venta(db.Model):
+    __tablename__='venta'
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
+    fecha = db.Column(db.DateTime, unique=False, nullable=False)
+    
+    
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "usuario_id": self.usuario_id,
+            "fecha": self.fecha
+        }                
+
+class Detalle_Venta(db.Model):
+    __tablename__='detalle_venta'
+    id = db.Column(db.Integer, primary_key=True)
+    venta_id = db.Column(db.Integer, db.ForeignKey('venta.id'))
+    prod_id = db.Column(db.Integer, db.ForeignKey('producto.id'))
+    cantidad = db.Column(db.Integer, unique=False, nullable=False)
+    
+    
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "venta_id": self.venta_id,
+            "prod_id":self.prod_id,
+            "cantidad": self.cantidad
+        }                        

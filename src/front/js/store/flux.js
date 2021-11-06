@@ -1,3 +1,4 @@
+const URL_SERVIDOR = "https://3001-aquamarine-mongoose-zbzccovp.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -16,6 +17,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			loginUser: (e, p) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: e,
+					password: p
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(URL_SERVIDOR + "login", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						result.status = 200 ? localStorage.setItem("token", result.token) : console.log(result.msg);
+					})
+					.catch(error => console.log("error", error));
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

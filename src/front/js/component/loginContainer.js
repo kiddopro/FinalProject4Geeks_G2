@@ -1,15 +1,33 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/loginContainer.scss";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const LoginContainer = () => {
-	return (
+	const { actions, store } = useContext(Context);
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [auth, setAuth] = useState();
+
+	const changeAuth = () => {
+		actions.loginUser(email, password);
+		setAuth(localStorage.getItem("token") != undefined ? true : false);
+	};
+
+	useEffect(
+		() => {
+			setAuth(localStorage.getItem("token") != undefined ? true : false);
+		},
+		[auth]
+	);
+
+	return auth ? (
+		<Redirect to="/demo" />
+	) : (
 		<div id="contenedor" className="container">
 			<div className="row">
 				<div id="left" className="col-md-6 col-sm-6 left-side d-flex align-items-center">
-					{/* <div id="left-side" /> */}
 					<div id="text" className="d-flex flex-column align-items-center text-white">
-						{/* <h1>Login</h1> */}
 						<img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "60%" }}
@@ -20,10 +38,6 @@ const LoginContainer = () => {
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
 						<h1>Login</h1>
-						{/* <img
-							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
-							style={{ width: "50%" }}
-						/> */}
 					</div>
 					<div className="inputs m-2">
 						<div className="input-group flex-nowrap">
@@ -35,6 +49,8 @@ const LoginContainer = () => {
 								className="form-control"
 								placeholder="email"
 								aria-label="email"
+								value={email}
+								onChange={e => setEmail(e.target.value)}
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
@@ -47,6 +63,8 @@ const LoginContainer = () => {
 								className="form-control"
 								placeholder="password"
 								aria-label="password"
+								value={password}
+								onChange={e => setPassword(e.target.value)}
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
@@ -60,7 +78,7 @@ const LoginContainer = () => {
 						<a href="#">Forgot your password?</a>
 					</div>
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" className="btn btn-primary">
+						<button type="button" className="btn btn-primary" onClick={() => changeAuth()}>
 							Login
 						</button>
 						<Link to="/signin">

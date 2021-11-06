@@ -1,10 +1,68 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/loginContainer.scss";
 import { Link } from "react-router-dom";
 
 const LoginContainer = () => {
+	const { store, actions } = useContext(Context);
+	const [email, setEmail] = useState();
+	const [password, setPassword] = useState();
+	const [auth, setAuth] = useState(false);
+
+	const onSubmit = e => {
+		e.preventDefault();
+		actions.login(email, password, setAuth);
+		//actions.getPlanets();
+		//localStorage.getItem("token") !=setAuth(true);
+	};
+	{
+		auth ? (
+			<Redirect to="/demo" />
+		) : (
+			<form onSubmit={e => onSubmit(e)}>
+				<div className="mb-3">
+					<label htmlFor="exampleInputEmail" className="form-label">
+						email
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="exampleInputEmail"
+						aria-describedby="emailHelp"
+						onChange={e => setEmail(e.target.value)}
+						value={email}
+					/>
+					<div id="emailHelp" className="form-text">
+						Well never share your email with anyone else.
+					</div>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="exampleInputPassword" className="form-label">
+						password
+					</label>
+					<input
+						type="password"
+						className="form-control"
+						id="exampleInputPassword"
+						onChange={e => setPassword(e.target.value)}
+						value={password}
+					/>
+				</div>
+				<div className="mb-3 form-check">
+					<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+					<label className="form-check-label" htmlFor="exampleCheck1">
+						Check me out
+					</label>
+				</div>
+				<button type="submit" className="btn btn-primary">
+					Submit
+				</button>
+			</form>
+		);
+	}
 	return (
-		<div id="contenedor" className="container">
+		<div id="contenedor" onSubmit={e => onSubmit(e)} className="container">
 			<div className="row">
 				<div id="left" className="col-md-6 col-sm-6 left-side d-flex align-items-center">
 					{/* <div id="left-side" /> */}

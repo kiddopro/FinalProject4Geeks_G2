@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(URL_SERVIDOR + "login", requestOptions)
 					.then(response => response.json())
 					.then(result => {
-						result.status = 200 ? localStorage.setItem("token", result.token) : console.log(result.msg);
+						result.token ? localStorage.setItem("token", result.token) : console.log(result.msg);
 					})
 					.catch(error => console.log("error", error));
 			},

@@ -5,18 +5,18 @@ import { Context } from "../store/appContext";
 
 const LoginContainer = () => {
 	const { actions, store } = useContext(Context);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [auth, setAuth] = useState();
+	const [email, setEmail] = useState();
+	const [password, setPassword] = useState();
+	const [auth, setAuth] = useState(false);
 
 	const changeAuth = () => {
 		actions.loginUser(email, password);
-		setAuth(localStorage.getItem("token") != undefined ? true : false);
+		setAuth(localStorage.getItem("token") ? true : false);
 	};
 
 	useEffect(
 		() => {
-			setAuth(localStorage.getItem("token") != undefined ? true : false);
+			setAuth(localStorage.getItem("token") ? true : false);
 		},
 		[auth]
 	);

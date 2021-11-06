@@ -19,7 +19,7 @@ const LoginContainer = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1>Login</h1>
+						<h1>Ingresar</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}
@@ -45,7 +45,7 @@ const LoginContainer = () => {
 							<input
 								type="password"
 								className="form-control"
-								placeholder="password"
+								placeholder="contraseña"
 								aria-label="password"
 								aria-describedby="addon-wrapping"
 							/>
@@ -54,18 +54,18 @@ const LoginContainer = () => {
 					<div className="options d-flex justify-content-between m-2">
 						<div>
 							<input className="m-1" type="checkbox" id="remember" value="remember" />
-							<label htmlFor="remember">Remember me</label>
+							<label htmlFor="remember">Recordarme</label>
 						</div>
 
-						<a href="#">Forgot your password?</a>
+						<a href="#">¿Olvidaste tu contraseña?</a>
 					</div>
 					<div className="buttons d-flex justify-content-between m-2">
 						<button type="button" className="btn btn-primary">
-							Login
+							Ingresar
 						</button>
 						<Link to="/signin">
 							<button type="button" className="btn btn-primary">
-								Register
+								Registrarse
 							</button>
 						</Link>
 					</div>

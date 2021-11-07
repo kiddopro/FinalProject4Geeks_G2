@@ -55,7 +55,7 @@ class Usuario(db.Model):
             "nombre": self.nombre,
             "direccion":self.direccion,
             "telefono":self.telefono,
-            "documento":self.docuemnto,
+            "documento":self.documento,
             "fecha_nac":self.fecha_nac,
             "is_active":self.is_active,
             "productos":self.productos,

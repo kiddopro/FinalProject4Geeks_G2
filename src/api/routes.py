@@ -200,4 +200,289 @@ def delete_producto(id):
     if not productos:
        return jsonify("no se encontraron productos"),404
         
-    return jsonify(productos), 200      
+    return jsonify(productos), 200  
+
+#-----------------------------------------------
+# EndPoints de Carrito
+# ----------------------------------------------   
+@api.route('/carritos', methods=['POST'])
+def add_carrito():
+    # primero leo lo que viene en el body
+    body=json.loads(request.data)
+    #print (body_fav)
+    esta1=False
+    esta2=False
+    if "prod_id" in body:
+        producto=Producto.query.get(body['prod_id'])
+        if producto is None:
+            raise APIException('Producto no encontrado',status_code=404)
+        else:
+            esta1=True
+    if "usuario_id" in body:    
+        usuario=Usuario.query.get(body['usuario_id'])
+        if usuario is None:
+            raise APIException('Usuario no encontrado',status_code=404)
+        else:
+            esta2=True    
+    esta=esta1 and esta2
+    if esta:        
+        carrito=Carrito(usuario_id=body['usuario_id'],prod_id=body['prod_id'],cantidad=body['cantidad'])
+        db.session.add(carrito)               
+        db.session.commit()
+    
+    carritos=Carrito.query.all()
+    carritos = list(map(lambda carr: carr.serialize(), carritos ))
+    if not carritos:
+        return jsonify("El carrito de compras esta vacio"),404
+        
+    return jsonify(carritos), 200
+
+
+
+@api.route('/carritos/<int:id>', methods=['PUT'])
+def update_carrito(id):
+    body=json.loads(request.data)
+    carrito=Carrito.query.get(id)
+    if carrito is None:
+        raise APIException('Carrito no encontrado',status_code=404)
+    if "usuario_id" in body:
+        carrito.usuario_id=body['usuario_id']
+    if "prod_id" in body:
+        carrito.prod_id=body['prod_id']  
+    if "cantidad" in body:
+        carrito.cantidad=body['cantidad']
+      
+                        
+    db.session.commit()
+    carritos=Carrito.query.all()
+    carritos = list(map(lambda carr: carr.serialize(), carritos ))
+    if not carritos:
+        return jsonify("no se encontraron carritos"),404
+        
+    return jsonify(carritos), 200 
+
+@api.route('/carritos/<int:id>', methods=['DELETE'])
+def delete_carrito(id):
+    carrito=Carrito.query.get(id)
+    if carrito is None:
+       raise APIException('Datos Carrito no encontrado',status_code=404)
+    db.session.delete(carrito)                
+    db.session.commit()
+        
+    carritos=Carrito.query.all()
+    carritos = list(map(lambda carr: carr.serialize(), carritos ))
+    if not carritos:
+        return jsonify("Carrito vacio"),404
+        
+    return jsonify(carritos), 200    
+
+@api.route('/carritos', methods=['GET'])
+def get_all_carritos():
+
+    carritos=Carrito.query.all()
+    carritos = list(map(lambda carr: carr.serialize(), carritos ))
+    if not carritos:
+        return jsonify("El carrito esta vacio"),404
+        
+    return jsonify(carritos), 200   
+
+@api.route('/carritos/<int:id>', methods=['GET'])
+def get_carrito(id):
+
+    carrito=Carrito.query.get(id)
+    if carrito != None:
+        carrito=carrito.serialize()
+    
+    
+    if not carrito:
+        return jsonify("no se encontro al elemento del carrito"),404
+    else:    
+        return jsonify(carrito), 200          
+#-----------------------------------------------
+# EndPoints de Venta (Cabezal de la Venta)
+# ----------------------------------------------   
+@api.route('/carritos', methods=['POST'])
+def add_carrito():
+    # primero leo lo que viene en el body
+    body=json.loads(request.data)
+    #print (body_fav)
+    esta=False
+    
+    
+    if "usuario_id" in body:    
+        usuario=Usuario.query.get(body['usuario_id'])
+        if usuario is None:
+            raise APIException('Usuario no encontrado',status_code=404)
+        else:
+            esta=True    
+    
+    if esta:        
+        venta=Venta(usuario_id=body['usuario_id'],fecha=body['fecha'])
+        db.session.add(venta)               
+        db.session.commit()
+    
+    ventas=Venta.query.all()
+    ventas = list(map(lambda vent: vent.serialize(), ventas ))
+    if not ventas:
+        return jsonify("Las ventas estan vacias"),404
+        
+    return jsonify(ventas), 200
+
+
+
+@api.route('/ventas/<int:id>', methods=['PUT'])
+def update_venta(id):
+    body=json.loads(request.data)
+    venta=Venta.query.get(id)
+    if venta is None:
+        raise APIException('Venta no encontrada',status_code=404)
+    if "usuario_id" in body:
+        venta.usuario_id=body['usuario_id']
+    if "fecha" in body:
+        venta.fecha=body['fecha']  
+    
+      
+                        
+    db.session.commit()
+    ventas=Venta.query.all()
+    ventas = list(map(lambda vent: vent.serialize(), ventas ))
+    if not ventas:
+        return jsonify("no se encontraron ventas"),404
+        
+    return jsonify(ventas), 200 
+
+@api.route('/ventas/<int:id>', methods=['DELETE'])
+def delete_venta(id):
+    venta=Venta.query.get(id)
+    if venta is None:
+       raise APIException('Datos Venta no encontrado',status_code=404)
+    db.session.delete(venta)                
+    db.session.commit()
+        
+    ventas=Venta.query.all()
+    ventas = list(map(lambda vent: vent.serialize(), ventas ))
+    if not ventas:
+        return jsonify("No se econtraron ventas"),404
+        
+    return jsonify(ventas), 200    
+
+@api.route('/ventas', methods=['GET'])
+def get_all_ventas():
+
+    ventas=Venta.query.all()
+    ventas = list(map(lambda vent: vent.serialize(), ventas ))
+    if not ventas:
+        return jsonify("No se encontraron ventas"),404
+        
+    return jsonify(ventas), 200   
+
+@api.route('/ventas/<int:id>', methods=['GET'])
+def get_venta(id):
+
+    venta=Venta.query.get(id)
+    if venta != None:
+        venta=venta.serialize()
+    
+    
+    if not venta:
+        return jsonify("no se encontro la venta"),404
+    else:    
+        return jsonify(venta), 200    
+
+#-----------------------------------------------
+# EndPoints de Detalle_Venta
+# ----------------------------------------------   
+@api.route('/detalle', methods=['POST'])
+def add_detalle():
+    # primero leo lo que viene en el body
+    body=json.loads(request.data)
+    #print (body_fav)
+    esta1=False
+    esta2=False
+    if "prod_id" in body:
+        producto=Producto.query.get(body['prod_id'])
+        if producto is None:
+            raise APIException('Producto no encontrado',status_code=404)
+        else:
+            esta1=True
+    if "venta_id" in body:    
+        venta=Venta.query.get(body['venta_id'])
+        if venta is None:
+            raise APIException('Venta no encontrado',status_code=404)
+        else:
+            esta2=True    
+    esta=esta1 and esta2
+    if esta:        
+        detalle=Detalle_Venta(venta_id=body['venta_id'],prod_id=body['prod_id'],cantidad=body['cantidad'])
+        db.session.add(detalle)               
+        db.session.commit()
+    
+    detalles=Detalle.query.all()
+    detalle = list(map(lambda deta: deta.serialize(), detalles ))
+    if not detalles:
+        return jsonify("El detalle de ventas esta vacio"),404
+        
+    return jsonify(detalles), 200
+
+
+
+@api.route('/detalles/<int:id>', methods=['PUT'])
+def update_detalle(id):
+    body=json.loads(request.data)
+    detalle=Detalle_Venta.query.get(id)
+    if detalle is None:
+        raise APIException('Detalle de venta no encontrado',status_code=404)
+    if "venta_id" in body:
+        detalle.venta_id=body['venta_id']
+    if "prod_id" in body:
+        detalle.prod_id=body['prod_id']  
+    if "cantidad" in body:
+        detalle.cantidad=body['cantidad']
+      
+                        
+    db.session.commit()
+    detalles=Detalle.query.all()
+    detalles = list(map(lambda deta: deta.serialize(), detalles ))
+    if not detalles:
+        return jsonify("no se encontraron detalles de ventas"),404
+        
+    return jsonify(detalles), 200 
+
+@api.route('/detalles/<int:id>', methods=['DELETE'])
+def delete_detalle(id):
+    detalle=Detalle_Venta.query.get(id)
+    if detalle is None:
+       raise APIException('Datos Detalle de Ventas no encontrado',status_code=404)
+    db.session.delete(detalle)                
+    db.session.commit()
+        
+    detalles=Detalle_Venta.query.all()
+    detalles = list(map(lambda deta: deta.serialize(), detalles ))
+    if not detalles:
+        return jsonify("Los detalles de ventas estan vacios"),404
+        
+    return jsonify(detalles), 200    
+
+@api.route('/detalles', methods=['GET'])
+def get_all_detalles():
+
+    detalles=Detalle_Venta.query.all()
+    detallles = list(map(lambda deta: deta.serialize(), detalles ))
+    if not detalles:
+        return jsonify("El detalle de ventas esta vacio"),404
+        
+    return jsonify(detalles), 200   
+
+@api.route('/detalles/<int:id>', methods=['GET'])
+def get_detalle(id):
+
+    detalle=Detalle_Venta.query.get(id)
+    if detalle != None:
+        detalle=detalle.serialize()
+    
+    
+    if not detalle:
+        return jsonify("no se encontro al detalle de la venta"),404
+    else:    
+        return jsonify(detalle), 200          
+

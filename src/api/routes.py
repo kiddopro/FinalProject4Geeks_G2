@@ -128,7 +128,7 @@ def get_all_productos():
 
     productos=Producto.query.all()
     productos = list(map(lambda producto: producto.serialize(), productos ))
-    if not producto:
+    if not productos:
         return jsonify("no se encontraron productos"),404
         
     return jsonify(productos), 200
@@ -301,8 +301,8 @@ def get_carrito(id):
 #-----------------------------------------------
 # EndPoints de Venta (Cabezal de la Venta)
 # ----------------------------------------------   
-@api.route('/carritos', methods=['POST'])
-def add_carrito():
+@api.route('/ventas', methods=['POST'])
+def add_venta():
     # primero leo lo que viene en el body
     body=json.loads(request.data)
     #print (body_fav)
@@ -392,7 +392,7 @@ def get_venta(id):
 #-----------------------------------------------
 # EndPoints de Detalle_Venta
 # ----------------------------------------------   
-@api.route('/detalle', methods=['POST'])
+@api.route('/detalles', methods=['POST'])
 def add_detalle():
     # primero leo lo que viene en el body
     body=json.loads(request.data)
@@ -417,8 +417,8 @@ def add_detalle():
         db.session.add(detalle)               
         db.session.commit()
     
-    detalles=Detalle.query.all()
-    detalle = list(map(lambda deta: deta.serialize(), detalles ))
+    detalles=Detalle_Venta.query.all()
+    detalles = list(map(lambda deta: deta.serialize(), detalles ))
     if not detalles:
         return jsonify("El detalle de ventas esta vacio"),404
         
@@ -441,7 +441,7 @@ def update_detalle(id):
       
                         
     db.session.commit()
-    detalles=Detalle.query.all()
+    detalles=Detalle_Venta.query.all()
     detalles = list(map(lambda deta: deta.serialize(), detalles ))
     if not detalles:
         return jsonify("no se encontraron detalles de ventas"),404
@@ -467,7 +467,7 @@ def delete_detalle(id):
 def get_all_detalles():
 
     detalles=Detalle_Venta.query.all()
-    detallles = list(map(lambda deta: deta.serialize(), detalles ))
+    detalles = list(map(lambda deta: deta.serialize(), detalles ))
     if not detalles:
         return jsonify("El detalle de ventas esta vacio"),404
         

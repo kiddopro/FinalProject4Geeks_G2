@@ -24,8 +24,10 @@ def handle_hello():
 def login():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    user1=Usuario.query.filter_by(email=email)
-    
+    user1=Usuario.query.filter_by(email=email, password=password).first()
+    print('Resultado de la busqueda',user1)
+    if user1 == None :
+        return jsonify({"msg": "Bad email or password"}), 401
     if not email or not password :
         return jsonify({"msg": "Bad email or password"}), 401
 

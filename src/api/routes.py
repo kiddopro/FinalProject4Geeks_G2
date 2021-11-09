@@ -297,7 +297,18 @@ def get_carrito(id):
     if not carrito:
         return jsonify("no se encontro al elemento del carrito"),404
     else:    
-        return jsonify(carrito), 200          
+        return jsonify(carrito), 200     
+
+@api.route('/carritos/usuario/<int:id>', methods=['GET'])
+def get_carrito_usu(id):
+
+    carritos=Carrito.query.filter_by(usuario_id=id)
+    carritos = list(map(lambda carr: carr.serialize(), carritos ))
+    if not carritos:
+        return jsonify("El carrito para ese usuario esta vacio"),404
+        
+    return jsonify(carritos), 200
+    
 #-----------------------------------------------
 # EndPoints de Venta (Cabezal de la Venta)
 # ----------------------------------------------   

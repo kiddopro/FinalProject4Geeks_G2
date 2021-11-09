@@ -28,6 +28,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+			login: (email, password, setAuth) => {
+				var miCabecera = new Headers();
+				miCabecera.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email,
+					password: password
+				});
+				var requestOptions = {
+					method: "POST",
+					headers: miCabecera,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-tomato-skunk-u66dnat8.ws-us18.gitpod.io/api/login", requestOptions)
+					.then(response => {
+						console.log("status", response.status);
+						response.status == 200 ? setAuth(true) : setAuth(false);
+						return response.json();
+					})
+					.then(result => {
+						localStorage.setItem("token", result.token);
+					})
+					.catch(error => console.log("error", error));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

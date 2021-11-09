@@ -50,9 +50,11 @@ const LoginContainer = () => {
 								<input
 									type="email"
 									className="form-control"
+									value={email}
 									placeholder="email"
 									aria-label="email"
 									aria-describedby="addon-wrapping"
+									onChange={e => setEmail(e.target.value)}
 								/>
 							</div>
 							<div className="input-group flex-nowrap">
@@ -65,6 +67,8 @@ const LoginContainer = () => {
 									placeholder="password"
 									aria-label="password"
 									aria-describedby="addon-wrapping"
+									value={password}
+									onChange={e => setPassword(e.target.value)}
 								/>
 							</div>
 						</div>
@@ -77,7 +81,7 @@ const LoginContainer = () => {
 							<a href="#">Forgot your password?</a>
 						</div>
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="button" className="btn btn-primary">
+							<button type="submit" className="btn btn-primary">
 								Login
 							</button>
 							<Link to="/signin">

@@ -1,3 +1,4 @@
+const URL_SERVIDOR = "https://3001-cyan-snail-i9i2l30p.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -43,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-tomato-skunk-u66dnat8.ws-us18.gitpod.io/api/login", requestOptions)
+				fetch(URL_SERVIDOR + "login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
 						response.status == 200 ? setAuth(true) : setAuth(false);

@@ -39,7 +39,7 @@ export const Navbar = () => {
 								placeholder="Buscar producto..."
 								aria-label="Search"
 							/>
-							<button className="btn btn-outline-success fortnite" type="submit">
+							<button className="btn btn-outline-primary fortnite" type="submit">
 								Buscar
 							</button>
 						</form>
@@ -77,7 +77,7 @@ export const Navbar = () => {
 									<hr className="dropdown-divider" />
 								</li>
 								<li>
-									<a className="dropdown-item fortnite" href="#">
+									<a className="dropdown-item fortnite text-danger" href="#">
 										Salir
 									</a>
 								</li>

@@ -6,8 +6,10 @@ export const Footer = () => (
 		<footer>
 			<div className="container">
 				<div className="row">
+					<hr className="linea" />
 					<div className="col-sm-6 col-md-3 item">
 						<br />
+
 						<h6 className="fw-bold">Contacto</h6>
 						<ul>
 							<li>
@@ -47,18 +49,6 @@ export const Footer = () => (
 					</div>
 					<div className="col-sm-6 col-md-3 item">
 						<br />
-						<h6>C</h6>
-						<ul>
-							<li>
-								<a href="#">Company</a>
-							</li>
-							<li>
-								<a href="#">Team</a>
-							</li>
-							<li>
-								<a href="#">Careers</a>
-							</li>
-						</ul>
 					</div>
 					<div className="col-md-6 item text">
 						<br />
@@ -93,7 +83,7 @@ export const Footer = () => (
 						</a>
 					</div>
 				</div>
-				<p className="copyright">Tecnoferta.uy 2021</p>
+				<p className="copyright">Tecnoferta.uy 2021 - 097 629 613 - Montevideo, Uruguay</p>
 			</div>
 		</footer>
 	</div>

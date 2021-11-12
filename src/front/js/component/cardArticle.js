@@ -7,7 +7,7 @@ const CardArticle = () => {
 			<div className="row g-0">
 				<div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
 					<img
-						src="https://via.placeholder.com/400"
+						src="https://via.placeholder.com/300"
 						className="img-fluid rounded-start"
 						alt="imagen articulo"
 					/>
@@ -42,7 +42,7 @@ const CardArticle = () => {
 								</select>
 							</div>
 							<hr />
-							<small className="card-text ">
+							<small className="card-text text-secondary">
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
 								has been the industrys standard dummy text ever since the 1500s, when an unknown printer
 								took a galley of type and scrambled it to make a type specimen book. It has survived not

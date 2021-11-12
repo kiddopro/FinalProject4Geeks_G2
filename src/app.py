@@ -10,6 +10,8 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+from flask_jwt_extended import JWTManager
+from flask_mail import Mail
 #from models import Person
 
 
@@ -21,11 +23,22 @@ static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
-# Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "martinprueba"  # Change this!
 jwt = JWTManager(app)
 
-
+# configuracion de variable mailsettings
+mail_settings = {
+        "MAIL_SERVER": 'smtp.gmail.com',
+        "MAIL_PORT":  465,
+        "MAIL_USE_TLS": False,
+        "MAIL_USE_SSL": True,
+        "MAIL_USERNAME": 'juanantonaccio889@gmail.com', #ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
+        "MAIL_PASSWORD": '2695jmac1965', #PASSWORD DEL CORREO DE LA APP DEL ALUMNO
+        "MAIL_DEFAULT_SENDER": 'juanantonaccio889@gmail.com'
+  }
+app.config.update(mail_settings)
+mail = Mail(app)
+app.mail=mail
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:

@@ -89,6 +89,7 @@ export const HomeContainer = () => (
 						className="d-block w-100"
 						alt="..."
 					/>
+					<p>vamos a ver donde sale</p>
 					<div className="carousel-caption d-none d-md-block text-end float-right">
 						<h5 className="text-end">First slide label</h5>
 						<p className="text-end">Some representative placeholder content for the first slide.</p>
@@ -149,8 +150,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title"> Huawei Watch Fit</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -165,8 +172,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Apple watch SE 40mm</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -182,6 +195,13 @@ export const HomeContainer = () => (
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -196,8 +216,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Amazfit GTS 2 48,5mm</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -217,8 +243,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Cat S52</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -233,8 +265,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Apple Iphone 12 Pro</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -250,6 +288,13 @@ export const HomeContainer = () => (
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -264,8 +309,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Samsung Galaxy A22</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -286,8 +337,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Auriculares Motorola Ipx5</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -302,8 +359,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">Parlante Toshiba P70</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -319,6 +382,13 @@ export const HomeContainer = () => (
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>
@@ -333,8 +403,14 @@ export const HomeContainer = () => (
 						<h5 className="card-title">GoPro Max</h5>
 						<p className="card-text">
 							This is a longer card with supporting text below as a natural lead-in to additional content.
-							This content is a little bit longer.
 						</p>
+						<button type="button" className="btn btn-outline-primary">
+							Ver más
+						</button>
+						&nbsp;
+						<button type="button" className="btn btn-outline-primary">
+							Agregar al carrito
+						</button>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-const URL_SERVIDOR = "https://3001-aquamarine-mongoose-zbzccovp.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-plum-guanaco-cv6e39uh.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -17,6 +17,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			createUser: (fn, e, p, ph, a) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					nombre: fn,
+					email: e,
+					password: p,
+					is_active: true,
+					direccion: a,
+					telefono: ph
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(URL_SERVIDOR + "usuarios", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("error", error));
+			},
 			loginUser: (e, p) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");

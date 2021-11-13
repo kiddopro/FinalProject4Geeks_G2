@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/loginContainer.scss";
+import { Context } from "../store/appContext";
+
 const SignInContainer = () => {
+	const { store, actions } = useContext(Context);
+	const [nombre, setNombre] = useState();
+
+	const create = () => {
+		actions.createUser(usuario.nombre, usuario.email, usuario.password, usuario.direccion, usuario.telefono);
+	};
+
 	return (
 		<div id="contenedor" className="container">
 			<div className="row">
@@ -35,6 +43,8 @@ const SignInContainer = () => {
 								placeholder="fullname"
 								aria-label="fullname"
 								aria-describedby="addon-wrapping"
+								value={nombre}
+								onChange={e => setNombre(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -46,7 +56,9 @@ const SignInContainer = () => {
 								className="form-control"
 								placeholder="email"
 								aria-label="email"
+								value={email}
 								aria-describedby="addon-wrapping"
+								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -58,7 +70,9 @@ const SignInContainer = () => {
 								className="form-control"
 								placeholder="password"
 								aria-label="password"
+								value={password}
 								aria-describedby="addon-wrapping"
+								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -70,6 +84,8 @@ const SignInContainer = () => {
 								className="form-control"
 								placeholder="phone (optional)"
 								aria-label="phone"
+								value={telefono}
+								onChange={e => setEmail(e.target.value)}
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
@@ -82,6 +98,8 @@ const SignInContainer = () => {
 								className="form-control"
 								placeholder="address (optional)"
 								aria-label="address"
+								value={direccion}
+								onChange={e => setDireccion(e.target.value)}
 								aria-describedby="addon-wrapping"
 							/>
 						</div>
@@ -99,7 +117,7 @@ const SignInContainer = () => {
 							Submit
 						</button>
 						<Link to="/login">
-							<button type="button" className="btn btn-primary">
+							<button type="button" onClick="" className="btn btn-primary">
 								Login
 							</button>
 						</Link>

@@ -89,12 +89,13 @@ export const HomeContainer = () => (
 						className="d-block w-100"
 						alt="..."
 					/>
-					<p>vamos a ver donde sale</p>
-					<div className="carousel-caption d-none d-md-block text-end float-right">
-						<h5 className="text-end">First slide label</h5>
-						<p className="text-end">Some representative placeholder content for the first slide.</p>
-					</div>
-				</div>
+					
+							<div className="carousel-caption d-md-block textouno">
+								<h5>Llevá tu entrenamiento</h5>
+								<p>A otro nivel</p>
+							</div>
+						</div>
+					
 				<div className="carousel-item imagenhome" data-bs-interval="2000">
 					<img
 						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418698/iphone12_rgqda1.jpg"

@@ -5,9 +5,13 @@ import { Context } from "../store/appContext";
 const SignInContainer = () => {
 	const { store, actions } = useContext(Context);
 	const [nombre, setNombre] = useState();
+	const [email, setEmail] = useState();
+	const [password, setPassword] = useState();
+	const [direccion, setDireccion] = useState();
+	const [telefono, setTelefono] = useState();
 
 	const create = () => {
-		actions.createUser(usuario.nombre, usuario.email, usuario.password, usuario.direccion, usuario.telefono);
+		actions.createUser(nombre, email, password, direccion, telefono);
 	};
 
 	return (
@@ -72,7 +76,7 @@ const SignInContainer = () => {
 								aria-label="password"
 								value={password}
 								aria-describedby="addon-wrapping"
-								onChange={e => setEmail(e.target.value)}
+								onChange={e => setPassword(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -85,7 +89,7 @@ const SignInContainer = () => {
 								placeholder="phone (optional)"
 								aria-label="phone"
 								value={telefono}
-								onChange={e => setEmail(e.target.value)}
+								onChange={e => setTelefono(e.target.value)}
 								aria-describedby="addon-wrapping"
 							/>
 						</div>

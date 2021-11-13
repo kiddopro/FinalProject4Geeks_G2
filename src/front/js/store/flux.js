@@ -27,7 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					password: p,
 					is_active: true,
 					direccion: a,
-					telefono: ph
+					telefono: ph,
+					documento: null,
+					fecha_nac: null
 				});
 
 				var requestOptions = {

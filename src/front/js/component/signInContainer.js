@@ -117,7 +117,7 @@ const SignInContainer = () => {
 						<a href="#">Forgot your password?</a>
 					</div>
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" onClick={create()} className="btn btn-primary">
+						<button type="button" onClick={e => create()} className="btn btn-primary">
 							Submit
 						</button>
 						<Link to="/login">

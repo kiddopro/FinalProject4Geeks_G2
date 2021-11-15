@@ -25,12 +25,12 @@ const SignInContainer = () => {
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "60%" }}
 						/>
-						<small className="fortnite">You want it, you got it!</small>
+						<small>You want it, you got it!</small>
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div className="title text-center">
-						<h1>Registrarse</h1>
+						<h1>Registrate</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}
@@ -43,8 +43,8 @@ const SignInContainer = () => {
 							</span>
 							<input
 								type="text"
-								className="form-control fortnite"
-								placeholder="Nombre completo"
+								className="form-control"
+								placeholder="fullname"
 								aria-label="fullname"
 								aria-describedby="addon-wrapping"
 								value={nombre}
@@ -57,8 +57,8 @@ const SignInContainer = () => {
 							</span>
 							<input
 								type="email"
-								className="form-control fortnite"
-								placeholder="Email"
+								className="form-control"
+								placeholder="email"
 								aria-label="email"
 								value={email}
 								aria-describedby="addon-wrapping"
@@ -71,8 +71,8 @@ const SignInContainer = () => {
 							</span>
 							<input
 								type="password"
-								className="form-control fortnite"
-								placeholder="Contraseña"
+								className="form-control"
+								placeholder="password"
 								aria-label="password"
 								value={password}
 								aria-describedby="addon-wrapping"
@@ -85,8 +85,8 @@ const SignInContainer = () => {
 							</span>
 							<input
 								type="number"
-								className="form-control fortnite"
-								placeholder="Celular"
+								className="form-control"
+								placeholder="phone (optional)"
 								aria-label="phone"
 								value={telefono}
 								onChange={e => setTelefono(e.target.value)}
@@ -99,8 +99,8 @@ const SignInContainer = () => {
 							</span>
 							<input
 								type="text"
-								className="form-control fortnite"
-								placeholder="Dirección (opcional)"
+								className="form-control"
+								placeholder="address (optional)"
 								aria-label="address"
 								value={direccion}
 								onChange={e => setDireccion(e.target.value)}
@@ -111,9 +111,7 @@ const SignInContainer = () => {
 					{/* <div className="options d-flex justify-content-between m-2">
 						<div>
 							<input className="m-1" type="checkbox" id="remember" value="remember" />
-							<label className="fortnite" htmlFor="remember">
-								Recordarme
-							</label>
+							<label htmlFor="remember">Remember me</label>
 						</div>
 
 						<a href="#">Forgot your password?</a>

@@ -32,16 +32,12 @@ const LoginContainer = () => {
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "60%" }}
 						/>
-						<small className="fortnite">You want it, you got it!</small>
+						<small>You want it, you got it!</small>
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1 className="fortnite">Ingresar</h1>
-						{/* <img
-							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
-							style={{ width: "50%" }}
-						/> */}
+						<h1>Login</h1>
 					</div>
 					<form onSubmit={e => onSubmit(e)}>
 						<div className="inputs m-2">
@@ -80,16 +76,16 @@ const LoginContainer = () => {
 								<label htmlFor="remember">Remember me</label>
 							</div>
 							<Link to="/forgot_password">
-								<a href="#">¿Olvidaste tu contraseña?</a>
+								<a href="#">Forgot your password?</a>
 							</Link>
 						</div>
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary">
-								Ingresar
+								Login
 							</button>
 							<Link to="/signin">
 								<button type="button" className="btn btn-primary">
-									Registrate
+									Register
 								</button>
 							</Link>
 						</div>

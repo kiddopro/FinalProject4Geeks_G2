@@ -30,12 +30,12 @@ const LoginContainer = () => {
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "60%" }}
 						/>
-						<small>You want it, you got it!</small>
+						<small className="fortnite">You want it, you got it!</small>
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1>Login</h1>
+						<h1 className="fortnite">Ingresar</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}

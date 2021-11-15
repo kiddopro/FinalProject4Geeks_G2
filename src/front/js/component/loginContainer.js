@@ -75,8 +75,9 @@ const LoginContainer = () => {
 								<input className="m-1" type="checkbox" id="remember" value="remember" />
 								<label htmlFor="remember">Remember me</label>
 							</div>
-
-							<a href="#">Forgot your password?</a>
+							<Link to="/forgot_password">
+								<a href="#">Forgot your password?</a>
+							</Link>
 						</div>
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary">

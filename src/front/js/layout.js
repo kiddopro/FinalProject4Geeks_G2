@@ -7,6 +7,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import ForgotPassword from "./pages/forgotPassword";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -43,6 +44,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/prueba">
 							<Prueba />
+						</Route>
+						<Route exact path="/forgot_password">
+							<ForgotPassword />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

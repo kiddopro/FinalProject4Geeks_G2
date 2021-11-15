@@ -30,7 +30,7 @@ const SignInContainer = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div className="title text-center">
-						<h1>Sign In</h1>
+						<h1>Sign Up</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}
@@ -108,14 +108,14 @@ const SignInContainer = () => {
 							/>
 						</div>
 					</div>
-					<div className="options d-flex justify-content-between m-2">
+					{/* <div className="options d-flex justify-content-between m-2">
 						<div>
 							<input className="m-1" type="checkbox" id="remember" value="remember" />
 							<label htmlFor="remember">Remember me</label>
 						</div>
 
 						<a href="#">Forgot your password?</a>
-					</div>
+					</div> */}
 					<div className="buttons d-flex justify-content-between m-2">
 						<button type="button" onClick={e => create()} className="btn btn-primary">
 							Submit

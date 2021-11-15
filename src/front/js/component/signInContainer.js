@@ -122,7 +122,7 @@ const SignInContainer = () => {
 						</button>
 						<Link to="/login">
 							<button type="button" className="btn btn-primary">
-								Login
+								Back
 							</button>
 						</Link>
 					</div>

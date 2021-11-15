@@ -1,22 +1,26 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
+import Prueba from "./pages/prueba";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import ForgotPassword from "./pages/forgotPassword";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Login from "./pages/login";
 import SignIn from "./pages/signin";
+import RestorePassword from "./pages/restorePassword";
 
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
+	const login = localStorage.getItem("token") != undefined ? true : false;
 
 	return (
 		<div>
@@ -38,6 +42,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/prueba">
+							<Prueba />
+						</Route>
+						<Route exact path="/forgot_password">
+							<ForgotPassword />
+						</Route>
+						<Route exact path="/restore_password">
+							<RestorePassword />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

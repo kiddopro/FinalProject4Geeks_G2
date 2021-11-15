@@ -27,7 +27,7 @@ const ForgotPassword = () => {
 					</div>
 					<form>
 						<div className="inputs m-2">
-							<div className="input-group flex-nowrap">
+							<div className="input-group flex-nowrap p-4">
 								<span className="input-group-text text-center" id="addon-wrapping">
 									<i className="fas fa-at" />
 								</span>

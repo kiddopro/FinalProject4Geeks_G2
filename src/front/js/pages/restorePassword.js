@@ -25,7 +25,7 @@ const RestorePassword = () => {
 						</div>
 					</div>
 					<form>
-						<div className="inputs m-2 p-4">
+						<div className="inputs m-2 p-4 pt-1">
 							<div className="input-group flex-nowrap">
 								<span className="input-group-text text-center" id="addon-wrapping">
 									<i className="fas fa-key" />

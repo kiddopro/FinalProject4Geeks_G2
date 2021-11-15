@@ -19,7 +19,7 @@ const RestorePassword = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1>Restore Password</h1>
+						<h1>Restaurar contraseña</h1>
 						<div className="alert alert-info" role="alert">
 							<small>Por favor introduzca su nueva contraseña.</small>
 						</div>
@@ -34,7 +34,7 @@ const RestorePassword = () => {
 									type="password"
 									className="form-control"
 									value={password}
-									placeholder="new password"
+									placeholder="nueva contraseña"
 									aria-label="password"
 									aria-describedby="addon-wrapping"
 									onChange={e => setPassword(e.target.value)}
@@ -49,7 +49,7 @@ const RestorePassword = () => {
 									type="password"
 									className="form-control"
 									value={password2}
-									placeholder="confirm password"
+									placeholder="confirma contraseña"
 									aria-label="password"
 									aria-describedby="addon-wrapping"
 									onChange={e => setPassword2(e.target.value)}
@@ -73,11 +73,11 @@ const RestorePassword = () => {
 
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary">
-								Submit
+								Confirmar
 							</button>
 							<Link to="/login">
 								<button type="submit" className="btn btn-primary">
-									Back
+									Volver
 								</button>
 							</Link>
 						</div>

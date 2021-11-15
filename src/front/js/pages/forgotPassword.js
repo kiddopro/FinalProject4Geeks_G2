@@ -17,7 +17,7 @@ const ForgotPassword = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1>Forgot Password</h1>
+						<h1>Olvidé mi contraseña</h1>
 						<div className="alert alert-info" role="alert">
 							<small>
 								Por favor introduzca su dirección de correo electronico para recibir un enlace de
@@ -45,11 +45,11 @@ const ForgotPassword = () => {
 
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary">
-								Submit
+								Confirmar
 							</button>
 							<Link to="/login">
 								<button type="submit" className="btn btn-primary">
-									Back
+									Volver
 								</button>
 							</Link>
 						</div>

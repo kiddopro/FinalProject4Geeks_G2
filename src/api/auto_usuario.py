@@ -2,7 +2,7 @@ import requests
 #import random 
 #import datetime
 
-api_endpoint_usuarios="https://3001-cyan-spider-omdloyom.ws-us18.gitpod.io/api/usuarios"
+api_endpoint_usuarios="https://3001-tan-finch-cbpfqfpc.ws-us18.gitpod.io/api/usuarios"
 nombres=["Juan","Silvina","Martin"]
 emails=["jota@gmail.com","silvi@gmail.com","mart@gmail.com"]
 pass2=["5544","1234","4321"]

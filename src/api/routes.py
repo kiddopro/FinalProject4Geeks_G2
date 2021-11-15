@@ -25,7 +25,7 @@ def handle_hello():
 def index():
 
     msg = Message("Prueba de correo desde el proyecto",
-                  sender="juanantonaccio889@gmail.com",
+                  sender="Tecnoferta.uy@gmail.com",
                   recipients=["jmantonaccio@gmail.com"])
     msg.html=f'<h1> Hola este texto es de prueba </h1>'
     current_app.mail.send(msg)

@@ -9,6 +9,11 @@ import json
 from flask_mail import Message
 
 
+# importación para crear token
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+
 api = Blueprint('api', __name__)
 
 
@@ -24,7 +29,7 @@ def handle_hello():
 @api.route("/test", methods=['GET'])
 def index():
 
-    msg = Message("Prueba",
+    msg = Message("Prueba de correo desde el proyecto",
                   sender="juanantonaccio889@gmail.com",
                   recipients=["jmantonaccio@gmail.com"])
     msg.html=f'<h1> Hola este texto es de prueba </h1>'

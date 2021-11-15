@@ -1,4 +1,4 @@
-const URL_SERVIDOR = "https://3001-cyan-snail-i9i2l30p.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-plum-guanaco-cv6e39uh.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -17,6 +17,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			createUser: (fn, e, p, ph, a) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					nombre: fn,
+					email: e,
+					password: p,
+					is_active: true,
+					direccion: a,
+					telefono: ph,
+					documento: null,
+					fecha_nac: null
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(URL_SERVIDOR + "usuarios", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("error", error));
+			},
+			loginUser: (e, p) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: e,
+					password: p
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(URL_SERVIDOR + "login", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						result.token ? localStorage.setItem("token", result.token) : console.log(result.msg);
+					})
+					.catch(error => console.log("error", error));
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

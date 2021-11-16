@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-const URL_SERVIDOR = "https://3001-purple-sparrow-wlx3b8j1.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-beige-mackerel-ki8v65y7.ws-us18.gitpod.io/api/";
 const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",
@@ -30,6 +30,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			restorePassword: (passwd1, passwd2, token) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				console.log(passwd1);
+				if (
+					passwd1 != "" &&
+					passwd2 != "" &&
+					passwd1 != undefined &&
+					passwd2 != undefined &&
+					passwd1 == passwd2
+				) {
+					Toast.fire({
+						icon: "success",
+						title: "Las contraseñas coinciden"
+					});
+				} else {
+					Toast.fire({
+						icon: "error",
+						title: "Las contraseñas no coinciden"
+					});
+				}
+			},
 			forgotPassword: email => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");

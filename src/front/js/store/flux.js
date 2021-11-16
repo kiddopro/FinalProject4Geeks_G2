@@ -1,4 +1,4 @@
-const URL_SERVIDOR = "https://3001-harlequin-frog-5jmeg46v.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-tan-finch-cbpfqfpc.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {

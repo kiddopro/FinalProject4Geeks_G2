@@ -59,16 +59,15 @@ def perdida_contra():
     
     print("usuario buscado",user1)
     if not user1:
-    #if user1 == None :
         return jsonify({"msg": "email no encontrado "}), 401
-    #if not email or not password :
-    #    return jsonify({"msg": "Bad email or password"}), 401
+    
 
     token = create_access_token(identity=email)
     msg = Message("Generacion de nueva contraseña",
                   sender="Tecnoferta.uy@gmail.com",
                   recipients=[email])
     msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p>'
+    msg.html=msg.hmtl + f'<br><p> debe ingresar en la siguiente url:</p><p>https://3001-black-parrotfish-5zx8ttkb.ws-us18.gitpod.io/restore_password</p>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
      

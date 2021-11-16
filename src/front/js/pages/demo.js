@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import "../../styles/loginContainer.scss";
 
 import { Context } from "../store/appContext";
 

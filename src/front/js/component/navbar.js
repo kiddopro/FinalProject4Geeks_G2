@@ -45,7 +45,9 @@ export const Navbar = () => {
 						</form>
 						<li className="nav-item">
 							<a className="nav-link" href="#">
-								<i className="fas fa-shopping-cart" />
+								<Link to="/carrito">
+									<i className="fas fa-shopping-cart" />
+								</Link>
 							</a>
 						</li>
 						<li className="nav-item dropdown">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../styles/loginContainer.scss";
 
 const ForgotPassword = () => {
 	const [email, setEmail] = useState();
@@ -12,15 +13,15 @@ const ForgotPassword = () => {
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "60%" }}
 						/>
-						<small>You want it, you got it!</small>
+						<small className="fortnite">You want it, you got it!</small>
 					</div>
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div id="titulo" className="title text-center">
-						<h1>Olvidé mi contraseña</h1>
+						<h1 className="fortnite sombra">Olvidé mi contraseña</h1>
 						<div className="alert alert-info" role="alert">
-							<small>
-								Por favor introduzca su dirección de correo electronico para recibir un enlace de
+							<small className="letra">
+								Por favor introduzca su dirección de correo electrónico para recibir un enlace de
 								restablecimiento de contraseña.
 							</small>
 						</div>
@@ -33,9 +34,9 @@ const ForgotPassword = () => {
 								</span>
 								<input
 									type="email"
-									className="form-control"
+									className="form-control fortnite"
 									value={email}
-									placeholder="email"
+									placeholder="Email"
 									aria-label="email"
 									aria-describedby="addon-wrapping"
 									onChange={e => setEmail(e.target.value)}
@@ -44,11 +45,11 @@ const ForgotPassword = () => {
 						</div>
 
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" className="btn btn-primary">
+							<button type="submit" className="btn btn-primary letra">
 								Confirmar
 							</button>
 							<Link to="/login">
-								<button type="submit" className="btn btn-primary">
+								<button type="submit" className="btn btn-primary letra">
 									Volver
 								</button>
 							</Link>

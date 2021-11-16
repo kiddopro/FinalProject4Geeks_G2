@@ -51,9 +51,9 @@ const LoginContainer = () => {
 								</span>
 								<input
 									type="email"
-									className="form-control"
+									className="form-control fortnite"
 									value={email}
-									placeholder="email"
+									placeholder="Email"
 									aria-label="email"
 									aria-describedby="addon-wrapping"
 									onChange={e => setEmail(e.target.value)}
@@ -65,8 +65,8 @@ const LoginContainer = () => {
 								</span>
 								<input
 									type="password"
-									className="form-control"
-									placeholder="password"
+									className="form-control fortnite"
+									placeholder="Contraseña"
 									aria-label="password"
 									aria-describedby="addon-wrapping"
 									value={password}
@@ -76,19 +76,28 @@ const LoginContainer = () => {
 						</div>
 						<div className="options d-flex justify-content-between m-2">
 							<div>
-								<input className="m-1" type="checkbox" id="remember" value="remember" />
-								<label htmlFor="remember">Remember me</label>
+								<input className="m-1 letra" type="checkbox" id="remember" value="remember" />
+								<label htmlFor="remember" className="letra">
+									Recordarme
+								</label>{" "}
 							</div>
-							<Link to="/forgot_password">
-								<a href="#">¿Olvidaste tu contraseña?</a>
-							</Link>
+							<div>
+								<Link to="/forgot_password">
+									<a href="#" className="letra">
+										¿Olvidaste tu contraseña?
+									</a>
+								</Link>
+
+								<h6 className="notienesusuario letra"> Aún no tienes usuario?</h6>
+							</div>
 						</div>
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" className="btn btn-primary">
+							<button type="submit" className="btn btn-primary letra">
 								Ingresar
 							</button>
+
 							<Link to="/signin">
-								<button type="button" className="btn btn-primary">
+								<button type="button" className="btn btn-primary letra">
 									Registrate
 								</button>
 							</Link>

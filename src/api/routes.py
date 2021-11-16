@@ -65,7 +65,7 @@ def perdida_contra():
     token = create_access_token(identity=email)
     msg = Message("Generacion de nueva contraseña",
                   sender="Tecnoferta.uy@gmail.com",
-                  recipients=["martin.suarez.personal@gmail.com"])
+                  recipients=[email])
     msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200

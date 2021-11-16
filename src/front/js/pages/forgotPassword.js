@@ -33,35 +33,34 @@ const ForgotPassword = () => {
 							</small>
 						</div>
 					</div>
-					<form>
-						<div className="inputs m-2">
-							<div className="input-group flex-nowrap p-4">
-								<span className="input-group-text text-center" id="addon-wrapping">
-									<i className="fas fa-at" />
-								</span>
-								<input
-									type="email"
-									className="form-control"
-									value={email}
-									placeholder="email"
-									aria-label="email"
-									aria-describedby="addon-wrapping"
-									onChange={e => setEmail(e.target.value)}
-								/>
-							</div>
-						</div>
 
-						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" onClick={() => forgotPassword()} className="btn btn-primary">
-								Confirmar
-							</button>
-							<Link to="/login">
-								<button type="submit" className="btn btn-primary">
-									Volver
-								</button>
-							</Link>
+					<div className="inputs m-2">
+						<div className="input-group flex-nowrap p-4">
+							<span className="input-group-text text-center" id="addon-wrapping">
+								<i className="fas fa-at" />
+							</span>
+							<input
+								type="email"
+								className="form-control"
+								value={email}
+								placeholder="email"
+								aria-label="email"
+								aria-describedby="addon-wrapping"
+								onChange={e => setEmail(e.target.value)}
+							/>
 						</div>
-					</form>
+					</div>
+
+					<div className="buttons d-flex justify-content-between m-2">
+						<button type="submit" onClick={() => forgotPassword()} className="btn btn-primary">
+							Confirmar
+						</button>
+						<Link to="/login">
+							<button type="submit" className="btn btn-primary">
+								Volver
+							</button>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

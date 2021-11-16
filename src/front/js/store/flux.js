@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-const URL_SERVIDOR = "https://3001-yellow-koala-6du6jbgy.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-purple-sparrow-wlx3b8j1.ws-us18.gitpod.io/api/";
 const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",

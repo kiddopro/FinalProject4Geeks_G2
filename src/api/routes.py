@@ -31,8 +31,8 @@ def index():
 
     msg = Message("Prueba de correo desde el proyecto",
                   sender="Tecnoferta.uy@gmail.com",
-                  recipients=["jmantonaccio@gmail.com"])
-    msg.html=f'<h1> Hola este texto es de prueba </h1>'
+                  recipients=["martin.suarez.personal@gmail.com"])
+    msg.html=f'<h3> Envio de Token para crear nueva contrase </h3>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
 
@@ -51,6 +51,33 @@ def login():
 
     token = create_access_token(identity=email)
     return jsonify(token=token)  
+
+@api.route('/forgot_password',methods=['POST'])
+def perdida_contra():
+    email = request.json.get("email", None)
+    user1=Usuario.query.filter_by(email=email).first()
+    
+    print("usuario buscado",user1)
+    if not user1:
+    #if user1 == None :
+        return jsonify({"msg": "email no encontrado "}), 401
+    #if not email or not password :
+    #    return jsonify({"msg": "Bad email or password"}), 401
+
+    token = create_access_token(identity=email)
+    msg = Message("Generacion de nueva contraseña",
+                  sender="Tecnoferta.uy@gmail.com",
+                  recipients=["martin.suarez.personal@gmail.com"])
+    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p>'
+    current_app.mail.send(msg)
+    return jsonify('Se ha enviado un correo'),200
+     
+
+# Protect a route with jwt_required, which will kick out requests
+# without a valid JWT present.    
+
+# Endpoints --- Usuarios   
+#--------------------------------------------    
 
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.    

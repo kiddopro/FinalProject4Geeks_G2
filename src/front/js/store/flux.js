@@ -1,4 +1,4 @@
-const URL_SERVIDOR = "https://3001-plum-guanaco-cv6e39uh.ws-us18.gitpod.io/api/";
+const URL_SERVIDOR = "https://3001-harlequin-frog-5jmeg46v.ws-us18.gitpod.io/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -17,6 +17,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			forgotPassword: email => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(URL_SERVIDOR + "forgot_password", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("error", error));
+			},
 			createUser: (fn, e, p, ph, a) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");

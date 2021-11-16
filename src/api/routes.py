@@ -59,10 +59,8 @@ def perdida_contra():
     
     print("usuario buscado",user1)
     if not user1:
-    #if user1 == None :
         return jsonify({"msg": "email no encontrado "}), 401
-    #if not email or not password :
-    #    return jsonify({"msg": "Bad email or password"}), 401
+    
 
     token = create_access_token(identity=email)
     msg = Message("Generacion de nueva contraseña",

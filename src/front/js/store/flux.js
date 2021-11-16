@@ -1,4 +1,17 @@
-const URL_SERVIDOR = "https://3001-tan-finch-cbpfqfpc.ws-us18.gitpod.io/api/";
+import Swal from "sweetalert2";
+const URL_SERVIDOR = "https://3001-beige-mackerel-ki8v65y7.ws-us18.gitpod.io/api/";
+const Toast = Swal.mixin({
+	toast: true,
+	position: "top-end",
+	showConfirmButton: false,
+	timer: 3000,
+	timerProgressBar: true,
+	didOpen: toast => {
+		toast.addEventListener("mouseenter", Swal.stopTimer);
+		toast.addEventListener("mouseleave", Swal.resumeTimer);
+	}
+});
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -17,6 +30,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			restorePassword: (passwd1, passwd2, token) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				console.log(passwd1);
+				if (
+					passwd1 != "" &&
+					passwd2 != "" &&
+					passwd1 != undefined &&
+					passwd2 != undefined &&
+					passwd1 == passwd2
+				) {
+					Toast.fire({
+						icon: "success",
+						title: "Las contraseñas coinciden"
+					});
+				} else {
+					Toast.fire({
+						icon: "error",
+						title: "Las contraseñas no coinciden"
+					});
+				}
+			},
 			forgotPassword: email => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -33,7 +69,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				fetch(URL_SERVIDOR + "forgot_password", requestOptions)
-					.then(response => response.json())
+					.then(response => {
+						response.json();
+						if (response.status == 200 || response.status != 200) {
+							Toast.fire({
+								icon: "success",
+								title:
+									"Si el correo es válido debes de recibir un mensaje con los pasos a seguir para recuperar tu cuenta"
+							});
+						}
+						// if (response.status == 200) {
+						// 	Swal.fire({
+						// 		title: "Correcto!",
+						// 		text: "Verifica tu casilla de correos para restaurar tu constraseña",
+						// 		icon: "success",
+						// 		confirmButtonText: "OK"
+						// 	});
+						// } else {
+						// 	Swal.fire({
+						// 		title: "Incorrecto!",
+						// 		text: "El correo ingresado no es válido",
+						// 		icon: "error",
+						// 		confirmButtonText: "OK"
+						// 	});
+						// }
+					})
 					.then(result => {
 						console.log(result);
 					})

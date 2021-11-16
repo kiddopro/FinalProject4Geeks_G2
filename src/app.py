@@ -32,9 +32,9 @@ mail_settings = {
         "MAIL_PORT":  465,
         "MAIL_USE_TLS": False,
         "MAIL_USE_SSL": True,
-        "MAIL_USERNAME": 'juanantonaccio889@gmail.com', #ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
-        "MAIL_PASSWORD": '2695jmac1965', #PASSWORD DEL CORREO DE LA APP DEL ALUMNO
-        "MAIL_DEFAULT_SENDER": 'juanantonaccio889@gmail.com'
+        "MAIL_USERNAME": 'Tecnoferta.uy@gmail.com', #ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
+        "MAIL_PASSWORD": 'Pruebatecno2021', #PASSWORD DEL CORREO DE LA APP DEL ALUMNO
+        "MAIL_DEFAULT_SENDER": 'Tecnoferta.uy@gmail.com'
   }
 app.config.update(mail_settings)
 mail = Mail(app)

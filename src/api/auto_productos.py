@@ -2,7 +2,7 @@ import requests
 #import random 
 #import datetime
 
-api_endpoint_productos="https://3001-black-parrotfish-5zx8ttkb.ws-us18.gitpod.io/api/productos"
+api_endpoint_productos="https://3001-plum-cow-uqmtzf6s.ws-us18.gitpod.io/api/productos"
 nombres=["Reloj Inteligente Huawei Watch Fit 5atm Bluetooth Gps",
          "Reloj Inteligente Amazfit T-Rex 5atm Gps Bt",
          "Celular"]

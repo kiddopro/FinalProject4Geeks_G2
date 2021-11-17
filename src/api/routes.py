@@ -51,8 +51,10 @@ def login():
 
     token = create_access_token(identity=email)
     return jsonify(token=token)  
+# Perdida de contraseña - su tratamiento
 
 @api.route('/forgot_password',methods=['POST'])
+
 def perdida_contra():
     email = request.json.get("email", None)
     user1=Usuario.query.filter_by(email=email).first()
@@ -66,12 +68,28 @@ def perdida_contra():
     msg = Message("Generacion de nueva contraseña",
                   sender="Tecnoferta.uy@gmail.com",
                   recipients=[email])
-    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-moccasin-hookworm-ujls4sio.ws-us18.gitpod.io/restore_password</p>'
+    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-kumquat-bovid-vvmwd67n.ws-us18.gitpod.io/restore_password</p>'
     
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
-     
 
+# Gestion de cambio de contraseña
+@api.route('/restore_password',methods=['PUT'])
+@jwt_required()
+def modifica_contra():
+    body=json.loads(request.data)
+    identidad = get_jwt_identity()
+    user1=Usuario.query.filter_by(email=identidad).first()
+    if user1 is None:
+        raise APIException('Usuario no encontrado',status_code=404)
+     
+    if "password" in body:
+        user1.password=body['password']
+                        
+    db.session.commit()
+    
+    return jsonify('Se ha modificado la contraseña en forma correcta'),200
+         
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.    
 

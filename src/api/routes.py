@@ -13,8 +13,11 @@ from flask_mail import Message
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+import os
 
 api = Blueprint('api', __name__)
+
+url_restore=os.environ.get("BACKEND_URL")+"/restore_password"
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -68,7 +71,7 @@ def perdida_contra():
     msg = Message("Generacion de nueva contraseña",
                   sender="Tecnoferta.uy@gmail.com",
                   recipients=[email])
-    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-plum-cow-uqmtzf6s.ws-us18.gitpod.io/restore_password</p>'
+    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>{url_restore}</p>'
     
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200

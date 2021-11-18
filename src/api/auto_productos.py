@@ -1,16 +1,16 @@
 import requests
-#import random 
+import os
 #import datetime
 
-api_endpoint_productos="https://3001-plum-cow-uqmtzf6s.ws-us18.gitpod.io/api/productos"
+api_endpoint_productos=os.environ.get("BACKEND_URL")+"api/productos"
 nombres=["Reloj Inteligente Huawei Watch Fit 5atm Bluetooth Gps",
          "Reloj Inteligente Amazfit T-Rex 5atm Gps Bt",
-         "Celular"]
-marcas=["Huawei","Amazfit","Samsung"]
+         "Reloj Inteligente Amazfit Gts 2 5atm Wifi Bluetooth Gps"]
+marcas=["Huawei","Amazfit","Amazfit"]
 precios=[420,521,625]
 imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1635987514/tecno/HWTIAB09BK_01_aw7i85.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg",
-          "url 3"]
+          "https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"]
 descripciones=["""11 MODOS DEPORTIVOS.
 85 MODOS PERSONALIZADOS DE ENTRENAMIENTO.
 RECORDATORIO DE SEDENTARISMO.
@@ -78,7 +78,19 @@ Link del Fabricante.
 Garantía: 1 año.
 Contra Defecto de Fabricación.
  """,
-"Celular de primera generacion ...."]
+"""
+El Amazfit GTS 2 cuenta con 90 modos deportivos integrados, lo que le permite cubrir las necesidades de la mayoría de los entusiastas del deporte. Una vez que terminas de ejercitarte, el sistema también genera un informe de análisis que te ayuda a seguir mejorando tu plan de ejercicios. El reconocimiento inteligente de los modos deportivos también elimina la necesidad de seleccionar manualmente los modos deportivos, por lo que el smartwatch siempre está listo para la acción.
+
+Asistencia de voz inteligente.
+Puede realizar operaciones de voz en su smartwatch sin acceso a Internet a través de la función de control de voz fuera de línea, que incluye activar los modos deportivos o abrir la función de monitorización de frecuencia cardíaca.
+Incluye un altavoz que le permite responder llamadas en su smartwatch a través de Bluetooth cuando no es conveniente levantar su smartphone.
+
+Girar e incluso bloquear la pantalla.
+La pantalla puede girar 180°, lo que es conveniente para usuarios diestros y zurdos, y se puede bloquear con una contraseña para evitar que se acceda a ella mientras no está en su muñeca. La capacidad de detección de desgaste puede incluso bloquear automáticamente el smartwatch cuando se lo quita.
+
+Sistema de evaluación de la salud PAI.
+Es un indicador revolucionario para las personas durante el ejercicio. Puede traducir los valores de frecuencia cardíaca en valores de PAI más significativos, lo que le brinda un control más intuitivo sobre su capacidad física.
+"""]
 for x in range(0,3):
     data={
         "nombre":nombres[x],

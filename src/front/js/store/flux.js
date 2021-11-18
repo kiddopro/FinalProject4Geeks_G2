@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-const URL_SERVIDOR = "https://3001-plum-cow-uqmtzf6s.ws-us18.gitpod.io/api/";
+
 const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",
@@ -67,8 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: "follow"
 				};
-
-				fetch(URL_SERVIDOR + "forgot_password", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/forgot_password", requestOptions)
 					.then(response => {
 						response.json();
 						if (response.status == 200 || response.status != 200) {
@@ -121,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "usuarios", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions)
 					.then(response => response.json())
 					.then(result => {
 						console.log(result);
@@ -144,7 +143,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "login", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => {
 						result.token ? localStorage.setItem("token", result.token) : console.log(result.msg);
@@ -178,7 +177,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "login", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
 						response.status == 200 ? setAuth(true) : setAuth(false);

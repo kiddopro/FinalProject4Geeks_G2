@@ -17,7 +17,10 @@ import os
 
 api = Blueprint('api', __name__)
 
-url_restore=os.environ.get("BACKEND_URL")+"/restore_password"
+url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
+url_restore=url_aux.replace("1","0")
+#print(url_restore[11])
+#print(url_restore)
 
 
 @api.route('/hello', methods=['POST', 'GET'])

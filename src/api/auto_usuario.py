@@ -1,10 +1,11 @@
 import requests
-#import random 
+import os
 #import datetime
 
-api_endpoint_usuarios="https://3001-kumquat-bovid-vvmwd67n.ws-us18.gitpod.io/api/usuarios"
+
+api_endpoint_usuarios=os.environ.get("BACKEND_URL")+"/api/usuarios"
 nombres=["Juan","Silvina","Martin"]
-emails=["jota@gmail.com","silvi@gmail.com","martin.suarez.personal@gmail.com"]
+emails=["jmantonaccio@gmail.com","Silvinaas4@gmail.com","martin.suarez.personal@gmail.com"]
 pass2=["5544","1234","4321"]
 dire2=["19 de abril 1083","oribe 2211","Rios 2121"]
 docus=["123123","456456","789789"]

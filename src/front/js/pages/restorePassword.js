@@ -75,7 +75,7 @@ const RestorePassword = () => {
 
 						<div className="buttons d-flex justify-content-between m-2">
 							<button
-								type="submit"
+								type="button"
 								className="btn btn-primary"
 								onClick={() => actions.restorePassword(password, password2, token)}>
 								Confirmar

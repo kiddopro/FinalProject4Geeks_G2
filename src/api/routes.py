@@ -68,7 +68,7 @@ def perdida_contra():
     msg = Message("Generacion de nueva contraseña",
                   sender="Tecnoferta.uy@gmail.com",
                   recipients=[email])
-    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-plum-cow-uqmtzf6s.ws-us18.gitpod.io/restore_password</p>'
+    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-kumquat-bovid-vvmwd67n.ws-us18.gitpod.io/restore_password</p>'
     
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200

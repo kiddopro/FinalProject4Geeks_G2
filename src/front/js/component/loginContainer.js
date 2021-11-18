@@ -83,14 +83,13 @@ const LoginContainer = () => {
 							</div>
 							<div>
 								<Link to="/forgot_password">
-									<a href="#" className="letra">
+									<a href="#" className="letra contraseña">
 										¿Olvidaste tu contraseña?
 									</a>
 								</Link>
-
-								<h6 className="notienesusuario letra"> Aún no tienes usuario?</h6>
 							</div>
 						</div>
+						<h6 className="notienesusuario letra">¿Aún no tienes usuario?</h6>
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary letra">
 								Ingresar

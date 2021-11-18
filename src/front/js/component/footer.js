@@ -11,35 +11,35 @@ export const Footer = () => (
 						<br />
 
 						<h6 className="fw-bold">Contacto</h6>
-						<ul>
+						<ul className="redessociales">
 							<li>
-								<i className="fab fa-whatsapp" />
-								<a className="link" href="https://wa.me/+59897629613">
+								<i className=" fab fa-whatsapp" />
+								<a className="redes link" href="https://wa.me/+59897629613">
 									{" "}
 									Whatsapp
 								</a>
 							</li>
 							<li>
-								<i className="fab fa-instagram" />
-								<a className="link" href="https://www.instagram.com/tecnoferta.uy/">
+								<i className=" fab fa-instagram" />
+								<a className="redes link" href="https://www.instagram.com/tecnoferta.uy/">
 									{" "}
 									Instagram
 								</a>
 							</li>
 							<li>
-								<i className="fab fa-facebook" />
+								<i className="redes fab fa-facebook" />
 
-								<a className="link" href="https://www.facebook.com/tecnoferta.uy/">
+								<a className="redes link" href="https://www.facebook.com/tecnoferta.uy/">
 									{" "}
 									Facebook
 								</a>
 							</li>
 
 							<li>
-								<i className="far fa-envelope" />
+								<i className="redes far fa-envelope" />
 
 								<a
-									className="link"
+									className="redes link"
 									href="mailto:tecnoferta.uy@gmail.com?Subject=Aquí%20el%20asunto%20del%20mail">
 									{" "}
 									Mail

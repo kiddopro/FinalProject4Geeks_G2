@@ -90,8 +90,8 @@ const SignInContainer = () => {
 								placeholder="Celular"
 								aria-label="phone"
 								value={telefono}
-								onChange={e => setTelefono(e.target.value)}
 								aria-describedby="addon-wrapping"
+								onChange={e => setTelefono(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -123,6 +123,7 @@ const SignInContainer = () => {
 						<button type="button" onClick={e => create()} className="btn btn-primary letra">
 							Crear
 						</button>
+
 						<Link to="/login">
 							<button type="button" className="btn btn-primary letra">
 								Volver

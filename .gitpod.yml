@@ -20,9 +20,11 @@ tasks:
         pipenv run init && 
         pipenv run migrate && 
         pipenv run upgrade &&
-        python docs/assets/greeting.py back
+        python docs/assets/greeting.py back &&
+        pipenv run start
     - command: >
         nvm install 14 &&
         npm install &&
-        python docs/assets/greeting.py front
+        python docs/assets/greeting.py front &&
+        npm run start
       openMode: split-right

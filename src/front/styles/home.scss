@@ -7,10 +7,18 @@
 .textouno{
   //position: absolute;
   bottom: 20%;
-  left: 115%;
-  //z-index: 20;
+  // left: 115%;
+  //  z-index: 1;
   color: white;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  margin-left:490px;
+ width: 300px;
+
+
+}
+
+.borderojo{
+  border: 2px solid red;
 }
 
 .titulo2{

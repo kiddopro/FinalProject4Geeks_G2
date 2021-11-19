@@ -16,25 +16,22 @@ export const HomeContainer = () => (
 				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" />
 				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" />
 			</div>
-			<div className="carousel-inner">
-				<div className="carousel-item active imagenhome" data-bs-interval="10000">
+			<div className="carousel-inner borderojo">
+				<div className="carousel-item active imagenhome d-flex flex-row borderojo" data-bs-interval="5000">
 					<img
 						src="https://res.cloudinary.com/silvinaas/image/upload/v1636416721/gtr2e_sffumc.jpg"
 						className="d-inline w-100"
 						alt="..."
 					/>
 
-					<div className="carousel-caption d-none d-md-block textouno">
-						<h5 className="fs-1">Llevá tu entrenamiento</h5>
+					<div className="carousel-caption  d-none d-md-block textouno borderojo">
+						<h5 className="fs-1 borderojo">Llevá tu entrenamiento</h5>
 						<p className="titulo2">A otro nivel</p>
-						<button
-							type="button"
-							className="btn btn-outline-primary justify-content-md-end d-grid d-md-flex">
+						<button type="button" className="btn btn-outline-primary">
 							Primary
 						</button>
 					</div>
 				</div>
-
 				<div className="carousel-item imagenhome" data-bs-interval="2000">
 					<img
 						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418698/iphone12_rgqda1.jpg"
@@ -52,7 +49,7 @@ export const HomeContainer = () => (
 						className="d-block w-100"
 						alt="..."
 					/>
-					<div className="carousel-caption d-none d-md-block">
+					<div className="carousel-caption d-none d-md-block borderojo">
 						<h5>Third slide label</h5>
 						<p>Some representative placeholder content for the third slide.</p>
 					</div>

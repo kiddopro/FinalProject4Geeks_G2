@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const RestorePassword = () => {
+	const { actions, store } = useContext(Context);
 	const [password, setPassword] = useState();
 	const [password2, setPassword2] = useState();
 	const [token, setToken] = useState();
@@ -72,7 +74,10 @@ const RestorePassword = () => {
 						</div>
 
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" className="btn btn-primary">
+							<button
+								type="button"
+								className="btn btn-primary"
+								onClick={() => actions.restorePassword(password, password2, token)}>
 								Confirmar
 							</button>
 							<Link to="/login">

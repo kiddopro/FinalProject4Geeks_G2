@@ -30,9 +30,9 @@ def handle_hello():
 def index():
 
     msg = Message("Prueba de correo desde el proyecto",
-                  sender="juanantonaccio889@gmail.com",
-                  recipients=["jmantonaccio@gmail.com"])
-    msg.html=f'<h1> Hola este texto es de prueba </h1>'
+                  sender="Tecnoferta.uy@gmail.com",
+                  recipients=["martin.suarez.personal@gmail.com"])
+    msg.html=f'<h3> Envio de Token para crear nueva contrase </h3>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
 
@@ -51,6 +51,50 @@ def login():
 
     token = create_access_token(identity=email)
     return jsonify(token=token)  
+# Perdida de contraseña - su tratamiento
+
+@api.route('/forgot_password',methods=['POST'])
+
+def perdida_contra():
+    email = request.json.get("email", None)
+    user1=Usuario.query.filter_by(email=email).first()
+    
+    print("usuario buscado",user1)
+    if not user1:
+        return jsonify({"msg": "email no encontrado "}), 401
+    
+
+    token = create_access_token(identity=email)
+    msg = Message("Generacion de nueva contraseña",
+                  sender="Tecnoferta.uy@gmail.com",
+                  recipients=[email])
+    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-kumquat-bovid-vvmwd67n.ws-us18.gitpod.io/restore_password</p>'
+    
+    current_app.mail.send(msg)
+    return jsonify('Se ha enviado un correo'),200
+
+# Gestion de cambio de contraseña
+@api.route('/restore_password',methods=['PUT'])
+@jwt_required()
+def modifica_contra():
+    body=json.loads(request.data)
+    identidad = get_jwt_identity()
+    user1=Usuario.query.filter_by(email=identidad).first()
+    if user1 is None:
+        raise APIException('Usuario no encontrado',status_code=404)
+     
+    if "password" in body:
+        user1.password=body['password']
+                        
+    db.session.commit()
+    
+    return jsonify('Se ha modificado la contraseña en forma correcta'),200
+         
+# Protect a route with jwt_required, which will kick out requests
+# without a valid JWT present.    
+
+# Endpoints --- Usuarios   
+#--------------------------------------------    
 
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.    

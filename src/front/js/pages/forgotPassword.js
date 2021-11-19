@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/loginContainer.scss";
+import { Context } from "../store/appContext";
 
 const ForgotPassword = () => {
 	const [email, setEmail] = useState();
+	const { store, actions } = useContext(Context);
+
+	const forgotPassword = () => {
+		console.log(email);
+		actions.forgotPassword(email);
+	};
+
 	return (
 		<div id="contenedor" className="container">
 			<div className="row">
@@ -43,6 +51,7 @@ const ForgotPassword = () => {
 								/>
 							</div>
 						</div>
+					
 
 						<div className="buttons d-flex justify-content-between m-2">
 							<button type="submit" className="btn btn-primary letra">

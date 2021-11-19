@@ -1,4 +1,16 @@
-const URL_SERVIDOR = "https://3001-plum-guanaco-cv6e39uh.ws-us18.gitpod.io/api/";
+import Swal from "sweetalert2";
+const Toast = Swal.mixin({
+	toast: true,
+	position: "top-end",
+	showConfirmButton: false,
+	timer: 3000,
+	timerProgressBar: true,
+	didOpen: toast => {
+		toast.addEventListener("mouseenter", Swal.stopTimer);
+		toast.addEventListener("mouseleave", Swal.resumeTimer);
+	}
+});
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -17,6 +29,97 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			restorePassword: (passwd1, passwd2, token) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				console.log(passwd1);
+				if (
+					passwd1 != "" &&
+					passwd2 != "" &&
+					passwd1 != undefined &&
+					passwd2 != undefined &&
+					passwd1 == passwd2
+				) {
+					var myHeaders = new Headers();
+					myHeaders.append("Authorization", `Bearer ${token}`);
+					myHeaders.append("Content-Type", "application/json");
+
+					var raw = JSON.stringify({
+						password: passwd1
+					});
+
+					var requestOptions = {
+						method: "PUT",
+						headers: myHeaders,
+						body: raw,
+						redirect: "follow"
+					};
+
+					fetch(process.env.BACKEND_URL + "/api/restore_password", requestOptions)
+						.then(response => {
+							response.json();
+							if (response.status == 200) {
+								Toast.fire({
+									icon: "success",
+									title: "Se ha modificado la contraseña"
+								});
+							}
+						})
+						.then(result => console.log(result))
+						.catch(error => console.log("error", error));
+				} else {
+					Toast.fire({
+						icon: "error",
+						title: "Las contraseñas no coinciden"
+					});
+				}
+			},
+			forgotPassword: email => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+				fetch(process.env.BACKEND_URL + "/api/forgot_password", requestOptions)
+					.then(response => {
+						response.json();
+						if (response.status == 200 || response.status != 200) {
+							Toast.fire({
+								icon: "success",
+								title:
+									"Si el correo es válido debes de recibir un mensaje con los pasos a seguir para recuperar tu cuenta"
+							});
+						}
+						// if (response.status == 200) {
+						// 	Swal.fire({
+						// 		title: "Correcto!",
+						// 		text: "Verifica tu casilla de correos para restaurar tu constraseña",
+						// 		icon: "success",
+						// 		confirmButtonText: "OK"
+						// 	});
+						// } else {
+						// 	Swal.fire({
+						// 		title: "Incorrecto!",
+						// 		text: "El correo ingresado no es válido",
+						// 		icon: "error",
+						// 		confirmButtonText: "OK"
+						// 	});
+						// }
+					})
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => console.log("error", error));
+			},
 			createUser: (fn, e, p, ph, a) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -39,7 +142,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "usuarios", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions)
 					.then(response => response.json())
 					.then(result => {
 						console.log(result);
@@ -62,7 +165,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "login", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => {
 						result.token ? localStorage.setItem("token", result.token) : console.log(result.msg);
@@ -96,7 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(URL_SERVIDOR + "login", requestOptions)
+				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
 						response.status == 200 ? setAuth(true) : setAuth(false);

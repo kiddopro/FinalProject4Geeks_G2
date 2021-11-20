@@ -1,6 +1,8 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import os
+
 from flask import Flask, request, jsonify, url_for, Blueprint,current_app
 from api.models import db, Usuario, Producto, Carrito, Venta, Detalle_Venta
 from api.utils import generate_sitemap, APIException
@@ -13,7 +15,7 @@ from flask_mail import Message
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
-import os
+
 
 api = Blueprint('api', __name__)
 
@@ -21,7 +23,7 @@ url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
 url_restore=url_aux.replace("1","0")
 #print(url_restore[11])
 #print(url_restore)
-
+cmail=os.environ.get("MAIL_APP")
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -36,7 +38,7 @@ def handle_hello():
 def index():
 
     msg = Message("Prueba de correo desde el proyecto",
-                  sender="Tecnoferta.uy@gmail.com",
+                  sender=cmail,
                   recipients=["martin.suarez.personal@gmail.com"])
     msg.html=f'<h3> Envio de Token para crear nueva contrase </h3>'
     current_app.mail.send(msg)
@@ -72,7 +74,7 @@ def perdida_contra():
 
     token = create_access_token(identity=email)
     msg = Message("Generacion de nueva contraseña",
-                  sender="Tecnoferta.uy@gmail.com",
+                  sender=cmail,
                   recipients=[email])
     msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>https://3000-kumquat-bovid-vvmwd67n.ws-us18.gitpod.io/restore_password</p>'
     

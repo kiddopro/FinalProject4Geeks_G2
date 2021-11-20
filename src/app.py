@@ -27,14 +27,16 @@ app.config["JWT_SECRET_KEY"] = "martinprueba"  # Change this!
 jwt = JWTManager(app)
 
 # configuracion de variable mailsettings
+nmail=os.environ.get("MAIL_APP")
+cmail=os.environ.get("MAIL_CON")
 mail_settings = {
         "MAIL_SERVER": 'smtp.gmail.com',
         "MAIL_PORT":  465,
         "MAIL_USE_TLS": False,
         "MAIL_USE_SSL": True,
-        "MAIL_USERNAME": 'Tecnoferta.uy@gmail.com', #ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
-        "MAIL_PASSWORD": 'Pruebatecno2021', #PASSWORD DEL CORREO DE LA APP DEL ALUMNO
-        "MAIL_DEFAULT_SENDER": 'Tecnoferta.uy@gmail.com'
+        "MAIL_USERNAME": nmail, #ACA COLOQUEN EL CORREO DE LA APP 
+        "MAIL_PASSWORD": cmail, #PASSWORD DEL CORREO DE LA APP 
+        "MAIL_DEFAULT_SENDER": nmail
   }
 app.config.update(mail_settings)
 mail = Mail(app)

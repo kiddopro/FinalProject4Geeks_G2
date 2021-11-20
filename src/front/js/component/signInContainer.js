@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/signinContainer.scss";
 
 const SignInContainer = () => {
 	const { store, actions } = useContext(Context);
@@ -30,7 +31,7 @@ const SignInContainer = () => {
 				</div>
 				<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">
 					<div className="title text-center">
-						<h1>Registrarse</h1>
+						<h1 className="fortnite">Registrarse</h1>
 						{/* <img
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 							style={{ width: "50%" }}
@@ -89,8 +90,8 @@ const SignInContainer = () => {
 								placeholder="Celular"
 								aria-label="phone"
 								value={telefono}
-								onChange={e => setTelefono(e.target.value)}
 								aria-describedby="addon-wrapping"
+								onChange={e => setTelefono(e.target.value)}
 							/>
 						</div>
 						<div className="input-group flex-nowrap">
@@ -119,11 +120,12 @@ const SignInContainer = () => {
 						<a href="#">Forgot your password?</a>
 					</div> */}
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" onClick={e => create()} className="btn btn-primary">
+						<button type="button" onClick={e => create()} className="btn btn-primary letra">
 							Crear
 						</button>
+
 						<Link to="/login">
-							<button type="button" className="btn btn-primary">
+							<button type="button" className="btn btn-primary letra">
 								Volver
 							</button>
 						</Link>

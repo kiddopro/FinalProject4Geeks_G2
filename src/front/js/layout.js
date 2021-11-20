@@ -6,6 +6,7 @@ import Prueba from "./pages/prueba";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Carrito } from "./pages/carrito";
 import injectContext from "./store/appContext";
 import ForgotPassword from "./pages/forgotPassword";
 
@@ -51,6 +52,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/restore_password">
 							<RestorePassword />
+						</Route>
+						<Route exact path="/carrito">
+							<Carrito />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

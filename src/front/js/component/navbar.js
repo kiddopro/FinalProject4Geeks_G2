@@ -15,77 +15,81 @@ export const Navbar = () => {
 					</Link>
 				</a>
 
-				<button
-					className="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span className="navbar-toggler-icon" />
-				</button>
-				<div className="botonprodu collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-					<ul className="navbar-nav me-auto">
-						<li className="nav-item productos">
-							<a className="nav-link active fortnite" aria-current="page" href="#">
-								Todos los productos
-							</a>
-						</li>
-						<form className="d-flex">
-							<input
-								className="form-control me-2 fortnite"
-								type="search"
-								placeholder="Buscar producto..."
-								aria-label="Search"
-							/>
-							<button className="btn btn-outline-primary fortnite" type="submit">
-								Buscar
-							</button>
-						</form>
-						<li className="nav-item ">
-							<a className="nav-link" href="#">
-								<Link to="/carrito">
-									<i className="fas fa-shopping-cart" />
-								</Link>
-							</a>
-						</li>
-						<li className="nav-item dropdown">
-							<a
-								className="nav-link dropdown-toggle"
-								href="#"
-								id="navbarDropdown"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								<i className="fas fa-user" />
-							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li>
-									<Link to="/signin">
-										<a className="dropdown-item fortnite" href="#">
-											Registrarse
-										</a>
+				<div className="floar-right">
+					<button
+						className="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span className="navbar-toggler-icon" />
+					</button>
+					<div
+						className="botonprodu collapse navbar-collapse justify-content-center"
+						id="navbarSupportedContent">
+						<ul className="navbar-nav me-auto">
+							<li className="nav-item productos">
+								<a className="nav-link active fortnite" aria-current="page" href="#">
+									Todos los productos
+								</a>
+							</li>
+							<form className="d-flex">
+								<input
+									className="form-control me-2 fortnite"
+									type="search"
+									placeholder="Buscar producto..."
+									aria-label="Search"
+								/>
+								<button className="btn btn-outline-primary fortnite" type="submit">
+									Buscar
+								</button>
+							</form>
+							<li className="nav-item ">
+								<a className="nav-link" href="#">
+									<Link to="/carrito">
+										<i className="fas fa-shopping-cart" />
 									</Link>
-								</li>
-								<li>
-									<Link to="/login">
-										<a className="dropdown-item fortnite" href="#">
-											Ingresar
+								</a>
+							</li>
+							<li className="nav-item dropdown">
+								<a
+									className="nav-link dropdown-toggle"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false">
+									<i className="fas fa-user" />
+								</a>
+								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li>
+										<Link to="/signin">
+											<a className="dropdown-item fortnite" href="#">
+												Registrarse
+											</a>
+										</Link>
+									</li>
+									<li>
+										<Link to="/login">
+											<a className="dropdown-item fortnite" href="#">
+												Ingresar
+											</a>
+										</Link>
+									</li>
+									<li>
+										<hr className="dropdown-divider" />
+									</li>
+									<li>
+										<a className="dropdown-item fortnite text-danger" href="#">
+											Salir
 										</a>
-									</Link>
-								</li>
-								<li>
-									<hr className="dropdown-divider" />
-								</li>
-								<li>
-									<a className="dropdown-item fortnite text-danger" href="#">
-										Salir
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</nav>

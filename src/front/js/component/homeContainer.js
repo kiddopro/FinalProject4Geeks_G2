@@ -19,7 +19,7 @@ export const HomeContainer = () => (
 			<div className="carousel-inner">
 				<div className="carousel-item active imagenhome" data-bs-interval="5000">
 					<img
-						src="https://res.cloudinary.com/silvinaas/image/upload/v1636416721/gtr2e_sffumc.jpg"
+						src="https://res.cloudinary.com/silvinaas/image/upload/v1636416721/tecno/gtr2e_sffumc.jpg"
 						className="d-inline w-100"
 						alt="..."
 					/>
@@ -34,7 +34,7 @@ export const HomeContainer = () => (
 				</div>
 				<div className="carousel-item imagenhome" data-bs-interval="2000">
 					<img
-						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418698/iphone12_rgqda1.jpg"
+						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418698/tecno/iphone12_rgqda1.jpg"
 						className="d-block w-100"
 						alt="..."
 					/>
@@ -48,7 +48,7 @@ export const HomeContainer = () => (
 				</div>
 				<div className="carousel-item imagenhome">
 					<img
-						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418700/xiaomimivacuum_ntuko0.jpg"
+						src="https://res.cloudinary.com/silvinaas/image/upload/v1636418700/tecno/xiaomimivacuum_ntuko0.jpg"
 						className="d-block w-100"
 						alt="..."
 					/>

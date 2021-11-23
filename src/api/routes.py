@@ -8,6 +8,8 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
 import json
 from flask_mail import Message
+import random #importamos ramdom y string para generar una clave aleatoria nueva
+import string
 
 
 # importación para crear token
@@ -16,6 +18,30 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
 api = Blueprint('api', __name__)
+
+
+#RECUPERACION CONTRASEÑA OLVIDADA 
+@api.route("/forgot_password", methods=["POST"])
+def forgotpassword():
+    recover_email = request.json['email']
+    recover_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(8)) #clave aleatoria nueva
+   
+    if not recover_email:
+        return jsonify({"msg": "Debe ingresar el correo"}), 401
+
+	#busco si el correo existe en mi base de datos
+    user = Usuario.query.filter_by(email=recover_email).first()
+    if recover_email != user.email:
+        return jsonify({"msg": "El correo ingresado no existe en nuestros registros"}), 400
+
+    #si existe guardo la nueva contraseña aleatoria
+    user.password = recover_password
+    db.session.commit()
+	#luego se la envio al usuario por correo para que pueda ingresar
+    msg = Message("Hi", recipients=[recover_email])
+    msg.html = f"""<h1>Su nueva contraseña es: {recover_password}</h1>"""
+    current_app.mail.send(msg)
+    return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -54,25 +80,25 @@ def login():
     return jsonify(token=token)  
 # Perdida de contraseña - su tratamiento
 
-@api.route('/forgot_password',methods=['POST'])
+# @api.route('/forgot_password',methods=['POST'])
 
-def perdida_contra():
-    email = request.json.get("email", None)
-    user1=Usuario.query.filter_by(email=email).first()
+# def perdida_contra():
+#     email = request.json.get("email", None)
+#     user1=Usuario.query.filter_by(email=email).first()
     
-    print("usuario buscado",user1)
-    if not user1:
-        return jsonify({"msg": "email no encontrado "}), 401
+#     print("usuario buscado",user1)
+#     if not user1:
+#         return jsonify({"msg": "email no encontrado "}), 401
     
 
-    token = create_access_token(identity=email)
-    msg = Message("Generacion de nueva contraseña",
-                  sender="Tecnoferta.uy@gmail.com",
-                  recipients=[email])
-    msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>'+os.environ.get("FRONTEND_URL")+ '/restore_password</p>'
+#     token = create_access_token(identity=email)
+#     msg = Message("Generacion de nueva contraseña",
+#                   sender="Tecnoferta.uy@gmail.com",
+#                   recipients=[email])
+#     msg.html=f'<h3> Envio de Token para crear nueva contraseña </h3><p>{token}</p><br><p> debe ingresar en la siguiente url:</p><p>'+os.environ.get("FRONTEND_URL")+ '/restore_password</p>'
     
-    current_app.mail.send(msg)
-    return jsonify('Se ha enviado un correo'),200
+#     current_app.mail.send(msg)
+#     return jsonify('Se ha enviado un correo'),200
 
 # Gestion de cambio de contraseña
 @api.route('/restore_password',methods=['PUT'])

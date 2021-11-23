@@ -12,14 +12,15 @@ imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1635987514/tecno/H
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"]
 descripciones=["primer descripcion", "segunda desc", "tercera desc"]
+categorias=["smartwatch", "smartwatch", "smartwatch"]
 for x in range(0,3):
     data={
         "nombre":nombres[x],
         "marca":marcas[x],
         "precio":precios[x],
         "imagen":imagenes[x],
-        "descripcion":descripciones[x]
-        
+        "descripcion":descripciones[x],
+        "categoria":categorias[x]
 
     }
     print(data)

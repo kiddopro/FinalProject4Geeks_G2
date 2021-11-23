@@ -9,6 +9,7 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
 import json
 from flask_mail import Message
+import mercadopago
 
 
 # importación para crear token
@@ -17,7 +18,15 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
 
+
+
 api = Blueprint('api', __name__)
+
+#agregando las credenciales MP
+
+sdk = mercadopago.SDK(os.environ.get("MP_AT"))
+
+
 
 url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
 url_restore=url_aux.replace("1","0")
@@ -34,6 +43,8 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+
+# Esto es solo para hacer una prueba
 @api.route("/test", methods=['GET'])
 def index():
 
@@ -43,6 +54,21 @@ def index():
     msg.html=f'<h3> Envio de Token para crear nueva contrase </h3>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
+
+
+@api.route("/pago",methods=['POST'])
+def pago():
+    print("Esto es solo una prueba de pago")
+    # Crea un ítem en la preferencia
+    body=request.get_json()
+    print(body)
+    preference_data = {
+        "items": body
+    }
+    # del front llega arreglo de objetos
+    preference_response = sdk.preference().create(preference_data)
+    preference = preference_response["response"]
+    return jsonify(preference),200
 
 @api.route('/login',methods=['POST'])
 def login():

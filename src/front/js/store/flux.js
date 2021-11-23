@@ -26,8 +26,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			favorites: [],
+			articulo: []
 		},
+
 		actions: {
 			restorePassword: (passwd1, passwd2, token) => {
 				var myHeaders = new Headers();
@@ -223,6 +226,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addFavorite: name => {
+				console.log("agregando favorito");
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, name] });
+			},
+			loadSomeData: () => {
+				fetch("https://3001-ivory-bedbug-k5za8yso.ws-us17.gitpod.io/api/productos")
+					.then(response => response.json())
+					.then(data => {
+						setStore({ articulo: data });
+						console.log(data);
+					})
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

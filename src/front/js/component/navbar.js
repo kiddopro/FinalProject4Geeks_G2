@@ -52,9 +52,18 @@ export const Navbar = () => {
 									</Link>
 								</a>
 							</li>
-							<li className="nav-item dropdown">
+
+							<li className="nav-item ">
+								<a className="nav-link" href="#">
+									<Link to="/favoritos">
+										<i className="corazon fas fa-heart " />
+									</Link>
+								</a>
+							</li>
+
+							<li className="nav-item dropstart">
 								<a
-									className="nav-link dropdown-toggle"
+									className="nav-link dropstart"
 									href="#"
 									id="navbarDropdown"
 									role="button"

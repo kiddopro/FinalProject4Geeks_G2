@@ -10,7 +10,7 @@ export const Footer = () => (
 					<div className="col-sm-6 col-md-3 item">
 						<br />
 
-						<h6 className="fw-bold">Contacto</h6>
+						<h6 className="fw-bold contacto">Contacto</h6>
 						<ul className="redessociales">
 							<li>
 								<i className=" fab fa-whatsapp" />

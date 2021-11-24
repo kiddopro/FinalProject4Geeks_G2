@@ -99,7 +99,7 @@ export const HomeContainer = props => {
 			<h3 className="text-center">Smartwatches</h3>
 			<br />
 
-			<div className="row row-cols-1 row-cols-md-4 g-4">
+			<div className="row row-cols-1 row-cols-md-4 g-4 overflow-scroll">
 				{store.articulo.map((item, index) => {
 					return (
 						<div className="col" key={index}>

@@ -207,7 +207,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(result => {
-						result.token != undefined ? localStorage.setItem("token", result.token) : null;
+						result.token != undefined
+							? [localStorage.setItem("token", result.token), setStore({ auth: true })]
+							: null;
 						console.log(result);
 					})
 					.catch(error => console.log("error", error));

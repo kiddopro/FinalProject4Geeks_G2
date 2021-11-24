@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const NuevoLogin = () => {
@@ -7,18 +7,16 @@ const NuevoLogin = () => {
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 	const [auth, setAuth] = useState(false);
+	let history = useHistory();
 
-	useEffect(
-		() => {
-			setAuth(localStorage.getItem("token") ? true : false);
-		},
-		[auth]
-	);
+	const login = () => {
+		actions.login(email, password);
+	};
 
 	return (
 		<>
-			{auth ? (
-				<Redirect to="/" />
+			{store.auth ? (
+				history.goBack()
 			) : (
 				<div id="contenedor" className="container">
 					<div className="row">
@@ -91,8 +89,7 @@ const NuevoLogin = () => {
 									type="sunmit"
 									className="btn btn-primary letra"
 									onClick={() => {
-										actions.login(email, password);
-										setAuth(localStorage.getItem("token") ? true : false);
+										login();
 									}}>
 									Ingresar
 								</button>

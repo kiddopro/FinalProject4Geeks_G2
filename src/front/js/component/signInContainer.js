@@ -12,7 +12,7 @@ const SignInContainer = () => {
 	const [telefono, setTelefono] = useState();
 
 	const create = () => {
-		actions.createUser(nombre, email, password, direccion, telefono);
+		actions.createUser(nombre, email, password, telefono, direccion);
 	};
 
 	return (
@@ -109,18 +109,8 @@ const SignInContainer = () => {
 							/>
 						</div>
 					</div>
-					{/* <div className="options d-flex justify-content-between m-2">
-						<div>
-							<input className="m-1" type="checkbox" id="remember" value="remember" />
-							<label className="fortnite" htmlFor="remember">
-								Recordarme
-							</label>
-						</div>
-
-						<a href="#">Forgot your password?</a>
-					</div> */}
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" onClick={e => create()} className="btn btn-primary letra">
+						<button type="button" onClick={() => create()} className="btn btn-primary letra">
 							Crear
 						</button>
 

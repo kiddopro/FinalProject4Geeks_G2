@@ -129,14 +129,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createUser: (fn, e, p, ph, a) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
+				console.log(ph);
 
 				var raw = JSON.stringify({
-					nombre: fn,
-					email: e,
-					password: p,
+					nombre: fn ? fn : null,
+					email: e ? e : null,
+					password: p ? p : null,
 					is_active: true,
-					direccion: a,
-					telefono: ph,
+					direccion: a ? a : null,
+					telefono: ph ? ph : null,
 					documento: null,
 					fecha_nac: null
 				});
@@ -149,7 +150,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions)
-					.then(response => response.json())
+					.then(response => {
+						response.json();
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Usuario creado con exito!"
+							  })
+							: null;
+					})
 					.then(result => {
 						console.log(result);
 					})

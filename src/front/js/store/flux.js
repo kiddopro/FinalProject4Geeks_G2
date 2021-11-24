@@ -126,18 +126,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			///////////////////// CREAR USUARIO //////////////////////
-			createUser: (fn, e, p, ph, a) => {
+			createUser: (nombreCompleto, email, contraseña, telefono, direccion) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
-				console.log(ph);
 
 				var raw = JSON.stringify({
-					nombre: fn ? fn : null,
-					email: e ? e : null,
-					password: p ? p : null,
+					nombre: nombreCompleto ? nombreCompleto : null,
+					email: email ? email : null,
+					password: contraseña ? contraseña : null,
 					is_active: true,
-					direccion: a ? a : null,
-					telefono: ph ? ph : null,
+					direccion: direccion ? direccion : null,
+					telefono: telefono ? telefono : null,
 					documento: null,
 					fecha_nac: null
 				});

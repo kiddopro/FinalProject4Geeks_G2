@@ -12,7 +12,8 @@
 
 .logo{
     width:150px;
-    margin-right: 720px;
+    // margin-right: 720px;
+    padding-left: 5px;
 
 }
 
@@ -21,7 +22,12 @@
 
 }
 
-.linea{
-    color: darkblue;
-    width: 100%;
+.corazon{
+    color: rgb(63, 63, 223);
+   
 }
+
+.corazon:hover{
+    color: tomato;
+}
+

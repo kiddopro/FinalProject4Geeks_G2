@@ -14,18 +14,16 @@ precios=[420,521,625]
 imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1635987514/tecno/HWTIAB09BK_01_aw7i85.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"]
-descripciones=["11 MODOS DEPORTIVOS. 85 MODOS PERSONALIZADOS DE ENTRENAMIENTO.",
-               "SUMERGIBLE HASTA 50 METROS Y 14 MODOS DE DEPORTE.",
-              "El Amazfit GTS 2 cuenta con 90 modos deportivos integrados"]
-
+descripciones=["primer descripcion", "segunda desc", "tercera desc"]
+categorias=["smartwatch", "smartwatch", "smartwatch"]
 for x in range(0,3):
     data={
         "nombre":nombres[x],
         "marca":marcas[x],
         "precio":precios[x],
         "imagen":imagenes[x],
-        "descripcion":descripciones[x]
-        
+        "descripcion":descripciones[x],
+        "categoria":categorias[x]
 
     }
     print(data)

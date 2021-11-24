@@ -5,6 +5,9 @@ import { Context } from "../store/appContext";
 const UserNavbar = () => {
 	const { store, actions } = useContext(Context);
 
+	const salir = () => {
+		actions.salir();
+	};
 	return (
 		<>
 			{!store.auth ? (
@@ -65,7 +68,7 @@ const UserNavbar = () => {
 							<hr className="dropdown-divider" />
 						</li>
 						<li>
-							<a className="dropdown-item fortnite text-danger" href="#">
+							<a className="dropdown-item fortnite text-danger" href="#" onClick={() => salir()}>
 								Salir
 							</a>
 						</li>

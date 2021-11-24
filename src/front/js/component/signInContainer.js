@@ -87,7 +87,7 @@ const SignInContainer = () => {
 							<input
 								type="number"
 								className="form-control fortnite"
-								placeholder="Celular"
+								placeholder="Telefono"
 								aria-label="phone"
 								value={telefono}
 								aria-describedby="addon-wrapping"

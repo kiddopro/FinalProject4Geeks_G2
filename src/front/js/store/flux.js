@@ -30,6 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			auth: false
 		},
 		actions: {
+			///////////////////// CAMBIAR LA CONTRASEÑA /////////////////////
 			restorePassword: (passwd1, passwd2, token) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -76,6 +77,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 				}
 			},
+
+			//////////////////////// OLVIDÓ LA CONTRASEÑA //////////////////////////////
 			forgotPassword: email => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -121,6 +124,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			},
+
+			///////////////////// CREAR USUARIO //////////////////////
 			createUser: (fn, e, p, ph, a) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -150,29 +155,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			},
-			loginUser: (e, p) => {
-				var myHeaders = new Headers();
-				myHeaders.append("Content-Type", "application/json");
 
-				var raw = JSON.stringify({
-					email: e,
-					password: p
-				});
-
-				var requestOptions = {
-					method: "POST",
-					headers: myHeaders,
-					body: raw,
-					redirect: "follow"
-				};
-
-				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
-					.then(response => response.json())
-					.then(result => {
-						result.token ? localStorage.setItem("token", result.token) : console.log(result.msg);
-					})
-					.catch(error => console.log("error", error));
-			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -185,6 +168,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+
+			////////////////////// LOGIN ///////////////////////
 			login: (email, password) => {
 				var miCabecera = new Headers();
 				miCabecera.append("Content-Type", "application/json");
@@ -204,6 +189,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Logueado con exito!"
+							  })
+							: Toast.fire({
+									icon: "error",
+									title: "Credenciales incorrectas!"
+							  });
 						return response.json();
 					})
 					.then(result => {
@@ -227,6 +221,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			///////////////////////// SALIR ////////////////////////////
+			salir: () => {
+				localStorage.clear();
+				setStore({ auth: false });
 			}
 		}
 	};

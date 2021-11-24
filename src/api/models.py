@@ -13,6 +13,7 @@ class Producto(db.Model):
     precio = db.Column(db.Float, unique=False, nullable=False)
     imagen = db.Column(db.String(200),unique=False,nullable=False)
     descripcion = db.Column(db.String(100),unique=False, nullable=False)
+    categoria = db.Column(db.String(100),unique=False, nullable=False)
     usuarios = db.relationship('Carrito', backref='producto', lazy=True)
     detalles = db.relationship('Detalle_Venta', backref='producto', lazy=True)
 
@@ -28,7 +29,8 @@ class Producto(db.Model):
             "imagen":self.imagen,
             "descripcion":self.descripcion,
             "usuarios":self.usuarios,
-            "detalles":self.detalles
+            "detalles":self.detalles,
+            "categoria":self.categoria
         }
 
 class Usuario(db.Model):

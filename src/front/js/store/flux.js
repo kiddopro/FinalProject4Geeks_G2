@@ -204,7 +204,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
-						// setStore({ auth: response.status == 200 ? true : false });
 						return response.json();
 					})
 					.then(result => {

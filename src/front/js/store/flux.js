@@ -26,7 +26,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			auth: false
 		},
 		actions: {
 			restorePassword: (passwd1, passwd2, token) => {
@@ -184,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			login: (email, password, setAuth) => {
+			login: (email, password) => {
 				var miCabecera = new Headers();
 				miCabecera.append("Content-Type", "application/json");
 
@@ -198,15 +199,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: "follow"
 				};
+				const store = getStore();
 
 				fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
 					.then(response => {
 						console.log("status", response.status);
-						response.status == 200 ? setAuth(true) : setAuth(false);
+						// setStore({ auth: response.status == 200 ? true : false });
 						return response.json();
 					})
 					.then(result => {
-						localStorage.setItem("token", result.token);
+						result.token != undefined ? localStorage.setItem("token", result.token) : null;
+						console.log(result);
 					})
 					.catch(error => console.log("error", error));
 			},

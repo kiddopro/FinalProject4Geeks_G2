@@ -10,16 +10,12 @@ const LoginContainer = () => {
 	const [auth, setAuth] = useState(false);
 
 	const changeAuth = () => {
-		actions.loginUser(email, password);
-		setAuth(localStorage.getItem("token") ? true : false);
+		actions.login(email, password);
 	};
 
-	useEffect(
-		() => {
-			setAuth(localStorage.getItem("token") ? true : false);
-		},
-		[auth]
-	);
+	useEffect(() => {
+		localStorage.getItem("token") ? setAuth(true) : setAuth(false);
+	}, []);
 
 	return auth ? (
 		<Redirect to="/demo" />
@@ -43,7 +39,7 @@ const LoginContainer = () => {
 							style={{ width: "50%" }}
 						/> */}
 					</div>
-					<form onSubmit={e => onSubmit(e)}>
+					<form>
 						<div className="inputs m-2">
 							<div className="input-group flex-nowrap">
 								<span className="input-group-text text-center" id="addon-wrapping">
@@ -91,7 +87,7 @@ const LoginContainer = () => {
 						</div>
 						<h6 className="notienesusuario letra">¿Aún no tienes usuario?</h6>
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" className="btn btn-primary letra">
+							<button type="submit" className="btn btn-primary letra" onClick={changeAuth()}>
 								Ingresar
 							</button>
 

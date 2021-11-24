@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "../../styles/Navbar.scss";
 import { Link } from "react-router-dom";
+import UserNavbar from "./userNavbar";
 
 export const Navbar = () => {
 	return (
@@ -53,7 +54,8 @@ export const Navbar = () => {
 									</Link>
 								</a>
 							</li>
-							<li className="nav-item dropdown">
+							<UserNavbar />
+							{/* <li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle"
 									href="#"
@@ -87,7 +89,7 @@ export const Navbar = () => {
 										</a>
 									</li>
 								</ul>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>

@@ -11,9 +11,9 @@ const UserNavbar = () => {
 	return (
 		<>
 			{!store.auth ? (
-				<li className="nav-item dropdown">
+				<li className="nav-item dropstart">
 					<a
-						className="nav-link dropdown-toggle"
+						className="nav-link dropstart"
 						href="#"
 						id="navbarDropdown"
 						role="button"
@@ -39,9 +39,9 @@ const UserNavbar = () => {
 					</ul>
 				</li>
 			) : (
-				<li className="nav-item dropdown">
+				<li className="nav-item dropstart">
 					<a
-						className="nav-link dropdown-toggle"
+						className="nav-link dropstart"
 						href="#"
 						id="navbarDropdown"
 						role="button"
@@ -53,14 +53,14 @@ const UserNavbar = () => {
 						<li>
 							<Link to="/signin">
 								<a className="dropdown-item fortnite" href="#">
-									Ingreso
+									RegistrarseLOGUEADO
 								</a>
 							</Link>
 						</li>
 						<li>
 							<Link to="/login">
 								<a className="dropdown-item fortnite" href="#">
-									Ingresado
+									IngresarLOGUEADO
 								</a>
 							</Link>
 						</li>

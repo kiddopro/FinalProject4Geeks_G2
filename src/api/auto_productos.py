@@ -2,14 +2,7 @@ import requests
 import os
 #import datetime
 
-<<<<<<< HEAD
 api_endpoint_productos= "https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos"
-=======
-#print("variable entorno ->>>",os.environ.get("BACKEND_URL"))
-#api_endpoint_productos=os.environ.get("BACKEND_URL")+"/api/productos"
-#print(api_endpoint_productos)
-api_endpoint_productos="https://3001-maroon-gull-stn4muwe.ws-us17.gitpod.io/api/productos"
->>>>>>> ce2873233a88b93164ce4ae56d771eae2e974b82
 nombres=["Reloj Inteligente Huawei Watch Fit 5atm Bluetooth Gps",
          "Reloj Inteligente Amazfit T-Rex 5atm Gps Bt",
          "Reloj Inteligente Amazfit Gts 2 5atm Wifi Bluetooth Gps"]

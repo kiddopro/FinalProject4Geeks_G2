@@ -2,24 +2,20 @@ import requests
 import os
 #import datetime
 
-<<<<<<< HEAD
-api_endpoint_productos= "https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos"
-=======
 #print("variable entorno ->>>",os.environ.get("BACKEND_URL"))
 #api_endpoint_productos=os.environ.get("BACKEND_URL")+"/api/productos"
 #print(api_endpoint_productos)
-api_endpoint_productos="https://3001-maroon-gull-stn4muwe.ws-us17.gitpod.io/api/productos"
->>>>>>> ce2873233a88b93164ce4ae56d771eae2e974b82
-nombres=["Reloj Inteligente Huawei Watch Fit 5atm Bluetooth Gps",
-         "Reloj Inteligente Amazfit T-Rex 5atm Gps Bt",
-         "Reloj Inteligente Amazfit Gts 2 5atm Wifi Bluetooth Gps"]
+api_endpoint_productos="https://3001-yellow-swallow-qyqi984f.ws-us17.gitpod.io/api/productos"
+nombres=["Amazfit Band 5",
+         "Amazfit T-Rex",
+         "Amazfit Gts 2"]
 marcas=["Huawei","Amazfit","Amazfit"]
 precios=[420,521,625]
-imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1635987514/tecno/HWTIAB09BK_01_aw7i85.jpg",
+imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1637801687/tecno/band5_y2ivam.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"]
 descripciones=["primer descripcion", "segunda desc", "tercera desc"]
-categorias=["smartwatch", "smartwatch", "smartwatch"]
+categorias=["Pulsera deportiva con 11 modos deportivos incluidos. Sumergible hasta 5 atm. Registro de actividad diaria", "smartwatch", "smartwatch"]
 for x in range(0,3):
     data={
         "nombre":nombres[x],

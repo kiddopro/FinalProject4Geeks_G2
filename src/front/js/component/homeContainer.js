@@ -99,7 +99,9 @@ export const HomeContainer = props => {
 			<h3 className="text-center">Smartwatches</h3>
 			<br />
 
-			<div className="row row-cols-1 row-cols-md-4 g-4 overflow-scroll">
+			<div
+				className="row row-cols-1 row-cols-md-4 g-4 scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
 				{store.articulo.map((item, index) => {
 					return (
 						<div className="col" key={index}>

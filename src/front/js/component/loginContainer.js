@@ -101,46 +101,6 @@ const LoginContainer = () => {
 				</div>
 			</div>
 		</div>
-
-		// <form onSubmit={e => onSubmit(e)}>
-		// 	<div className="mb-3">
-		// 		<label htmlFor="exampleInputEmail" className="form-label">
-		// 			email
-		// 		</label>
-		// 		<input
-		// 			type="text"
-		// 			className="form-control"
-		// 			id="exampleInputEmail"
-		// 			aria-describedby="emailHelp"
-		// 			onChange={e => setEmail(e.target.value)}
-		// 			value={email}
-		// 		/>
-		// 		<div id="emailHelp" className="form-text">
-		// 			Well never share your email with anyone else.
-		// 		</div>
-		// 	</div>
-		// 	<div className="mb-3">
-		// 		<label htmlFor="exampleInputPassword" className="form-label">
-		// 			password
-		// 		</label>
-		// 		<input
-		// 			type="password"
-		// 			className="form-control"
-		// 			id="exampleInputPassword"
-		// 			onChange={e => setPassword(e.target.value)}
-		// 			value={password}
-		// 		/>
-		// 	</div>
-		// 	<div className="mb-3 form-check">
-		// 		<input type="checkbox" className="form-check-input" id="exampleCheck1" />
-		// 		<label className="form-check-label" htmlFor="exampleCheck1">
-		// 			Check me out
-		// 		</label>
-		// 	</div>
-		// 	<button type="submit" className="btn btn-primary">
-		// 		Submit
-		// 	</button>
-		// </form>
 	);
 };
 

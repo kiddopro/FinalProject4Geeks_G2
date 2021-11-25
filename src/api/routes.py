@@ -243,7 +243,7 @@ def add_producto():
     # primero leo lo que viene en el body
     body_us=json.loads(request.data)
     #print (body_us)
-    producto=Producto(nombre=body_us['nombre'],marca=body_us['marca'],precio=body_us['precio'],imagen=body_us['imagen'],descripcion=body_us['descripcion'])
+    producto=Producto(nombre=body_us['nombre'],marca=body_us['marca'],precio=body_us['precio'],imagen=body_us['imagen'],descripcion=body_us['descripcion'],categoria=body_us['categoria'])
     db.session.add(producto)               
     db.session.commit()  
     productos=Producto.query.all()

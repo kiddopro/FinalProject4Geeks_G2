@@ -116,7 +116,10 @@ export const HomeContainer = props => {
 										</button>
 									</Link>
 									&nbsp;
-									<button type="button" className="btn btn-outline-primary">
+									<button
+										type="button"
+										onClick={() => actions.addToCart(item.nombre)}
+										className="btn btn-outline-primary">
 										Agregar al carrito
 									</button>
 									&nbsp;

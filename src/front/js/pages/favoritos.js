@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { FavoritosContainer } from "../component/favoritosContainer";
+import FavoritosContainer from "../component/favoritosContainer";
 import "../../styles/favoritos.scss";
 import { Redirect } from "react-router-dom";
 

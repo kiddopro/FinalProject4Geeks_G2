@@ -29,7 +29,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			auth: false,
 			favorites: [],
-			articulo: []
+			articulo: [],
+			carrito: []
 		},
 
 		actions: {
@@ -246,6 +247,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, name] });
 			},
+
+			addToCart: name => {
+				console.log("agregando al carrito");
+				const store = getStore();
+				setStore({ carrito: [...store.carrito, name] });
+			},
+
 			loadSomeData: () => {
 				fetch("https://3001-turquoise-dog-maze52a0.ws-us17.gitpod.io/api/productos")
 					.then(response => response.json())

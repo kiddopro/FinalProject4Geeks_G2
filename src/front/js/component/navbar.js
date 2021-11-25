@@ -49,7 +49,7 @@ export const Navbar = () => {
 							<li className="nav-item ">
 								<a className="nav-link" href="#">
 									<Link to="/carrito">
-										<i className="fas fa-shopping-cart" />
+										<i className="fas iconnav fa-shopping-cart" />
 									</Link>
 								</a>
 							</li>
@@ -70,19 +70,19 @@ export const Navbar = () => {
 									role="button"
 									data-bs-toggle="dropdown"
 									aria-expanded="false">
-									<i className="fas fa-user" />
+									<i className="fas iconnav fa-user" />
 								</a>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li>
 										<Link to="/signin">
-											<a className="dropdown-item fortnite" href="#">
+											<a className="dropdown-item fortnite opciondrop" href="#">
 												Registrarse
 											</a>
 										</Link>
 									</li>
 									<li>
 										<Link to="/login">
-											<a className="dropdown-item fortnite" href="#">
+											<a className="dropdown-item opciondrop fortnite" href="#">
 												Ingresar
 											</a>
 										</Link>

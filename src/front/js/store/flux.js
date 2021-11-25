@@ -247,7 +247,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: [...store.favorites, name] });
 			},
 			loadSomeData: () => {
-				fetch("https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos")
+				fetch("https://3001-turquoise-dog-maze52a0.ws-us17.gitpod.io/api/productos")
 					.then(response => response.json())
 					.then(data => {
 						setStore({ articulo: data });

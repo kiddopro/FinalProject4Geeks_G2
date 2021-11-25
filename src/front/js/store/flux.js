@@ -159,7 +159,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 									icon: "success",
 									title: "Usuario creado con exito!"
 							  })
-							: null;
+							: Toast.fire({
+									icon: "error",
+									title: "No se pudo crear el usuario!"
+							  });
 					})
 					.then(result => {
 						console.log(result);

@@ -2,8 +2,9 @@ import requests
 import os
 #import datetime
 
-
-api_endpoint_usuarios=os.environ.get("BACKEND_URL")+"/api/usuarios"
+#print("resultado --->",os.environ.get("BACKEND_URL"))
+#api_endpoint_usuarios=os.environ.get("BACKEND_URL")+"/api/usuarios"
+api_endpoint_usuarios="https://3001-maroon-gull-stn4muwe.ws-us17.gitpod.io/api/usuarios"
 nombres=["Juan","Silvina","Martin"]
 emails=["jmantonaccio@gmail.com","Silvinaas4@gmail.com","martin.suarez.personal@gmail.com"]
 pass2=["5544","1234","4321"]

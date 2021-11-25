@@ -8,7 +8,7 @@ db = SQLAlchemy()
 class Producto(db.Model):
     __tablename__='producto'
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(80), unique=False, nullable=False)
+    nombre = db.Column(db.String(100), unique=False, nullable=False)
     marca = db.Column(db.String(80), unique=False, nullable=False)
     precio = db.Column(db.Float, unique=False, nullable=False)
     imagen = db.Column(db.String(200),unique=False,nullable=False)

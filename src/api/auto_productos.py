@@ -9,13 +9,13 @@ api_endpoint_productos="https://3001-yellow-swallow-qyqi984f.ws-us17.gitpod.io/a
 nombres=["Amazfit Band 5",
          "Amazfit T-Rex",
          "Amazfit Gts 2"]
-marcas=["Huawei","Amazfit","Amazfit"]
+marcas=["Amazfit","Amazfit","Amazfit"]
 precios=[420,521,625]
 imagenes=["https://res.cloudinary.com/silvinaas/image/upload/v1637801687/tecno/band5_y2ivam.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg",
           "https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"]
-descripciones=["primer descripcion", "segunda desc", "tercera desc"]
-categorias=["Pulsera deportiva con 11 modos deportivos incluidos. Sumergible hasta 5 atm. Registro de actividad diaria", "smartwatch", "smartwatch"]
+descripciones=["Pulsera deportiva con 11 modos deportivos incluidos. Sumergible hasta 5 atm. Registro de actividad diaria", "segunda desc", "tercera desc"]
+categorias=["smartwatch", "smartwatch", "smartwatch"]
 for x in range(0,3):
     data={
         "nombre":nombres[x],

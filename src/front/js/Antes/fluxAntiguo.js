@@ -27,11 +27,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			auth: false,
-			favorites: [],
-			articulo: []
+			auth: false
 		},
-
 		actions: {
 			///////////////////// CAMBIAR LA CONTRASEÑA /////////////////////
 			restorePassword: (passwd1, passwd2, token) => {
@@ -159,10 +156,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 									icon: "success",
 									title: "Usuario creado con exito!"
 							  })
-							: Toast.fire({
-									icon: "error",
-									title: "No se pudo crear el usuario!"
-							  });
+							: null;
 					})
 					.then(result => {
 						console.log(result);
@@ -240,20 +234,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			salir: () => {
 				localStorage.clear();
 				setStore({ auth: false });
-			},
-			addFavorite: name => {
-				console.log("agregando favorito");
-				const store = getStore();
-				setStore({ favorites: [...store.favorites, name] });
-			},
-			loadSomeData: () => {
-				fetch("https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos")
-					.then(response => response.json())
-					.then(data => {
-						setStore({ articulo: data });
-						console.log(data);
-					})
-					.catch(error => console.log("error", error));
 			}
 		}
 	};

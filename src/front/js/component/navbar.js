@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "../../styles/Navbar.scss";
 import { Link } from "react-router-dom";
+import UserNavbar from "./userNavbar";
 
 export const Navbar = () => {
 	return (

@@ -10,16 +10,12 @@ const LoginContainer = () => {
 	const [auth, setAuth] = useState(false);
 
 	const changeAuth = () => {
-		actions.loginUser(email, password);
-		setAuth(localStorage.getItem("token") ? true : false);
+		actions.login(email, password);
 	};
 
-	useEffect(
-		() => {
-			setAuth(localStorage.getItem("token") ? true : false);
-		},
-		[auth]
-	);
+	useEffect(() => {
+		localStorage.getItem("token") ? setAuth(true) : setAuth(false);
+	}, []);
 
 	return auth ? (
 		<Redirect to="/demo" />
@@ -43,7 +39,7 @@ const LoginContainer = () => {
 							style={{ width: "50%" }}
 						/> */}
 					</div>
-					<form onSubmit={e => onSubmit(e)}>
+					<form>
 						<div className="inputs m-2">
 							<div className="input-group flex-nowrap">
 								<span className="input-group-text text-center" id="addon-wrapping">
@@ -91,7 +87,7 @@ const LoginContainer = () => {
 						</div>
 						<h6 className="notienesusuario letra">¿Aún no tienes usuario?</h6>
 						<div className="buttons d-flex justify-content-between m-2">
-							<button type="submit" className="btn btn-primary letra">
+							<button type="submit" className="btn btn-primary letra" onClick={changeAuth()}>
 								Ingresar
 							</button>
 
@@ -105,46 +101,6 @@ const LoginContainer = () => {
 				</div>
 			</div>
 		</div>
-
-		// <form onSubmit={e => onSubmit(e)}>
-		// 	<div className="mb-3">
-		// 		<label htmlFor="exampleInputEmail" className="form-label">
-		// 			email
-		// 		</label>
-		// 		<input
-		// 			type="text"
-		// 			className="form-control"
-		// 			id="exampleInputEmail"
-		// 			aria-describedby="emailHelp"
-		// 			onChange={e => setEmail(e.target.value)}
-		// 			value={email}
-		// 		/>
-		// 		<div id="emailHelp" className="form-text">
-		// 			Well never share your email with anyone else.
-		// 		</div>
-		// 	</div>
-		// 	<div className="mb-3">
-		// 		<label htmlFor="exampleInputPassword" className="form-label">
-		// 			password
-		// 		</label>
-		// 		<input
-		// 			type="password"
-		// 			className="form-control"
-		// 			id="exampleInputPassword"
-		// 			onChange={e => setPassword(e.target.value)}
-		// 			value={password}
-		// 		/>
-		// 	</div>
-		// 	<div className="mb-3 form-check">
-		// 		<input type="checkbox" className="form-check-input" id="exampleCheck1" />
-		// 		<label className="form-check-label" htmlFor="exampleCheck1">
-		// 			Check me out
-		// 		</label>
-		// 	</div>
-		// 	<button type="submit" className="btn btn-primary">
-		// 		Submit
-		// 	</button>
-		// </form>
 	);
 };
 

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-const CardArticle = () => {
+const CardArticle = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		//style={{ maxWidth: "540px" }}
 		<div className="card mb-3 mx-auto">
@@ -11,31 +14,38 @@ const CardArticle = () => {
 						className="img-fluid rounded-start"
 						alt="imagen articulo"
 					/>
-					<div className="d-flex ">
-						<img
-							src="https://via.placeholder.com/150"
-							className="img-fluid rounded-start m-1"
-							alt="imagen articulo"
-						/>
-						<img
-							src="https://via.placeholder.com/150"
-							className="img-fluid rounded-start m-1"
-							alt="imagen articulo"
-						/>
-						<img
-							src="https://via.placeholder.com/150"
-							className="img-fluid rounded-start m-1"
-							alt="imagen articulo"
-						/>
+					<div
+						className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+						style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
+						{store.probando.map((item, index) => {
+							return <img key={index} src="https://via.placeholder.com/150" />;
+						})}
 					</div>
+					{/* <div className="d-flex ">
+						<img
+							src="https://via.placeholder.com/150"
+							className="img-fluid rounded-start m-1"
+							alt="imagen articulo"
+						/>
+						<img
+							src="https://via.placeholder.com/150"
+							className="img-fluid rounded-start m-1"
+							alt="imagen articulo"
+						/>
+						<img
+							src="https://via.placeholder.com/150"
+							className="img-fluid rounded-start m-1"
+							alt="imagen articulo"
+						/>
+					</div> */}
 				</div>
 				<div className="col-md-6">
 					<div className="card-body">
 						<div>
-							<h1 className="card-title mb-5">Smartwatch T-Rex</h1>
+							<h1 className="card-title mb-5">{props.name}</h1>
 							<hr />
 							<div className="card-text d-flex justify-content-between align-items-center">
-								<h2>$1232</h2>
+								<h2>${props.unit_cost}</h2>
 								<select className="w-25">
 									<option>Seleccionar color</option>
 									<option>Rojo</option>
@@ -43,13 +53,7 @@ const CardArticle = () => {
 							</div>
 							<hr />
 							<small className="card-text text-secondary">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-								has been the industrys standard dummy text ever since the 1500s, when an unknown printer
-								took a galley of type and scrambled it to make a type specimen book. It has survived not
-								only five centuries, but also the leap into electronic typesetting, remaining
-								essentially unchanged. It was popularised in the 1960s with the release of Letraset
-								sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-								software like Aldus PageMaker including versions of Lorem Ipsum.
+								{props.description}
 								{/* <small className="text-muted">Last updated 3 mins ago</small> */}
 							</small>
 							<hr />
@@ -65,3 +69,9 @@ const CardArticle = () => {
 };
 
 export default CardArticle;
+
+CardArticle.propTypes = {
+	name: PropTypes.string,
+	unit_cost: PropTypes.string,
+	description: PropTypes.string
+};

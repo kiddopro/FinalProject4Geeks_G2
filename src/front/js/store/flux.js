@@ -29,7 +29,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			auth: false,
 			favorites: [],
-			articulo: []
+			articulo: [],
+			probando: [1, 2, 3, 4]
 		},
 
 		actions: {

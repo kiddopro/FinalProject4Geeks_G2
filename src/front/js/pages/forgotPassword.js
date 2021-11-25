@@ -34,35 +34,34 @@ const ForgotPassword = () => {
 							</small>
 						</div>
 					</div>
-					<form>
-						<div className="inputs m-2">
-							<div className="input-group flex-nowrap p-4">
-								<span className="input-group-text text-center" id="addon-wrapping">
-									<i className="fas fa-at" />
-								</span>
-								<input
-									type="email"
-									className="form-control fortnite"
-									value={email}
-									placeholder="Email"
-									aria-label="email"
-									aria-describedby="addon-wrapping"
-									onChange={e => setEmail(e.target.value)}
-								/>
-							</div>
-						</div>
 
-						<div className="buttons d-flex justify-content-between m-2">
-							<button type="button" className="btn btn-primary letra" onClick={forgotPassword()}>
-								Confirmar
-							</button>
-							<Link to="/login">
-								<button type="submit" className="btn btn-primary letra">
-									Volver
-								</button>
-							</Link>
+					<div className="inputs m-2">
+						<div className="input-group flex-nowrap p-4">
+							<span className="input-group-text text-center" id="addon-wrapping">
+								<i className="fas fa-at" />
+							</span>
+							<input
+								type="email"
+								className="form-control fortnite"
+								value={email}
+								placeholder="Email"
+								aria-label="email"
+								aria-describedby="addon-wrapping"
+								onChange={e => setEmail(e.target.value)}
+							/>
 						</div>
-					</form>
+					</div>
+
+					<div className="buttons d-flex justify-content-between m-2">
+						<button type="button" className="btn btn-primary letra" onClick={() => forgotPassword()}>
+							Confirmar
+						</button>
+						<Link to="/login">
+							<button type="submit" className="btn btn-primary letra">
+								Volver
+							</button>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -106,21 +106,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 									"Si el correo es válido debes de recibir un mensaje con los pasos a seguir para recuperar tu cuenta"
 							});
 						}
-						// if (response.status == 200) {
-						// 	Swal.fire({
-						// 		title: "Correcto!",
-						// 		text: "Verifica tu casilla de correos para restaurar tu constraseña",
-						// 		icon: "success",
-						// 		confirmButtonText: "OK"
-						// 	});
-						// } else {
-						// 	Swal.fire({
-						// 		title: "Incorrecto!",
-						// 		text: "El correo ingresado no es válido",
-						// 		icon: "error",
-						// 		confirmButtonText: "OK"
-						// 	});
-						// }
 					})
 					.then(result => {
 						console.log(result);

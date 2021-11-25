@@ -86,7 +86,7 @@ const NuevoLogin = () => {
 							<h6 className="notienesusuario letra">¿Aún no tienes usuario?</h6>
 							<div className="buttons d-flex justify-content-between m-2">
 								<button
-									type="sunmit"
+									type="submit"
 									className="btn btn-primary letra"
 									onClick={() => {
 										login();

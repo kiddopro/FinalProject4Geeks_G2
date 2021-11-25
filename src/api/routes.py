@@ -30,11 +30,11 @@ sdk = mercadopago.SDK(os.environ.get("MP_AT"))
 
 
 
-url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
-url_restore=url_aux.replace("1","0")
-#print(url_restore[11])
-#print(url_restore)
-cmail=os.environ.get("MAIL_APP")
+# url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
+# url_restore=url_aux.replace("1","0")
+# #print(url_restore[11])
+# #print(url_restore)
+# cmail=os.environ.get("MAIL_APP")
 
 #RECUPERACION CONTRASEÑA OLVIDADA 
 @api.route("/forgot_password", methods=["POST"])

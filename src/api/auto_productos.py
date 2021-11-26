@@ -5,7 +5,7 @@ import os
 #print("variable entorno ->>>",os.environ.get("BACKEND_URL"))
 #api_endpoint_productos=os.environ.get("BACKEND_URL")+"/api/productos"
 #print(api_endpoint_productos)
-api_endpoint_productos="https://3001-turquoise-dog-maze52a0.ws-us17.gitpod.io/api/productos"
+api_endpoint_productos="https://3001-coffee-blackbird-1yrndy4o.ws-us17.gitpod.io/api/productos"
 nombres=["Amazfit Band 5",
          "Amazfit T-Rex",
          "Amazfit Gts 2"]
@@ -27,7 +27,6 @@ for x in range(0,3):
 
     }
     print(data)
-    r=requests.post(url=api_endpoint_productos, json=data) 
-       
+    r=requests.post(url=api_endpoint_productos, json=data)       
 respuesta=r.text
 print(respuesta)

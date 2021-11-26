@@ -255,7 +255,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			loadSomeData: () => {
-				fetch("https://3001-turquoise-dog-maze52a0.ws-us17.gitpod.io/api/productos")
+				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())
 					.then(data => {
 						setStore({ articulo: data });

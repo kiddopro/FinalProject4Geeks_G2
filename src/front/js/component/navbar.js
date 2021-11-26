@@ -31,8 +31,8 @@ export const Navbar = () => {
 						id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto">
 							<li className="nav-item productos">
-								<a className="nav-link active fortnite" aria-current="page" href="#">
-									Todos los productos
+								<a className="nav-link active fortnite todoslosprod" aria-current="page" href="#">
+									<Link to="/">Todos los productos</Link>
 								</a>
 							</li>
 							<form className="d-flex">

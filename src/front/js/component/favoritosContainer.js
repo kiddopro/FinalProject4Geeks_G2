@@ -21,16 +21,20 @@ export const FavoritosContainer = () => {
 						</div>
 						<div className="col-md-8">
 							<div className="card-body">
-								<h5 className="card-title">nombre del producto aca</h5>
 								<div className="container botonescarrito">
-									<button className="btn ">
-										{/* onClick={() => actions.addToCart(item.nombre)} */}
-										<i className="fas iconnav fa-shopping-cart" />
-									</button>
-									<button className="btn ">
-										{/* onClick={() => actions.addToCart(item.nombre)} */}
-										<i className="fas eliminar fa-times" />
-									</button>
+									<div className="justify-content-between d-flex align-items-center">
+										<h5 className="card-title">nombre del producto aca</h5>
+										<div>
+											<button className="btn ">
+												{/* onClick={() => actions.addToCart(item.nombre)} */}
+												<i className="fas iconnav fa-shopping-cart" />
+											</button>
+											<button className="btn ">
+												{/* onClick={() => actions.addToCart(item.nombre)} */}
+												<i className="fas eliminar fa-times" />
+											</button>
+										</div>
+									</div>
 								</div>
 								<p className="card-text">
 									This is a wider card with supporting text below as a natural lead-in to additional

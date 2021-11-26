@@ -10,6 +10,7 @@ import { Carrito } from "./pages/carrito";
 import NuevoLogin from "./component/nuevoLogin";
 import injectContext from "./store/appContext";
 import ForgotPassword from "./pages/forgotPassword";
+import CambiarContraseña from "./pages/cambiar_contraseña";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -17,8 +18,20 @@ import Login from "./pages/login";
 import SignIn from "./pages/signin";
 import RestorePassword from "./pages/restorePassword";
 
+import { useEffect, useContext } from "react";
+import { Context } from "./store/appContext";
 //create your first component
 const Layout = () => {
+	const { store, actions } = useContext(Context);
+
+	useEffect(
+		() => {
+			const bol =
+				localStorage.getItem("token") != undefined && localStorage.getItem("token") != "" ? true : false;
+			actions.autorizado(bol);
+		},
+		[store.auth]
+	);
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
@@ -56,6 +69,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/carrito">
 							<Carrito />
+						</Route>
+						<Route exact path="/change_password">
+							<CambiarContraseña />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

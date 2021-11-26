@@ -227,13 +227,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.clear();
 				setStore({ auth: false });
 			},
+			autorizado: booleano => {
+				setStore({ auth: booleano });
+			},
 			addFavorite: name => {
 				console.log("agregando favorito");
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, name] });
 			},
 			loadSomeData: () => {
-				fetch("https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos")
+				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())
 					.then(data => {
 						setStore({ articulo: data });

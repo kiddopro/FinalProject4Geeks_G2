@@ -2,7 +2,7 @@ import requests
 import os
 #import datetime
 
-api_endpoint_productos= "https://3001-harlequin-horse-u0oo2vil.ws-us17.gitpod.io/api/productos"
+api_endpoint_productos= "https://3001-kumquat-tapir-y5grsmh4.ws-us17.gitpod.io/api/productos"
 nombres=["Reloj Inteligente Huawei Watch Fit 5atm Bluetooth Gps",
          "Reloj Inteligente Amazfit T-Rex 5atm Gps Bt",
          "Reloj Inteligente Amazfit Gts 2 5atm Wifi Bluetooth Gps"]

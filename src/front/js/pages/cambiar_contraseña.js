@@ -20,7 +20,8 @@ const CambiarContraseña = () => {
 						<div className="col-12">
 							<div className="w-50 mx-auto  p-3 rounded" id="changePassword">
 								<h1 className="text-center text-white">Cambiar contraseña</h1>
-								<div className="input-group flex-nowrap">
+
+								<div className="input-group flex-nowrap mb-2">
 									<span className="input-group-text text-center" id="addon-wrapping" />
 									<input
 										type="password"
@@ -44,15 +45,14 @@ const CambiarContraseña = () => {
 										onChange={e => setPassword2(e.target.value)}
 									/>
 								</div>
-								<div className="d-grid gap-2 col-6 mx-auto mt-2">
+								<div className="d-grid gap-2 col-6 mx-auto mt-2 kathy">
 									<button className="btn btn-primary" type="button" onClick={() => cambiar()}>
 										Cambiar
 									</button>
-									<Link to="/">
-										<button className="btn btn-primary" type="button">
-											Volver
-										</button>
-									</Link>
+
+									<button className="btn btn-primary" type="button">
+										Volver
+									</button>
 								</div>
 							</div>
 						</div>

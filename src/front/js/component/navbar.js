@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import UserNavbar from "./userNavbar";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
 			<div className="container-fluid">
@@ -46,21 +48,49 @@ export const Navbar = () => {
 									Buscar
 								</button>
 							</form>
-							<li className="nav-item ">
-								<a className="nav-link" href="#">
-									<Link to="/carrito">
-										<i className="fas iconnav fa-shopping-cart" />
-									</Link>
-								</a>
-							</li>
 
-							<li className="nav-item ">
+							<div className="d-flex">
+								<Link to="/carrito">
+									<div className="dropdown">
+										<button
+											className="btn dropdown-toggle justify-content-end"
+											type="button"
+											id="dropdownMenuButton1"
+											data-bs-toggle="dropdown"
+											aria-expanded="false">
+											<i className="fas iconnav fa-shopping-cart" />
+											&nbsp;
+											<span className="badge bg-secondary">{store.carrito.length}</span>
+										</button>
+										<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+											{store.carrito.map((carritoitem, index) => {
+												return (
+													<li key={index} className="d-flex justify-content-end">
+														<a className="dropdown-item">
+															{carritoitem}
+
+															<button
+																type="button"
+																className="btn-close ms-3 btn btn-outline-danger"
+																aria-label="Close"
+																onClick={() => actions.removeFromCart(index)}
+															/>
+														</a>
+													</li>
+												);
+											})}
+										</ul>
+									</div>
+								</Link>
+							</div>
+
+							{/* <li className="nav-item ">
 								<a className="nav-link" href="#">
 									<Link to="/favoritos">
 										<i className="corazon fas fa-heart " />
 									</Link>
 								</a>
-							</li>
+							</li> */}
 
 							<li className="nav-item dropstart">
 								<a

@@ -254,6 +254,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ carrito: [...store.carrito, name] });
 			},
 
+			removeFromCart: indexcart => {
+				console.log("quitando del carrito", indexcart);
+				const store = getStore();
+				const filteredCart = store.carrito.filter((carritoitem, index) => {
+					return index != indexcart;
+				});
+				setStore({ carrito: filteredCart });
+			},
+
 			loadSomeData: () => {
 				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())

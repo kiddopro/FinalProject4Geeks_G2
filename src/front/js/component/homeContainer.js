@@ -3,6 +3,7 @@ import Proptypes from "prop-types";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
+
 export const HomeContainer = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
@@ -100,35 +101,37 @@ export const HomeContainer = props => {
 			<br />
 
 			<div
-				className="row row-cols-1 row-cols-md-4 g-4 scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
-				style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
+				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				{store.articulo.map((item, index) => {
 					return (
-						<div className="col" key={index}>
-							<div className="card">
-								<img src={item.imagen} className="card-img-top" alt="..." />
-								<div className="card-body">
-									<h5 className="card-title">{item.nombre}</h5>
-									<p className="card-text">{item.descripcion}</p>
-									<Link to={"/productos/" + item.indice}>
-										<button type="button" className="btn btn-outline-primary">
-											Ver más
-										</button>
-									</Link>
-									&nbsp;
-									<button
-										type="button"
-										onClick={() => actions.addToCart(item.nombre)}
-										className="btn btn-outline-primary">
-										Agregar al carrito
+						<div
+							className="card"
+							key={index}
+							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							<img src={item.imagen} className="card-img-top" alt="..." />
+							<div className="card-body">
+								<h5 className="card-title">{item.nombre}</h5>
+								<p className="card-text w-100">{item.descripcion}</p>
+								<p className="card-text">{"$" + item.precio + " USD"}</p>
+								<Link to={"/productos/" + item.index}>
+									<button type="button" className="btn btn-outline-primary">
+										Ver más
 									</button>
-									&nbsp;
-									<button
-										onClick={() => actions.addFavorite(item.nombre)}
-										className="btn btn-outline-danger">
-										<i className="corazon far fa-heart " />
-									</button>
-								</div>
+								</Link>
+								&nbsp;
+								<button
+									type="button"
+									onClick={() => actions.addToCart(item.nombre)}
+									className="btn btn-outline-primary">
+									Agregar al carrito
+								</button>
+								{/* &nbsp;
+								<button
+									onClick={() => actions.addFavorite(item.nombre)}
+									className="btn btn-outline-primary">
+									<i className="corazon fas fa-heart " />
+								</button> */}
 							</div>
 						</div>
 					);
@@ -230,7 +233,7 @@ export const HomeContainer = props => {
 			<br />
 			<h3 className="text-center">Celulares</h3>
 			<br />
-			<div className="row row-cols-1 row-cols-md-4 g-4">
+			<div className="row row-cols-1 row-cols-md-4 g-4" style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				<div className="col">
 					<div className="card">
 						<img
@@ -309,6 +312,29 @@ export const HomeContainer = props => {
 						/>
 						<div className="card-body">
 							<h5 className="card-title">Samsung Galaxy A22</h5>
+							<p className="card-text">
+								This is a longer card with supporting text below as a natural lead-in to additional
+								content.
+							</p>
+							<button type="button" className="btn btn-outline-primary">
+								Ver más
+							</button>
+							&nbsp;
+							<button type="button" className="btn btn-outline-primary">
+								Agregar al carrito
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="col">
+					<div className="card">
+						<img
+							src="https://res.cloudinary.com/silvinaas/image/upload/v1636587650/tecno/IP12PBK_01_ftfr2k.jpg"
+							className="card-img-top"
+							alt="..."
+						/>
+						<div className="card-body">
+							<h5 className="card-title">Apple Iphone 12 Pro</h5>
 							<p className="card-text">
 								This is a longer card with supporting text below as a natural lead-in to additional
 								content.
@@ -425,14 +451,6 @@ export const HomeContainer = props => {
 			<br />
 		</div>
 	);
-};
-
-HomeContainer.propTypes = {
-	precio: Proptypes.number,
-	nombre: Proptypes.string,
-	descripcion: Proptypes.string,
-	imagen: Proptypes.string,
-	indice: Proptypes.number
 };
 
 export default HomeContainer;

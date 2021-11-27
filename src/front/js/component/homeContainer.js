@@ -99,31 +99,37 @@ export const HomeContainer = props => {
 			<h3 className="text-center">Smartwatches</h3>
 			<br />
 
-			<div className="row row-cols-1 row-cols-md-4 g-4 overflow-scroll">
+			<div
+				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				{store.articulo.map((item, index) => {
 					return (
-						<div className="col" key={index}>
-							<div className="card">
-								<img src={item.imagen} className="card-img-top" alt="..." />
-								<div className="card-body">
-									<h5 className="card-title">{item.nombre}</h5>
-									<p className="card-text">{item.descripcion}</p>
-									<Link to={"/productos/" + item.indice}>
-										<button type="button" className="btn btn-outline-primary">
-											Ver más
-										</button>
-									</Link>
-									&nbsp;
+						<div
+							className="card"
+							key={index}
+							style={{ width: "28%", display: "inline-block", margin: "10px" }}>
+							<img src={item.imagen} className="card-img-top" alt="..." />
+							<div className="card-body">
+								<h5 className="card-title">{item.nombre}</h5>
+								<p className="card-text w-100">{item.descripcion}</p>
+								<Link to={"/productos/" + item.indice}>
 									<button type="button" className="btn btn-outline-primary">
-										Agregar al carrito
+										Ver más
 									</button>
-									&nbsp;
-									<button
-										onClick={() => actions.addFavorite(item.nombre)}
-										className="btn btn-outline-danger">
-										<i className="corazon far fa-heart " />
-									</button>
-								</div>
+								</Link>
+								&nbsp;
+								<button
+									type="button"
+									onClick={() => actions.addToCart(item.nombre)}
+									className="btn btn-outline-primary">
+									Agregar al carrito
+								</button>
+								&nbsp;
+								<button
+									onClick={() => actions.addFavorite(item.nombre)}
+									className="btn btn-outline-danger">
+									<i className="corazon far fa-heart " />
+								</button>
 							</div>
 						</div>
 					);

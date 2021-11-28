@@ -66,7 +66,7 @@ const UserNavbar = () => {
 							<hr className="dropdown-divider" />
 						</li>
 						<li>
-							<a className="dropdown-item fortnite text-danger" href="#" onClick={() => salir()}>
+							<a className="dropdown-item fortnite text-danger" href="" onClick={() => salir()}>
 								Salir
 							</a>
 						</li>

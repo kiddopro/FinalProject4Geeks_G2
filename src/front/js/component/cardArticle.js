@@ -9,11 +9,7 @@ const CardArticle = props => {
 		<div className="card mb-3 mx-auto">
 			<div className="row g-0">
 				<div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-					<img
-						src="https://via.placeholder.com/300"
-						className="img-fluid rounded-start"
-						alt="imagen articulo"
-					/>
+					<img src={props.image} className="img-fluid rounded-start w-50" alt="imagen articulo" />
 					<div
 						className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
 						style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
@@ -71,6 +67,7 @@ const CardArticle = props => {
 export default CardArticle;
 
 CardArticle.propTypes = {
+	image: PropTypes.string,
 	name: PropTypes.string,
 	unit_cost: PropTypes.string,
 	description: PropTypes.string

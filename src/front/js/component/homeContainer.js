@@ -112,7 +112,7 @@ export const HomeContainer = props => {
 							<div className="card-body">
 								<h5 className="card-title">{item.nombre}</h5>
 								<p className="card-text w-100">{item.descripcion}</p>
-								<Link to={"/productos/" + item.indice}>
+								<Link to={"/productos/" + item.id}>
 									<button type="button" className="btn btn-outline-primary">
 										Ver más
 									</button>

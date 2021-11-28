@@ -30,7 +30,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			auth: false,
 			favorites: [],
 			articulo: [],
-			probando: [1, 2, 3, 4]
+			probando: [1, 2, 3, 4],
+			productoSeleccionado: {}
 		},
 
 		actions: {
@@ -240,6 +241,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => {
 						setStore({ articulo: data });
+						console.log(data);
+					})
+					.catch(error => console.log("error", error));
+			},
+			////////////////////// OBTENER PRODUCTO SELECCIONADO ////////////////////////
+			getProducto: id => {
+				fetch(process.env.BACKEND_URL + `/api/productos/${id}`)
+					.then(response => response.json())
+					.then(data => {
+						setStore({ productoSeleccionado: data });
 						console.log(data);
 					})
 					.catch(error => console.log("error", error));

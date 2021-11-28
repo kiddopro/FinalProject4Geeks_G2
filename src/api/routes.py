@@ -286,6 +286,24 @@ def add_producto():
         
     return jsonify(productos), 200
 
+
+
+@api.route('/productos/<int:id>', methods=['GET'])
+def gett_producto():
+    # primero leo lo que viene en el body
+    body_us=json.loads(request.data)
+    producto=Producto.query.get(body_us['id'])
+    if producto != None:
+        producto=producto.serialize()
+    
+    
+    if not producto:
+        return jsonify("no se encontro el producto"),404
+    else:    
+        return jsonify(producto), 200 
+
+
+
 @api.route('/productos/<int:id>', methods=['PUT'])
 def update_producto(id):
     body=json.loads(request.data)

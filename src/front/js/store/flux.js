@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			auth: false,
 			favorites: [],
 			articulo: [],
-			probando: [1, 2, 3, 4],
+			probando: [1, 2, 3, 4, 5],
 			productoSeleccionado: {}
 		},
 

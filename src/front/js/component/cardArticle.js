@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CardArticle = props => {
 	const { store, actions } = useContext(Context);
@@ -14,7 +15,7 @@ const CardArticle = props => {
 						className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
 						style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
 						{store.probando.map((item, index) => {
-							return <img key={index} src="https://via.placeholder.com/150" />;
+							return <img key={index} className="w-25" src="https://via.placeholder.com/150" />;
 						})}
 					</div>
 					{/* <div className="d-flex ">
@@ -53,9 +54,16 @@ const CardArticle = props => {
 								{/* <small className="text-muted">Last updated 3 mins ago</small> */}
 							</small>
 							<hr />
-							<button type="button" className="btn btn-primary">
-								Agregar al carrito
-							</button>
+							<div className="d-flex justify-content-between">
+								<button type="button" className="btn btn-primary">
+									Agregar al carrito
+								</button>
+								<Link to="/">
+									<button type="button" className="btn btn-primary">
+										Volver
+									</button>
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>

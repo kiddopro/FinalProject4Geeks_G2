@@ -190,9 +190,12 @@ def add_user():
     # primero leo lo que viene en el body
     body_us=json.loads(request.data)
     #print (body_us)
-    usuario=Usuario(nombre=body_us['nombre'],email=body_us['email'],password=body_us['password'],is_active=body_us['is_active'],direccion=body_us['direccion'],telefono=body_us['telefono'],documento=body_us['documento'],fecha_nac=body_us['fecha_nac'])
-    db.session.add(usuario)               
-    db.session.commit()  
+    try:
+        usuario=Usuario(nombre=body_us['nombre'],email=body_us['email'],password=body_us['password'],is_active=body_us['is_active'],direccion=body_us['direccion'],telefono=body_us['telefono'],documento=body_us['documento'],fecha_nac=body_us['fecha_nac'])
+        db.session.add(usuario)               
+        db.session.commit() 
+    except: 
+        return jsonify("No se pudo crear el usuario"),404
     usuarios=Usuario.query.all()
     usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
     if not usuarios:

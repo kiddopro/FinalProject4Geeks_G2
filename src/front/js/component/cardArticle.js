@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const CardArticle = props => {
 	const { store, actions } = useContext(Context);
+	const agregarFavorito = () => {};
 	return (
 		//style={{ maxWidth: "540px" }}
 		<div className="card mb-3 mx-auto">
@@ -44,7 +45,7 @@ const CardArticle = props => {
 							<div className="card-text d-flex justify-content-between align-items-center">
 								<h2>${props.unit_cost}</h2>
 								<select className="w-25">
-									<option>Seleccionar color</option>
+									<option>Seleccionar colors</option>
 									<option>Rojo</option>
 								</select>
 							</div>
@@ -55,9 +56,15 @@ const CardArticle = props => {
 							</small>
 							<hr />
 							<div className="d-flex justify-content-between">
-								<button type="button" className="btn btn-primary">
-									Agregar al carrito
-								</button>
+								{store.auth ? (
+									<button type="button" className="btn btn-primary" onClick={() => agregarFavorito()}>
+										Agregar al carrito
+									</button>
+								) : (
+									<button type="button" className="btn btn-primary disabled">
+										Agregar al carrito
+									</button>
+								)}
 								<Link to="/">
 									<button type="button" className="btn btn-primary">
 										Volver

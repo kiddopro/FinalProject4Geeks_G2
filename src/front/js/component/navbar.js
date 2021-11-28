@@ -7,7 +7,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
 			<div className="container-fluid">
-				<a className="navbar-brand logo" href="#">
+				<a className="navbar-brand logo">
 					<Link to="/">
 						<img
 							className="logo"

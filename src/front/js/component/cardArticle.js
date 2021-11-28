@@ -55,15 +55,21 @@ const CardArticle = props => {
 								{/* <small className="text-muted">Last updated 3 mins ago</small> */}
 							</small>
 							<hr />
-							<div className="d-flex justify-content-between">
+							<div className="d-flex justify-content-between align-items-center">
 								{store.auth ? (
 									<button type="button" className="btn btn-primary" onClick={() => agregarFavorito()}>
 										Agregar al carrito
 									</button>
 								) : (
-									<button type="button" className="btn btn-primary disabled">
-										Agregar al carrito
-									</button>
+									<div>
+										<small className="text-danger">
+											Debes iniciar sesión para agregar el producto al carrito
+										</small>
+										<br />
+										<button type="button" className="btn btn-primary disabled">
+											Agregar al carrito
+										</button>
+									</div>
 								)}
 								<Link to="/">
 									<button type="button" className="btn btn-primary">

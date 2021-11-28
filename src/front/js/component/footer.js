@@ -49,7 +49,7 @@ export const Footer = () => (
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13089.950364054896!2d-56.17391110668515!3d-34.89421138631934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f81abf129825f%3A0xb9c6f293bee406f4!2sTres%20Cruces%20Shopping!5e0!3m2!1ses-419!2suy!4v1638114441474!5m2!1ses-419!2suy"
 							width="100%"
-							height="200"
+							height="100"
 							loading="lazy"
 						/>
 					</div>

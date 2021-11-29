@@ -81,7 +81,8 @@ def index():
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
 
-
+# Haciendo un pago desde el front enviando luego la respuesta en
+# las preferencias
 @api.route("/pago",methods=['POST'])
 def pago():
     print("Entrando al metodo de pago")

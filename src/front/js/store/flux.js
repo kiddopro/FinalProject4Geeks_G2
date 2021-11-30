@@ -251,10 +251,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: [...store.favorites, id] });
 			},
 
-			addToCart: id => {
+			addToCart: name => {
 				console.log("agregando al carrito");
 				const store = getStore();
-				setStore({ carrito: [...store.carrito, id] });
+				let producto = store.carrito.filter(item => item.nombre === name);
+				console.log(producto);
+				setStore({ carrito: [...store.carrito, name] });
 			},
 
 			removeFromCart: indexcart => {

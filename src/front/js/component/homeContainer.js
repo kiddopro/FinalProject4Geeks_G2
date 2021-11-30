@@ -3,6 +3,7 @@ import Proptypes from "prop-types";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
+
 export const HomeContainer = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
@@ -99,335 +100,126 @@ export const HomeContainer = props => {
 			<h3 className="text-center">Smartwatches</h3>
 			<br />
 
-			<div className="row row-cols-1 row-cols-md-4 g-4 overflow-scroll">
-				{store.articulo.map((item, index) => {
+			<div
+				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden" }}>
+				{store.smartwatch.map((item, index) => {
 					return (
-						<div className="col" key={index}>
-							<div className="card">
-								<img src={item.imagen} className="card-img-top" alt="..." />
-								<div className="card-body">
-									<h5 className="card-title">{item.nombre}</h5>
-									<p className="card-text">{item.descripcion}</p>
-									<Link to={"/productos/" + item.indice}>
-										<button type="button" className="btn btn-outline-primary">
-											Ver más
-										</button>
-									</Link>
-									&nbsp;
+						<div
+							className="card"
+							key={index}
+							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							<img src={item.imagen} className="card-img-top" alt="..." />
+							<div className="card-body">
+								<h5 className="card-title">{item.nombre}</h5>
+								<p className="card-text w-100">{item.descripcion}</p>
+								<p className="card-text">{"$" + item.precio + " USD"}</p>
+								<Link to={"/productos/" + item.index}>
 									<button type="button" className="btn btn-outline-primary">
-										Agregar al carrito
+										Ver más
 									</button>
-									&nbsp;
-									<button
-										onClick={() => actions.addFavorite(item.nombre)}
-										className="btn btn-outline-danger">
-										<i className="corazon far fa-heart " />
-									</button>
-								</div>
+								</Link>
+								&nbsp;
+								<button
+									type="button"
+									onClick={() => actions.addToCart(item)}
+									className="btn btn-outline-primary">
+									Agregar al carrito
+								</button>
+								{/* &nbsp;
+								<button
+									onClick={() => actions.addFavorite(item.nombre)}
+									className="btn btn-outline-primary">
+									<i className="corazon fas fa-heart " />
+								</button> */}
 							</div>
 						</div>
 					);
 				})}
-				{/* <div className="col">
-					<div className="card">
-						<img src={props.imagen} className="card-img-top" alt="..." />
-						<div className="card-body">
-							<h5 className="card-title">{props.nombre}</h5>
-							<p className="card-text">{props.descripcion}</p>
-							<Link to={"/productos/" + props.indice}>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							</Link>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-							&nbsp;
-							<button
-								onClick={() => actions.addFavorite(props.nombre)}
-								className="btn btn-outline-danger">
-								<i className="corazon far fa-heart " />
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636586918/tecno/APPLEWATCHSEWT_01_smwoaq.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Apple watch SE 40mm</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636586916/tecno/A1919CGN_02_pfnt86.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Amazfit T-Rex</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636586912/tecno/XIA1969GY_01_yemcdn.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Amazfit GTS 2 48,5mm</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div> */}
 			</div>
 			<br />
 			<h3 className="text-center">Celulares</h3>
 			<br />
-			<div className="row row-cols-1 row-cols-md-4 g-4">
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636587648/tecno/cats52_sikdve.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Cat S52</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
+			<div
+				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden" }}>
+				{store.smartphone.map((item, index) => {
+					return (
+						<div
+							className="card"
+							key={index}
+							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							<img src={item.imagen} className="card-img-top" alt="..." />
+							<div className="card-body">
+								<h5 className="card-title">{item.nombre}</h5>
+								<p className="card-text w-100">{item.descripcion}</p>
+								<p className="card-text">{"$" + item.precio + " USD"}</p>
+								<Link to={"/productos/" + item.index}>
+									<button type="button" className="btn btn-outline-primary">
+										Ver más
+									</button>
+								</Link>
+								&nbsp;
+								<button
+									type="button"
+									onClick={() => actions.addToCart(item)}
+									className="btn btn-outline-primary">
+									Agregar al carrito
+								</button>
+								{/* &nbsp;
+								<button
+									onClick={() => actions.addFavorite(item.nombre)}
+									className="btn btn-outline-primary">
+									<i className="corazon fas fa-heart " />
+								</button> */}
+							</div>
 						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636587650/tecno/IP12PBK_01_ftfr2k.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Apple Iphone 12 Pro</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636587646/tecno/XIARN10PGY_01_kkzvnh.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Xiaomi Redmi Note 10 Pro</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636587652/tecno/SSAMA225MWT_03_kjsinr.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Samsung Galaxy A22</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
+					);
+				})}
 			</div>
-
 			<br />
 			<h3 className="text-center">Accesorios</h3>
 			<br />
-			<div className="row row-cols-1 row-cols-md-4 g-4">
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636590114/tecno/MOTOBUDS100BK_01_rsdry2.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Auriculares Motorola Ipx5</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
+			<div
+				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+				style={{ overflowX: "scroll", overflowY: "hidden" }}>
+				{store.accesorios.map((item, index) => {
+					return (
+						<div
+							className="card"
+							key={index}
+							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							<img src={item.imagen} className="card-img-top" alt="..." />
+							<div className="card-body">
+								<h5 className="card-title">{item.nombre}</h5>
+								<p className="card-text w-100">{item.descripcion}</p>
+								<p className="card-text">{"$" + item.precio + " USD"}</p>
+								<Link to={"/productos/" + item.index}>
+									<button type="button" className="btn btn-outline-primary">
+										Ver más
+									</button>
+								</Link>
+								&nbsp;
+								<button
+									type="button"
+									onClick={() => actions.addToCart(item)}
+									className="btn btn-outline-primary">
+									Agregar al carrito
+								</button>
+								{/* &nbsp;
+								<button
+									onClick={() => actions.addFavorite(item.nombre)}
+									className="btn btn-outline-primary">
+									<i className="corazon fas fa-heart " />
+								</button> */}
+							</div>
 						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636590472/tecno/TYWSP70L_01_cjpwqt.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Parlante Toshiba P70</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636590701/tecno/841667135809_01_POS_zzetry.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">Tablet Amazon Fire 7</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="col">
-					<div className="card">
-						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636586509/tecno/CHDHZ202MAX360_04_xirzjr.jpg"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">GoPro Max</h5>
-							<p className="card-text">
-								This is a longer card with supporting text below as a natural lead-in to additional
-								content.
-							</p>
-							<button type="button" className="btn btn-outline-primary">
-								Ver más
-							</button>
-							&nbsp;
-							<button type="button" className="btn btn-outline-primary">
-								Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
+					);
+				})}
 			</div>
 			<br />
 		</div>
 	);
-};
-
-HomeContainer.propTypes = {
-	precio: Proptypes.number,
-	nombre: Proptypes.string,
-	descripcion: Proptypes.string,
-	imagen: Proptypes.string,
-	indice: Proptypes.number
 };
 
 export default HomeContainer;

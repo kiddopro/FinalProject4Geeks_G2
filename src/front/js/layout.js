@@ -7,6 +7,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Carrito } from "./pages/carrito";
+import { Favoritos } from "./pages/favoritos";
 import NuevoLogin from "./component/nuevoLogin";
 import injectContext from "./store/appContext";
 import ForgotPassword from "./pages/forgotPassword";
@@ -25,7 +26,7 @@ const Layout = () => {
 	const login = localStorage.getItem("token") != undefined ? true : false;
 
 	return (
-		<div className="container">
+		<div className="">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -56,6 +57,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/carrito">
 							<Carrito />
+						</Route>
+						<Route exact path="/favoritos">
+							<Favoritos />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

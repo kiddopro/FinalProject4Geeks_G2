@@ -254,9 +254,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addToCart: name => {
 				console.log("agregando al carrito");
 				const store = getStore();
-				let producto = store.carrito.filter(item => item.nombre === name);
+				let producto = store.articulo.filter(item => item.nombre == name);
 				console.log(producto);
 				setStore({ carrito: [...store.carrito, name] });
+				// Hola
 			},
 
 			removeFromCart: indexcart => {
@@ -272,6 +273,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())
 					.then(data => {
+						setStore({ articulo: data });
 						let resultado1 = data.filter(item => item.categoria == "smartwatch");
 						let resultado2 = data.filter(item => item.categoria == "smartphone");
 						let resultado3 = data.filter(item => item.categoria == "accesorios");

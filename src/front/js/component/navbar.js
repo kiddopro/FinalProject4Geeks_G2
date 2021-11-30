@@ -64,6 +64,7 @@ export const Navbar = () => {
 										</button>
 										<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 											{store.carrito.map((carritoitem, index) => {
+												console.log(carritoitem);
 												return (
 													<li key={index} className="d-flex justify-content-end">
 														<a className="dropdown-item">

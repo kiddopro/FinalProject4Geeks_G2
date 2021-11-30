@@ -122,7 +122,7 @@ export const HomeContainer = props => {
 								&nbsp;
 								<button
 									type="button"
-									onClick={() => actions.addToCart(item.nombre)}
+									onClick={() => actions.addToCart(item)}
 									className="btn btn-outline-primary">
 									Agregar al carrito
 								</button>
@@ -162,7 +162,7 @@ export const HomeContainer = props => {
 								&nbsp;
 								<button
 									type="button"
-									onClick={() => actions.addToCart(item.nombre)}
+									onClick={() => actions.addToCart(item)}
 									className="btn btn-outline-primary">
 									Agregar al carrito
 								</button>
@@ -202,7 +202,7 @@ export const HomeContainer = props => {
 								&nbsp;
 								<button
 									type="button"
-									onClick={() => actions.addToCart(item.nombre)}
+									onClick={() => actions.addToCart(item)}
 									className="btn btn-outline-primary">
 									Agregar al carrito
 								</button>

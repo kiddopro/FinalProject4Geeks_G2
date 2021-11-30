@@ -26,7 +26,7 @@ const Layout = () => {
 	const login = localStorage.getItem("token") != undefined ? true : false;
 
 	return (
-		<div className="container">
+		<div className="">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />

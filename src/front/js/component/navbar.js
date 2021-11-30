@@ -8,16 +8,16 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
-			<div className="container-fluid">
+			<div className="container-fluid px-0">
 				<a className="navbar-brand logo" href="#">
 					<Link to="/">
 						<img
-							className="logo"
+							className="logo img-fluid"
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 						/>
 					</Link>
 				</a>
-				<div className="float-right">
+				<div className="collapse navbar-collapse">
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -31,7 +31,7 @@ export const Navbar = () => {
 					<div
 						className="botonprodu collapse navbar-collapse justify-content-center"
 						id="navbarSupportedContent">
-						<ul className="navbar-nav me-auto">
+						<ul className="navbar-nav">
 							<li className="nav-item productos">
 								<a className="nav-link active fortnite todoslosprod" aria-current="page" href="#">
 									<Link to="/">Todos los productos</Link>
@@ -68,7 +68,7 @@ export const Navbar = () => {
 												return (
 													<li key={index} className="d-flex justify-content-end">
 														<a className="dropdown-item">
-															{carritoitem}
+															{carritoitem.nombre}
 
 															<button
 																type="button"

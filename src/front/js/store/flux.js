@@ -251,12 +251,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: [...store.favorites, id] });
 			},
 
-			addToCart: name => {
+			addToCart: product => {
 				console.log("agregando al carrito");
 				const store = getStore();
-				let producto = store.articulo.filter(item => item.nombre == name);
-				console.log(producto);
-				setStore({ carrito: [...store.carrito, name] });
+				// let producto = store.articulo.filter(item => item.nombre == name);
+				console.log(product);
+				setStore({ carrito: [...store.carrito, product] });
 				// Hola
 			},
 

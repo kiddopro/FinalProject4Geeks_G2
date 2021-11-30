@@ -10,6 +10,7 @@ export const CarritoContainer = () => {
 	useEffect(() => {
 		actions.loadSomeData();
 	}, []);
+	console.log(store.carrito);
 	return (
 		<div className="container carrito">
 			<h1 className="fortnite">
@@ -34,7 +35,7 @@ export const CarritoContainer = () => {
 											data-bs-target="#collapseTwo"
 											aria-expanded="false"
 											aria-controls="collapseTwo">
-											{carritoitem} {carritoitem.precio}
+											{carritoitem.nombre} {" $" + carritoitem.precio}
 										</button>
 									</h2>
 									<div

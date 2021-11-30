@@ -114,7 +114,7 @@ export const HomeContainer = props => {
 								<h5 className="card-title">{item.nombre}</h5>
 								<p className="card-text w-100">{item.descripcion}</p>
 								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.index}>
+								<Link to={"/productos/" + item.id}>
 									<button type="button" className="btn btn-outline-primary">
 										Ver más
 									</button>
@@ -123,7 +123,9 @@ export const HomeContainer = props => {
 								<button
 									type="button"
 									onClick={() => actions.addToCart(item)}
-									className="btn btn-outline-primary">
+									className={
+										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
+									}>
 									Agregar al carrito
 								</button>
 								{/* &nbsp;
@@ -154,7 +156,7 @@ export const HomeContainer = props => {
 								<h5 className="card-title">{item.nombre}</h5>
 								<p className="card-text w-100">{item.descripcion}</p>
 								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.index}>
+								<Link to={"/productos/" + item.id}>
 									<button type="button" className="btn btn-outline-primary">
 										Ver más
 									</button>
@@ -163,7 +165,9 @@ export const HomeContainer = props => {
 								<button
 									type="button"
 									onClick={() => actions.addToCart(item)}
-									className="btn btn-outline-primary">
+									className={
+										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
+									}>
 									Agregar al carrito
 								</button>
 								{/* &nbsp;
@@ -194,7 +198,7 @@ export const HomeContainer = props => {
 								<h5 className="card-title">{item.nombre}</h5>
 								<p className="card-text w-100">{item.descripcion}</p>
 								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.index}>
+								<Link to={"/productos/" + item.id}>
 									<button type="button" className="btn btn-outline-primary">
 										Ver más
 									</button>
@@ -203,7 +207,9 @@ export const HomeContainer = props => {
 								<button
 									type="button"
 									onClick={() => actions.addToCart(item)}
-									className="btn btn-outline-primary">
+									className={
+										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
+									}>
 									Agregar al carrito
 								</button>
 								{/* &nbsp;

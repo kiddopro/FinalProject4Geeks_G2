@@ -20,7 +20,6 @@ import RestorePassword from "./pages/restorePassword";
 
 import { useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
-import Profile from "./pages/profile";
 //create your first component
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -73,9 +72,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/change_password">
 							<CambiarContraseña />
-						</Route>
-						<Route exact path="/profile">
-							<Profile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -18,6 +18,7 @@ font-size: 12px;
     size: 40px;
     width: 100%;
     color: rgb(32, 32, 122);
+    margin-bottom: 30px;
    
 }
 
@@ -26,9 +27,18 @@ font-size: 12px;
 }
 
 .redessociales li{
-list-style: none
+list-style: none;
+display: inline-grid;
+justify-items: center;
+margin: 5px;
+}
+
+.redessociales{
+    text-align: center;
+    padding: 0;
 }
 
 .contacto{
     margin-left: 30px;
+    text-align: center;
 }

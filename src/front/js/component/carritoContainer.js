@@ -7,6 +7,7 @@ import "../../styles/demo.scss";
 
 export const CarritoContainer = () => {
 	const { store, actions } = useContext(Context);
+	let total = 0;
 	useEffect(() => {
 		actions.loadSomeData();
 	}, []);
@@ -21,6 +22,7 @@ export const CarritoContainer = () => {
 				<h4 className="letra">Productos</h4>
 				<div>
 					{store.carrito.map((carritoitem, index) => {
+						total += carritoitem.precio;
 						return (
 							<div
 								className="accordion d-flex justify-content-between align-items-center"
@@ -104,6 +106,41 @@ export const CarritoContainer = () => {
 					</div>
 					&nbsp;
 				</div>
+			</div>
+			<div>
+				Total : $ {total}{" "}
+				<button
+					className="btn btn-primary"
+					type="button"
+					onClick={() =>
+						actions.pagarMercadoPago({
+							items: [
+								{
+									title: "Reloj SmartWatch",
+									quantity: 1,
+									unit_price: 120
+								},
+								{
+									title: "Otro producto",
+									quantity: 1,
+									unit_price: 120.2
+								}
+							],
+							payment_methods: {
+								excluded_payment_types: [
+									{
+										id: "ticket"
+									}
+								]
+							},
+							back_urls: {
+								success: "https://3000-tan-squirrel-hb0cm5sb.ws-us20.gitpod.io/"
+							}
+						})
+					}>
+					Confirmar
+				</button>
+				<div id="comprar" style={{ display: "inline" }} />
 			</div>
 		</div>
 	);

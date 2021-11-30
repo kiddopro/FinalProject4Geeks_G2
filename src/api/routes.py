@@ -334,11 +334,14 @@ def delete_producto(id):
 def add_carrito():
     # primero leo lo que viene en el body
     body=json.loads(request.data)
-    #print (body_fav)
+    # print (body)
+    # print (body ["prod_id"])
+    # producto=Producto.query.filter_by(id=body['prod_id'])
+   
     esta1=False
     esta2=False
     if "prod_id" in body:
-        producto=Producto.query.get(body['prod_id'])
+        producto=Producto.query.get(body['prod_id']) 
         if producto is None:
             raise APIException('Producto no encontrado',status_code=404)
         else:

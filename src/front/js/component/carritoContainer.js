@@ -42,10 +42,7 @@ export const CarritoContainer = () => {
 										className="accordion-collapse collapse"
 										aria-labelledby="headingTwo"
 										data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											<strong>blablabla.</strong> blablabla <code>.accordion-body</code>, though
-											the transition does limit overflow.
-										</div>
+										<div className="accordion-body">{carritoitem.descripcion}</div>
 									</div>
 								</div>
 								<div>

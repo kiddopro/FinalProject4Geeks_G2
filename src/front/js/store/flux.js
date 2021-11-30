@@ -30,7 +30,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			auth: false,
 			favorites: [],
 			articulo: [],
-			carrito: []
+			carrito: [],
+			smartwatch: [],
+			smartphone: [],
+			accesorios: []
 		},
 
 		actions: {
@@ -242,16 +245,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.clear();
 				setStore({ auth: false });
 			},
-			addFavorite: name => {
+			addFavorite: id => {
 				console.log("agregando favorito");
 				const store = getStore();
-				setStore({ favorites: [...store.favorites, name] });
+				setStore({ favorites: [...store.favorites, id] });
 			},
 
-			addToCart: name => {
+			addToCart: id => {
 				console.log("agregando al carrito");
 				const store = getStore();
-				setStore({ carrito: [...store.carrito, name] });
+				setStore({ carrito: [...store.carrito, id] });
 			},
 
 			removeFromCart: indexcart => {
@@ -267,7 +270,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())
 					.then(data => {
-						setStore({ articulo: data });
+						let resultado1 = data.filter(item => item.categoria == "smartwatch");
+						let resultado2 = data.filter(item => item.categoria == "smartphone");
+						let resultado3 = data.filter(item => item.categoria == "accesorios");
+						setStore({ smartwatch: resultado1 });
+						setStore({ smartphone: resultado2 });
+						setStore({ accesorios: resultado3 });
 						console.log(data);
 					})
 					.catch(error => console.log("error", error));

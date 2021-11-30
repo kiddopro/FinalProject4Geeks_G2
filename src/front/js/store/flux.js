@@ -155,25 +155,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions)
-					.then(response => {
-						response.json();
-						response.status == 200
-							? Toast.fire({
-									icon: "success",
-									title: "Usuario creado con exito!"
-							  })
-							: Toast.fire({
-									icon: "error",
-									title: "No se pudo crear el usuario!"
-							  });
-					})
-					.then(result => {
-						console.log(result);
-					})
-					.catch(error => console.log("error", error));
+				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions).then(response => {
+					response.json();
+					response.status == 200
+						? Toast.fire({
+								icon: "success",
+								title: "Usuario creado con exito!"
+						  })
+						: Toast.fire({
+								icon: "error",
+								title: "No se pudo crear el usuario!"
+						  });
+				});
 			},
+			// Esto es agregado para probar
+			// Lo hace Juan, para cargar Favoritos
+			// a prepo
+			// ==========================================
+			// ==========================================
+			pruebaAgregarFavoritos: async () => {
+				let url = `${process.env.BACKEND_URL}/api/productos/1`;
+				try {
+					let response = await fetch(url);
+					let responseObject = await response.json();
+					console.log(responseObject);
+					setStore({
+						favorites: [responseObject]
+					});
+				} catch (error) {
+					console.log(error);
+				}
 
+				// es hasta aca ..............................
+				//	-----------------------------------------------------
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

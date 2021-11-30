@@ -81,16 +81,15 @@ def index():
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
 
-
+# Haciendo un pago desde el front enviando luego la respuesta en
+# las preferencias
 @api.route("/pago",methods=['POST'])
 def pago():
-    print("Esto es solo una prueba de pago")
+    print("Entrando al metodo de pago")
     # Crea un ítem en la preferencia
     body=request.get_json()
     print(body)
-    preference_data = {
-        "items": body
-    }
+    preference_data = body
     # del front llega arreglo de objetos
     preference_response = sdk.preference().create(preference_data)
     preference = preference_response["response"]

@@ -1,0 +1,57 @@
+Usuarios creados con el Token de Test
+----------------------------------------------------------------------------------
+{
+    "id": 1028130347,
+    "nickname": "TETE2591106",
+    "password": "qatest7636",
+    "site_status": "active",
+    "email": "test_user_83143411@testuser.com"
+}
+-----------------------------------------------------------------------------------------
+{
+    "id": 1028130389,
+    "nickname": "TETE9274625",
+    "password": "qatest2688",
+    "site_status": "active",
+    "email": "test_user_97770453@testuser.com"
+}
+-----------------------------------------------------------------------------------------------------
+{
+    "id": 1028128445,
+    "nickname": "TETE9907617",
+    "password": "qatest7063",
+    "site_status": "active",
+    "email": "test_user_32941191@testuser.com"
+}
+--------------------------------------------------------------------------------------------
+{
+    "id": 1028130422,
+    "nickname": "TESTE3LQKV2Y",
+    "password": "qatest3864",
+    "site_status": "active",
+    "email": "test_user_34161345@testuser.com"
+}
+-----------------------------------------------------------------------------------------
+{
+    "id": 1028133742,
+    "nickname": "TESTDVRD5MMT",
+    "password": "qatest9580",
+    "site_status": "active",
+    "email": "test_user_34177350@testuser.com"
+}
+-------------------------------------------------------------------------
+{
+    "id": 1028132148,
+    "nickname": "TETE5152789",
+    "password": "qatest410",
+    "site_status": "active",
+    "email": "test_user_59776141@testuser.com"
+}
+-----------------------------------------------------------------------------------
+{
+    "id": 1028258675,
+    "nickname": "TEST9UYAWO2K",
+    "password": "qatest2202",
+    "site_status": "active",
+    "email": "test_user_36451156@testuser.com"
+}

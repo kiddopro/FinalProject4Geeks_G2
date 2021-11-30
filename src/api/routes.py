@@ -276,12 +276,13 @@ def add_producto():
     body_us=json.loads(request.data)
     #print (body_us)
     producto=Producto(nombre=body_us['nombre'],marca=body_us['marca'],precio=body_us['precio'],imagen=body_us['imagen'],descripcion=body_us['descripcion'],categoria=body_us['categoria'])
+  
     db.session.add(producto)               
     db.session.commit()  
     productos=Producto.query.all()
-    productos = list(map(lambda producto: producto.serialize(), productos ))
     if not productos:
         return jsonify("no se encontraron productos"),404
+    productos = list(map(lambda producto: producto.serialize(), productos ))
         
     return jsonify(productos), 200
 
@@ -332,11 +333,14 @@ def delete_producto(id):
 def add_carrito():
     # primero leo lo que viene en el body
     body=json.loads(request.data)
-    #print (body_fav)
+    # print (body)
+    # print (body ["prod_id"])
+    # producto=Producto.query.filter_by(id=body['prod_id'])
+   
     esta1=False
     esta2=False
     if "prod_id" in body:
-        producto=Producto.query.get(body['prod_id'])
+        producto=Producto.query.get(body['prod_id']) 
         if producto is None:
             raise APIException('Producto no encontrado',status_code=404)
         else:

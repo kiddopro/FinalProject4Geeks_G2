@@ -29,7 +29,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			auth: false,
 			favorites: [],
-			articulo: []
+			articulo: [],
+			carrito: [],
+			smartwatch: [],
+			smartphone: [],
+			accesorios: []
 		},
 
 		actions: {
@@ -256,16 +260,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.clear();
 				setStore({ auth: false });
 			},
-			addFavorite: name => {
+			addFavorite: id => {
 				console.log("agregando favorito");
 				const store = getStore();
-				setStore({ favorites: [...store.favorites, name] });
+				setStore({ favorites: [...store.favorites, id] });
 			},
+
+			addToCart: product => {
+				console.log("agregando al carrito");
+				const store = getStore();
+				// let producto = store.articulo.filter(item => item.nombre == name);
+				console.log(product);
+				setStore({ carrito: [...store.carrito, product] });
+				// Hola
+			},
+
+			removeFromCart: indexcart => {
+				console.log("quitando del carrito", indexcart);
+				const store = getStore();
+				const filteredCart = store.carrito.filter((carritoitem, index) => {
+					return index != indexcart;
+				});
+				setStore({ carrito: filteredCart });
+			},
+
 			loadSomeData: () => {
-				fetch("https://https://3001-black-loon-lnz0bl8t.ws-us17.gitpod.io/api/productos")
+				fetch(process.env.BACKEND_URL + "/api/productos")
 					.then(response => response.json())
 					.then(data => {
 						setStore({ articulo: data });
+						let resultado1 = data.filter(item => item.categoria == "smartwatch");
+						let resultado2 = data.filter(item => item.categoria == "smartphone");
+						let resultado3 = data.filter(item => item.categoria == "accesorios");
+						setStore({ smartwatch: resultado1 });
+						setStore({ smartphone: resultado2 });
+						setStore({ accesorios: resultado3 });
 						console.log(data);
 					})
 					.catch(error => console.log("error", error));

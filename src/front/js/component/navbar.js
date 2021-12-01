@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/Navbar.scss";
 import { Link } from "react-router-dom";
@@ -6,10 +6,13 @@ import UserNavbar from "./userNavbar";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+	}, []);
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
 			<div className="container-fluid px-0">
-				<a className="navbar-brand logo" href="#">
+				<a className="navbar-brand logo">
 					<Link to="/">
 						<img
 							className="logo img-fluid"
@@ -29,15 +32,15 @@ export const Navbar = () => {
 						<span className="navbar-toggler-icon" />
 					</button>
 					<div
-						className="botonprodu collapse navbar-collapse justify-content-center"
+						className="botonprodu collapse navbar-collapse justify-content-end"
 						id="navbarSupportedContent">
 						<ul className="navbar-nav">
 							<li className="nav-item productos">
-								<a className="nav-link active fortnite todoslosprod" aria-current="page" href="#">
+								<a className="nav-link active fortnite todoslosprod" aria-current="page">
 									<Link to="/">Todos los productos</Link>
 								</a>
 							</li>
-							<form className="d-flex">
+							{/* <form className="d-flex">
 								<input
 									className="form-control me-2 fortnite"
 									type="search"
@@ -47,11 +50,11 @@ export const Navbar = () => {
 								<button className="btn btn-outline-primary fortnite" type="submit">
 									Buscar
 								</button>
-							</form>
+							</form> */}
 
 							<div className="d-flex">
 								<Link to="/carrito">
-									<div className="dropdown">
+									<div className="dropdown dropstart">
 										<button
 											className="btn dropdown-toggle justify-content-end"
 											type="button"
@@ -63,23 +66,29 @@ export const Navbar = () => {
 											<span className="badge bg-secondary">{store.carrito.length}</span>
 										</button>
 										<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-											{store.carrito.map((carritoitem, index) => {
-												console.log(carritoitem);
-												return (
-													<li key={index} className="d-flex justify-content-end">
-														<a className="dropdown-item">
-															{carritoitem.nombre}
+											{store.carrito.length > 0 ? (
+												store.carrito.map((carritoitem, index) => {
+													console.log(carritoitem);
+													return (
+														<li key={index} className="d-flex justify-content-end">
+															<a className="dropdown-item">
+																{carritoitem.nombre}
 
-															<button
-																type="button"
-																className="btn-close ms-3 btn btn-outline-danger"
-																aria-label="Close"
-																onClick={() => actions.removeFromCart(index)}
-															/>
-														</a>
-													</li>
-												);
-											})}
+																<button
+																	type="button"
+																	className="btn-close ms-3 btn btn-outline-danger"
+																	aria-label="Close"
+																	onClick={() => actions.removeFromCart(index)}
+																/>
+															</a>
+														</li>
+													);
+												})
+											) : (
+												<li className="d-flex justify-content-end">
+													<a className="dropdown-item">{"vacío"}</a>
+												</li>
+											)}
 										</ul>
 									</div>
 								</Link>

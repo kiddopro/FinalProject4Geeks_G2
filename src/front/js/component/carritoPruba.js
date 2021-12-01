@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
 const CarritoPrueba = () => {
 	const { store, actions } = useContext(Context);
+	const [domicilio, setDomicilio] = useState(false);
 	let total = 0;
+
 	return (
 		<>
 			{store.auth ? (
@@ -61,6 +63,7 @@ const CarritoPrueba = () => {
 									type="radio"
 									name="flexRadioDefault"
 									id="flexRadioDefault1"
+									disabled
 								/>
 								<label className="form-check-label" htmlFor="flexRadioDefault1">
 									Envío a domicilio
@@ -75,7 +78,7 @@ const CarritoPrueba = () => {
 									checked
 								/>
 								<label className="form-check-label" htmlFor="flexRadioDefault2">
-									Retiro en Pick Up
+									Retiro en Pick Up <small className="text-danger">%100 off</small>
 								</label>
 							</div>
 							&nbsp;
@@ -85,9 +88,10 @@ const CarritoPrueba = () => {
 									className="form-check-input"
 									type="radio"
 									name="flexRadio2"
-									id="flexRadioDefault1"
+									id="flexRadioDefault3"
+									disabled
 								/>
-								<label className="form-check-label" htmlFor="flexRadioDefault1">
+								<label className="form-check-label" htmlFor="flexRadioDefault3">
 									Transferencia a cuenta BROU/Santander
 								</label>
 							</div>
@@ -96,55 +100,44 @@ const CarritoPrueba = () => {
 									className="form-check-input"
 									type="radio"
 									name="flexRadio2"
-									id="flexRadioDefault2"
+									id="flexRadioDefault4"
 									checked
 								/>
-								<label className="form-check-label" htmlFor="flexRadioDefault2">
+								<label className="form-check-label" htmlFor="flexRadioDefault4">
 									Mercadopago (Hasta en 12 cuotas sin recargo)
 								</label>
 							</div>
 							&nbsp;
 						</div>
 					</div>
-					<div>
-						Total : $ {total}{" "}
-						<button
-							className="btn btn-primary"
-							type="button"
-							onClick={() =>
-								actions.pagarMercadoPago({
-									items: [
-										{
-											title: "Reloj SmartWatch",
-											quantity: 1,
-											unit_price: 120
-										},
-										{
-											title: "Otro producto",
-											quantity: 1,
-											unit_price: 120.2
+					{store.carrito.length > 0 ? (
+						<div>
+							<h3>Total : $ {total} </h3>
+							<button
+								className="btn btn-primary me-4"
+								type="button"
+								onClick={() =>
+									actions.pagarMercadoPago({
+										items: store.formatoPago,
+										payment_methods: {
+											excluded_payment_types: [
+												{
+													id: "ticket"
+												}
+											]
 										}
-									],
-									payment_methods: {
-										excluded_payment_types: [
-											{
-												id: "ticket"
-											}
-										]
-									},
-									back_urls: {
-										success: "https://3000-tan-squirrel-hb0cm5sb.ws-us20.gitpod.io/"
-									}
-								})
-							}>
-							Confirmar
-						</button>
-						<div id="comprar" style={{ display: "inline" }} />
-					</div>
+									})
+								}>
+								Confirmar
+							</button>
+							<div id="comprar" style={{ display: "inline" }} />
+						</div>
+					) : null}
 				</div>
 			) : (
-				<div className="alert alert-danger" role="alert">
-					Debes estar logueado para ver tu carrito!
+				<div className="alert alert-danger text-center" role="alert">
+					<h3>Acceso denegado!</h3>
+					<h6>Debes estar logueado para ver tu carrito.</h6>
 				</div>
 			)}
 		</>

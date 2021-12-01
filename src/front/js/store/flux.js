@@ -1,10 +1,13 @@
 import Swal from "sweetalert2";
+// importación de emailjs
+import { init } from "emailjs-com";
+init("user_SzlH8wBZFeol2hhHEpsQn");
 const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",
 	showConfirmButton: false,
-	timer: 3000,
-	timerProgressBar: true,
+	timer: 1500,
+	timerProgressBar: false,
 	didOpen: toast => {
 		toast.addEventListener("mouseenter", Swal.stopTimer);
 		toast.addEventListener("mouseleave", Swal.resumeTimer);
@@ -40,7 +43,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			carrito: [],
 			smartwatch: [],
 			smartphone: [],
-			accesorios: []
+			accesorios: [],
+			formatoPago: [],
+			usuario_id: undefined,
+			usuario: {},
+			admin: false,
+			listaUsuarios: []
 		},
 
 		actions: {
@@ -147,18 +155,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions).then(response => {
-					response.json();
-					response.status == 200
-						? Toast.fire({
-								icon: "success",
-								title: "Usuario creado con exito!"
-						  })
-						: Toast.fire({
-								icon: "error",
-								title: "No se pudo crear el usuario!"
-						  });
-				});
+				fetch(process.env.BACKEND_URL + `/api/usuarios`, requestOptions)
+					.then(response => {
+						response.json();
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Usuario creado con exito!"
+							  })
+							: Toast.fire({
+									icon: "error",
+									title: "No se pudo crear el usuario!"
+							  });
+					})
+					.then(res => console.log(res))
+					.catch(err => console.log(err));
 			},
 			// Esto es agregado para probar
 			// Lo hace Juan, para cargar Favoritos
@@ -226,10 +237,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(result => {
-						result.token != undefined
-							? [localStorage.setItem("token", result.token), setStore({ auth: true })]
-							: null;
 						console.log(result);
+						result.token != undefined
+							? [
+									localStorage.setItem("token", result.token),
+									setStore({ auth: true }),
+									localStorage.setItem("uid", result.user)
+							  ]
+							: null;
+						console.log(store.usuario_id);
 					})
 					.catch(error => console.log("error", error));
 			},
@@ -251,7 +267,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			salir: () => {
 				localStorage.clear();
 				setStore({ auth: false });
+				setStore({ carrito: [] });
+				setStore({ admin: false });
+				Toast.fire({
+					icon: "info",
+					title: "Te has desconectado 😔"
+				});
 			},
+			// mensaje mensaje
 			autorizado: booleano => {
 				setStore({ auth: booleano });
 			},
@@ -268,7 +291,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// let producto = store.articulo.filter(item => item.nombre == name);
 				console.log(product);
 				setStore({ carrito: [...store.carrito, product] });
-				// Hola
+
+				let obj = {
+					title: product.nombre,
+					quantity: 1,
+					unit_price: product.precio
+				};
+				setStore({ formatoPago: [...store.formatoPago, obj] });
+				console.log(store.formatoPago);
 			},
 			pagarMercadoPago: carrito => {
 				let myHeaders = new Headers();
@@ -307,7 +337,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const filteredCart = store.carrito.filter((carritoitem, index) => {
 					return index != indexcart;
 				});
+				const filterFormato = store.formatoPago.filter((item, index) => {
+					return index != indexcart;
+				});
 				setStore({ carrito: filteredCart });
+				setStore({ formatoPago: filterFormato });
 			},
 
 			loadSomeData: () => {
@@ -333,6 +367,75 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ productoSeleccionado: data });
 						console.log(data);
 					})
+					.catch(error => console.log("error", error));
+			},
+			setUsuario: id => {
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${id}`)
+					.then(resp => resp.json())
+					.then(data => {
+						const store = getStore();
+						setStore({ usuario: data });
+						store.usuario.email == "admin@admin" ? setStore({ admin: true }) : setStore({ admin: false });
+						console.log(store.usuario);
+					})
+					.catch(err => console.log(err));
+			},
+			actualizarUsuario: nuevo => {
+				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(nuevo);
+
+				var requestOptions = {
+					method: "PUT",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${store.usuario.id}`, requestOptions)
+					.then(response => {
+						response.json();
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Datos actualizados correctamente!"
+							  })
+							: Toast.fire({
+									icon: "error",
+									title: "No se actualizaron tus datos!"
+							  });
+					})
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
+			},
+			getUsuarios: () => {
+				const store = getStore();
+				fetch(process.env.BACKEND_URL + `/api/usuarios`)
+					.then(resp => resp.json())
+					.then(data => {
+						const usuarios = data.filter(item => item.email != "admin@admin");
+						setStore({ listaUsuarios: usuarios });
+						console.log(usuarios);
+					})
+					.catch(err => console.log(err));
+			},
+			borrarUsuario: id => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var requestOptions = {
+					method: "DELETE",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${id}`, requestOptions)
+					.then(response => {
+						response.json();
+					})
+					.then(result => console.log(result))
 					.catch(error => console.log("error", error));
 			}
 		}

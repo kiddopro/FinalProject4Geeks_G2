@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const CardArticle = props => {
 	const { store, actions } = useContext(Context);
-	const agregarFavorito = () => {};
+	const agregarFavorito = item => {
+		actions.addToCart(store.productoSeleccionado);
+	};
 	return (
 		//style={{ maxWidth: "540px" }}
 		<div className="card mb-3 mx-auto">
@@ -16,11 +18,11 @@ const CardArticle = props => {
 						className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
 						style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
 						{store.probando.map((item, index) => {
-							return <img key={index} className="w-25" src="https://via.placeholder.com/150" />;
+							return <img key={index} className="w-25" src={props.image} />;
 						})}
 					</div>
 					{/* <div className="d-flex ">
-						<img
+						<img 
 							src="https://via.placeholder.com/150"
 							className="img-fluid rounded-start m-1"
 							alt="imagen articulo"
@@ -45,8 +47,11 @@ const CardArticle = props => {
 							<div className="card-text d-flex justify-content-between align-items-center">
 								<h2>${props.unit_cost}</h2>
 								<select className="w-25">
-									<option>Seleccionar colors</option>
+									<option>Seleccionar colores</option>
 									<option>Rojo</option>
+									<option>Amarillo</option>
+									<option>Negro</option>
+									<option>Gris</option>
 								</select>
 							</div>
 							<hr />

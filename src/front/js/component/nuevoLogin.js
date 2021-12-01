@@ -16,7 +16,8 @@ const NuevoLogin = () => {
 	return (
 		<>
 			{store.auth ? (
-				history.goBack()
+				// history.goBack()
+				<Redirect to="/" />
 			) : (
 				<div id="contenedor" className="container">
 					<div className="row">
@@ -26,7 +27,7 @@ const NuevoLogin = () => {
 									src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 									style={{ width: "60%" }}
 								/>
-								<small className="fortnite">You want it, you got it!</small>
+								<small className="fortnite">Líderes en tecnología!</small>
 							</div>
 						</div>
 						<div className="col-md-6 col-sm-6 right-side d-flex flex-column justify-content-between">

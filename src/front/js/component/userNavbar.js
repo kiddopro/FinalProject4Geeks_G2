@@ -4,7 +4,9 @@ import { Context } from "../store/appContext";
 
 const UserNavbar = () => {
 	const { store, actions } = useContext(Context);
-
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+	}, []);
 	const salir = () => {
 		actions.salir();
 	};
@@ -51,22 +53,27 @@ const UserNavbar = () => {
 					</a>
 					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li>
-							<a className="dropdown-item fortnite" href="#">
-								Mi perfil
-							</a>
+							<Link to="/profile">
+								<a className="dropdown-item fortnite">Mi perfil</a>
+							</Link>
 						</li>
 						<li>
 							<Link to="/change_password">
-								<a className="dropdown-item fortnite" href="#">
-									Cambiar contraseña
-								</a>
+								<a className="dropdown-item fortnite">Cambiar contraseña</a>
 							</Link>
 						</li>
+						{store.admin ? (
+							<li>
+								<Link to="/admin">
+									<a className="dropdown-item fortnite">Admin</a>
+								</Link>
+							</li>
+						) : null}
 						<li>
 							<hr className="dropdown-divider" />
 						</li>
 						<li>
-							<a className="dropdown-item fortnite text-danger" href="" onClick={() => salir()}>
+							<a className="dropdown-item fortnite text-danger" onClick={() => salir()}>
 								Salir
 							</a>
 						</li>

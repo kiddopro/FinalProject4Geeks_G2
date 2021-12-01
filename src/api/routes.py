@@ -111,7 +111,7 @@ def login():
     #    return jsonify({"msg": "Bad email or password"}), 401
 
     token = create_access_token(identity=email)
-    return jsonify(token=token)  
+    return jsonify({"token": token, "user": user1.id})  
 # Perdida de contraseña - su tratamiento
 
 # @api.route('/forgot_password',methods=['POST'])
@@ -197,12 +197,12 @@ def add_user():
         db.session.commit() 
     except: 
         return jsonify("No se pudo crear el usuario"),404
-    usuarios=Usuario.query.all()
-    usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
-    if not usuarios:
-        return jsonify("no se encontraron usuarios"),404
+    # usuarios=Usuario.query.all()
+    # usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
+    # if not usuarios:
+    #     return jsonify("no se encontraron usuarios"),404
         
-    return jsonify(usuarios), 200
+    return jsonify("usuario creado satisfactoriamente"), 200
 
 @api.route('/usuarios/<int:id>', methods=['PUT'])
 def update_usuario(id):
@@ -240,14 +240,18 @@ def delete_usuario(id):
     usuario=Usuario.query.get(id)
     if usuario is None:
        raise APIException('Usuario no encontrado',status_code=404)
-    db.session.delete(usuario)                
-    db.session.commit()
-    usuarios=Usuario.query.all()
-    usuarios = list(map(lambda usu: usu.serialize(), usuarios ))
-    if not usuarios:
-       return jsonify("no se encontraron usuarios"),404
+    
+    try:
+        db.session.delete(usuario)                
+        db.session.commit()
+    except: 
+        return jsonify("No se pudo borrar el usuario"),404
+    # usuarios=Usuario.query.all()
+    # usuarios = list(map(lambda usu: usu.serialize(), usuarios ))
+    # if not usuarios:
+    #    return jsonify("no se encontraron usuarios"),404
         
-    return jsonify(usuarios), 200  
+    return jsonify("Se ha eliminado el usuario satisafactoriamente"), 200  
 
 # Endpoints --- Productos   
 #--------------------------------------------

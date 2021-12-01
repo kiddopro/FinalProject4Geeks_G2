@@ -265,6 +265,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			salir: () => {
 				localStorage.clear();
 				setStore({ auth: false });
+				setStore({ carrito: [] });
 			},
 			autorizado: booleano => {
 				setStore({ auth: booleano });

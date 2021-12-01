@@ -22,6 +22,7 @@ import RestorePassword from "./pages/restorePassword";
 import { useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import Profile from "./pages/profile";
+import Admin from "./pages/admin";
 //create your first component
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -77,6 +78,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/profile">
 							<Profile />
+						</Route>
+						<Route exact path="/admin">
+							<Admin />
 						</Route>
 						<Route exact path="/favoritos">
 							<Favoritos />

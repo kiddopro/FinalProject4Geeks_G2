@@ -60,6 +60,13 @@ const UserNavbar = () => {
 								<a className="dropdown-item fortnite">Cambiar contraseña</a>
 							</Link>
 						</li>
+						{store.admin ? (
+							<li>
+								<Link to="/admin">
+									<a className="dropdown-item fortnite">Admin</a>
+								</Link>
+							</li>
+						) : null}
 						<li>
 							<hr className="dropdown-divider" />
 						</li>

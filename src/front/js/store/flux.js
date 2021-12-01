@@ -44,7 +44,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			smartwatch: [],
 			smartphone: [],
 			accesorios: [],
-			formatoPago: []
+			formatoPago: [],
+			usuario_id: undefined,
+			usuario: {}
 		},
 
 		actions: {
@@ -230,10 +232,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(result => {
-						result.token != undefined
-							? [localStorage.setItem("token", result.token), setStore({ auth: true })]
-							: null;
 						console.log(result);
+						result.token != undefined
+							? [
+									localStorage.setItem("token", result.token),
+									setStore({ auth: true }),
+									setStore({ usuario_id: result.user })
+							  ]
+							: null;
+						console.log(store.usuario_id);
 					})
 					.catch(error => console.log("error", error));
 			},

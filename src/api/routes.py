@@ -109,7 +109,7 @@ def login():
     #    return jsonify({"msg": "Bad email or password"}), 401
 
     token = create_access_token(identity=email)
-    return jsonify(token=token)  
+    return jsonify({"token": token, "user": user1.id})  
 # Perdida de contraseña - su tratamiento
 
 # @api.route('/forgot_password',methods=['POST'])

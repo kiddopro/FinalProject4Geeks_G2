@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 
 const CarritoPrueba = () => {
 	const { store, actions } = useContext(Context);
+	const [domicilio, setDomicilio] = useState(false);
 	let total = 0;
+
 	return (
 		<>
 			{store.auth ? (
@@ -107,7 +109,7 @@ const CarritoPrueba = () => {
 						</div>
 					</div>
 					<div>
-						Total : $ {total}{" "}
+						<h3>Total : $ {total} </h3>
 						<button
 							className="btn btn-primary"
 							type="button"

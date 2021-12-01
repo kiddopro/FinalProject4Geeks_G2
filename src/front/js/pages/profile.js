@@ -536,7 +536,7 @@ const Profile = () => {
 			) : (
 				<div className="alert alert-danger text-center" role="alert">
 					<h3>Acceso denegado!</h3>
-					<h6>Debes estar logueado.</h6>
+					<h6>Debes estar logueado para ver tu perfil.</h6>
 				</div>
 			)}
 		</>

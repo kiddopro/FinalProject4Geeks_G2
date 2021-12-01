@@ -60,14 +60,9 @@ const CambiarContraseña = () => {
 					</div>
 				</div>
 			) : (
-				<div className="container">
-					<div className="row">
-						<div className="col-lg-12 col">
-							<div className="alert alert-danger" role="alert">
-								Accesso denegado!
-							</div>
-						</div>
-					</div>
+				<div className="alert alert-danger text-center" role="alert">
+					<h3>Acceso denegado!</h3>
+					<h6>Debes estar logueado para cambiar tu contraseña.</h6>
 				</div>
 			)}
 		</>

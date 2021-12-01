@@ -132,8 +132,9 @@ const CarritoPrueba = () => {
 					</div>
 				</div>
 			) : (
-				<div className="alert alert-danger" role="alert">
-					Debes estar logueado para ver tu carrito!
+				<div className="alert alert-danger text-center" role="alert">
+					<h3>Acceso denegado!</h3>
+					<h6>Debes estar logueado para ver tu carrito.</h6>
 				</div>
 			)}
 		</>

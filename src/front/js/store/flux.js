@@ -40,7 +40,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			carrito: [],
 			smartwatch: [],
 			smartphone: [],
-			accesorios: []
+			accesorios: [],
+			formatoPago: []
 		},
 
 		actions: {
@@ -268,7 +269,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// let producto = store.articulo.filter(item => item.nombre == name);
 				console.log(product);
 				setStore({ carrito: [...store.carrito, product] });
-				// Hola
+
+				let obj = {
+					title: product.nombre,
+					quantity: 1,
+					unit_price: product.precio
+				};
+				setStore({ formatoPago: [...store.formatoPago, obj] });
+				console.log(store.formatoPago);
 			},
 			pagarMercadoPago: carrito => {
 				let myHeaders = new Headers();
@@ -307,7 +315,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const filteredCart = store.carrito.filter((carritoitem, index) => {
 					return index != indexcart;
 				});
+				const filterFormato = store.formatoPago.filter((item, index) => {
+					return index != indexcart;
+				});
 				setStore({ carrito: filteredCart });
+				setStore({ formatoPago: filterFormato });
 			},
 
 			loadSomeData: () => {
@@ -335,6 +347,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			}
+			// setFotmatoPago: (item) => {
+			// 	const store = getStore();
+			// 	let obj = {
+			// 		title: item.nombre,
+			// 		quantity: 1,
+			// 		unit_price: item.precio
+			// 	}
+			// 	setStore({formatoPago: [...store.formatoPago, obj]});
+			// }
 		}
 	};
 };

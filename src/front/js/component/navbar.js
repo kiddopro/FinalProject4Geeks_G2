@@ -63,23 +63,31 @@ export const Navbar = () => {
 											<span className="badge bg-secondary">{store.carrito.length}</span>
 										</button>
 										<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-											{store.carrito.map((carritoitem, index) => {
-												console.log(carritoitem);
-												return (
-													<li key={index} className="d-flex justify-content-end">
-														<a className="dropdown-item">
-															{carritoitem.nombre}
+											{store.carrito.length > 0 ? (
+												store.carrito.map((carritoitem, index) => {
+													console.log(carritoitem);
+													return (
+														<li key={index} className="d-flex justify-content-end">
+															<a className="dropdown-item">
+																{carritoitem.nombre}
 
-															<button
-																type="button"
-																className="btn-close ms-3 btn btn-outline-danger"
-																aria-label="Close"
-																onClick={() => actions.removeFromCart(index)}
-															/>
-														</a>
-													</li>
-												);
-											})}
+																<button
+																	type="button"
+																	className="btn-close ms-3 btn btn-outline-danger"
+																	aria-label="Close"
+																	onClick={() => actions.removeFromCart(index)}
+																/>
+															</a>
+														</li>
+													);
+												})
+											) : (
+												<li className="d-flex justify-content-end">
+													<a href="#" className="dropdown-item">
+														{"vacío"}
+													</a>
+												</li>
+											)}
 										</ul>
 									</div>
 								</Link>

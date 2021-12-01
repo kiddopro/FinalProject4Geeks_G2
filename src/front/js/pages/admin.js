@@ -15,11 +15,13 @@ const Admin = () => {
 				<div className="col-md-12">
 					{store.listaUsuarios.map((item, index) => {
 						return (
-							<div key={index} className="">
-								{item.email}
-								<button onClick={() => console.log(item.id)} type="submit">
-									❌
-								</button>
+							<div key={index} className="card w-50 mx-auto">
+								<div className="card-body d-flex justify-content-between">
+									{item.email}
+									<button onClick={() => console.log(item.id)} type="submit">
+										❌
+									</button>
+								</div>
 							</div>
 						);
 					})}

@@ -47,7 +47,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			formatoPago: [],
 			usuario_id: undefined,
 			usuario: {},
-			admin: false
+			admin: false,
+			listaUsuarios: []
 		},
 
 		actions: {
@@ -268,6 +269,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ auth: false });
 				setStore({ carrito: [] });
 				setStore({ admin: false });
+				Toast.fire({
+					icon: "info",
+					title: "Te has desconectado 😔"
+				});
 			},
 			autorizado: booleano => {
 				setStore({ auth: booleano });
@@ -403,6 +408,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(result => console.log(result))
 					.catch(error => console.log("error", error));
+			},
+			getUsuarios: () => {
+				const store = getStore();
+				fetch(process.env.BACKEND_URL + `/api/usuarios`)
+					.then(resp => resp.json())
+					.then(data => {
+						const usuarios = data.filter(item => item.email != "admin@admin");
+						setStore({ listaUsuarios: usuarios });
+						console.log(usuarios);
+					})
+					.catch(err => console.log(err));
 			}
 		}
 	};

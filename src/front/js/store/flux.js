@@ -6,7 +6,7 @@ const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",
 	showConfirmButton: false,
-	timer: 3000,
+	timer: 1000,
 	timerProgressBar: true,
 	didOpen: toast => {
 		toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -153,18 +153,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch(process.env.BACKEND_URL + "/api/usuarios", requestOptions).then(response => {
-					response.json();
-					response.status == 200
-						? Toast.fire({
-								icon: "success",
-								title: "Usuario creado con exito!"
-						  })
-						: Toast.fire({
-								icon: "error",
-								title: "No se pudo crear el usuario!"
-						  });
-				});
+				fetch(process.env.BACKEND_URL + `/api/usuarios`, requestOptions)
+					.then(response => {
+						response.json();
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Usuario creado con exito!"
+							  })
+							: Toast.fire({
+									icon: "error",
+									title: "No se pudo crear el usuario!"
+							  });
+					})
+					.then(res => console.log(res))
+					.catch(err => console.log(err));
 			},
 			// Esto es agregado para probar
 			// Lo hace Juan, para cargar Favoritos

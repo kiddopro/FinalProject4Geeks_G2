@@ -200,7 +200,7 @@ def add_user():
     # if not usuarios:
     #     return jsonify("no se encontraron usuarios"),404
         
-    return jsonify(usuarios), 200
+    return jsonify("usuario creado satisfactoriamente"), 200
 
 @api.route('/usuarios/<int:id>', methods=['PUT'])
 def update_usuario(id):

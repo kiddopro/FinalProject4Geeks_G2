@@ -36,7 +36,7 @@ import os
 #print("variable entorno ->>>",os.environ.get("BACKEND_URL"))
 #api_endpoint_productos=os.environ.get("BACKEND_URL")+"/api/productos"
 #print(api_endpoint_productos)
-api_endpoint_productos="https://3001-apricot-mockingbird-4cs2b03h.ws-us20.gitpod.io/api/productos"
+api_endpoint_productos="https://3001-harlequin-tiglon-8hkya9xz.ws-us20.gitpod.io/api/productos"
 nombres=["Amazfit Band 5",
          "Amazfit T-Rex",
          "Amazfit Gts 2",

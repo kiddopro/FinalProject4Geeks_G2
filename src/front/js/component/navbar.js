@@ -9,7 +9,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
 			<div className="container-fluid px-0">
-				<a className="navbar-brand logo" href="#">
+				<a className="navbar-brand logo">
 					<Link to="/">
 						<img
 							className="logo img-fluid"
@@ -33,7 +33,7 @@ export const Navbar = () => {
 						id="navbarSupportedContent">
 						<ul className="navbar-nav">
 							<li className="nav-item productos">
-								<a className="nav-link active fortnite todoslosprod" aria-current="page" href="#">
+								<a className="nav-link active fortnite todoslosprod" aria-current="page">
 									<Link to="/">Todos los productos</Link>
 								</a>
 							</li>

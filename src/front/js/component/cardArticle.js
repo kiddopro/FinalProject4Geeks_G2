@@ -18,11 +18,11 @@ const CardArticle = props => {
 						className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
 						style={{ overflowX: "scroll", overflowY: "hidden", whiteSpace: "nowrap" }}>
 						{store.probando.map((item, index) => {
-							return <img key={index} className="w-25" src="https://via.placeholder.com/150" />;
+							return <img key={index} className="w-25" src={props.image} />;
 						})}
 					</div>
 					{/* <div className="d-flex ">
-						<img
+						<img 
 							src="https://via.placeholder.com/150"
 							className="img-fluid rounded-start m-1"
 							alt="imagen articulo"

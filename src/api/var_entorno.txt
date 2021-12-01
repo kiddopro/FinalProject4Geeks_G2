@@ -1,6 +1,6 @@
-MAIL_APP="Tecnoferta.uy@gmail.com"
-MAIL_CON="Pruebatecno2021"
-MAIL_AUX="Tecnoferta.uy@gmail.com"
+MAIL_APP="juanantonaccio889@gmail.com"
+MAIL_CON="2695jmac1965"
+MAIL_AUX="juanantonaccio889@gmail.com"
 
 MP_PK="TEST-d3f844c1-fadc-49b1-b257-362ba823e45b"
 MP_AT="TEST-4925494818343939-112812-a0d409bee2d56a2c958881b9e9316bb0-1028130389"

@@ -40,6 +40,7 @@ const Admin = () => {
 							<h1 className="text-center">Panel de Administrador</h1>
 						</div>
 						<div className="col-md-12">
+							<h3 className="text-center">Usuarios</h3>
 							{store.listaUsuarios.map((item, index) => {
 								return (
 									<div key={index} className="card w-50 mx-auto">

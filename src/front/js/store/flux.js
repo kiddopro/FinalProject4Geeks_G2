@@ -366,6 +366,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(store.usuario);
 					})
 					.catch(err => console.log(err));
+			},
+			actualizarUsuario: nuevo => {
+				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify(nuevo);
+
+				var requestOptions = {
+					method: "PUT",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${store.usuario.id}`, requestOptions)
+					.then(response => {
+						response.json();
+						response.status == 200
+							? Toast.fire({
+									icon: "success",
+									title: "Datos actualizados correctamente!"
+							  })
+							: Toast.fire({
+									icon: "error",
+									title: "No se actualizaron tus datos!"
+							  });
+					})
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

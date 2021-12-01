@@ -3,11 +3,15 @@ import { Context } from "../store/appContext";
 
 const Profile = () => {
 	const { store, actions } = useContext(Context);
+	const [usuario, setUsuario] = useState({});
 
 	useEffect(() => {
 		actions.setUsuario(localStorage.getItem("uid"));
-		// console.log(localStorage.getItem("uid"));
 	}, []);
+
+	const dioClick = () => {
+		actions.actualizarUsuario(usuario);
+	};
 
 	return (
 		<>
@@ -123,6 +127,7 @@ const Profile = () => {
 													name="first_name"
 													id="first_name"
 													placeholder="vacío"
+													onChange={e => setUsuario({ ...usuario, nombre: e.target.value })}
 													title="enter your first name if any."
 												/>
 											</div>
@@ -154,6 +159,7 @@ const Profile = () => {
 													className="form-control"
 													name="phone"
 													id="phone"
+													onChange={e => setUsuario({ ...usuario, telefono: e.target.value })}
 													placeholder="vacío"
 													title="enter your phone number if any."
 												/>
@@ -185,6 +191,7 @@ const Profile = () => {
 													type="email"
 													className="form-control"
 													name="email"
+													onChange={e => setUsuario({ ...usuario, email: e.target.value })}
 													id="email"
 													placeholder="vacío"
 													title="enter your email."
@@ -201,6 +208,9 @@ const Profile = () => {
 													className="form-control"
 													id="location"
 													placeholder="vacío"
+													onChange={e =>
+														setUsuario({ ...usuario, direccion: e.target.value })
+													}
 													title="enter a location"
 												/>
 											</div>
@@ -215,6 +225,9 @@ const Profile = () => {
 													type="text"
 													className="form-control"
 													id="documento"
+													onChange={e =>
+														setUsuario({ ...usuario, documento: e.target.value })
+													}
 													placeholder="vacío"
 													title="ingrese su documento"
 												/>
@@ -253,7 +266,10 @@ const Profile = () => {
 										<div className="form-group">
 											<div className="col-xs-12">
 												<br />
-												<button className="btn btn-lg btn-success" type="submit">
+												<button
+													className="btn btn-lg btn-success"
+													type="button"
+													onClick={() => dioClick()}>
 													<i className="glyphicon glyphicon-ok-sign" /> Save
 												</button>
 												<button className="btn btn-lg" type="reset">

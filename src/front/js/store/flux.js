@@ -1,4 +1,7 @@
 import Swal from "sweetalert2";
+// importación de emailjs
+import { init } from "emailjs-com";
+init("user_SzlH8wBZFeol2hhHEpsQn");
 const Toast = Swal.mixin({
 	toast: true,
 	position: "top-end",

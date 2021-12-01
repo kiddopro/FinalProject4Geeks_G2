@@ -51,9 +51,11 @@ const UserNavbar = () => {
 					</a>
 					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li>
-							<a className="dropdown-item fortnite" href="#">
-								Mi perfil
-							</a>
+							<Link to="/profile">
+								<a className="dropdown-item fortnite" href="#">
+									Mi perfil
+								</a>
+							</Link>
 						</li>
 						<li>
 							<Link to="/change_password">

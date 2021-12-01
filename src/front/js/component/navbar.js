@@ -37,7 +37,7 @@ export const Navbar = () => {
 									<Link to="/">Todos los productos</Link>
 								</a>
 							</li>
-							<form className="d-flex">
+							{/* <form className="d-flex">
 								<input
 									className="form-control me-2 fortnite"
 									type="search"
@@ -47,7 +47,7 @@ export const Navbar = () => {
 								<button className="btn btn-outline-primary fortnite" type="submit">
 									Buscar
 								</button>
-							</form>
+							</form> */}
 
 							<div className="d-flex">
 								<Link to="/carrito">

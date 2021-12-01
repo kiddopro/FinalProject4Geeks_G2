@@ -204,6 +204,7 @@ const Profile = () => {
 													<h4>Dirección</h4>
 												</label>
 												<input
+													value={store.usuario.direccion}
 													type="text"
 													className="form-control"
 													id="location"

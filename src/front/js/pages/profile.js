@@ -111,7 +111,6 @@ const Profile = () => {
 											className="form-control"
 											name="first_name"
 											id="first_name"
-											placeholder="first name"
 											title="enter your first name if any."
 										/>
 									</div>
@@ -142,7 +141,6 @@ const Profile = () => {
 											className="form-control"
 											name="phone"
 											id="phone"
-											placeholder="enter phone"
 											title="enter your phone number if any."
 										/>
 									</div>
@@ -173,7 +171,6 @@ const Profile = () => {
 											className="form-control"
 											name="email"
 											id="email"
-											placeholder="you@email.com"
 											title="enter your email."
 										/>
 									</div>
@@ -187,7 +184,6 @@ const Profile = () => {
 											type="text"
 											className="form-control"
 											id="location"
-											placeholder="somewhere"
 											title="enter a location"
 										/>
 									</div>
@@ -201,7 +197,6 @@ const Profile = () => {
 											type="text"
 											className="form-control"
 											id="documento"
-											placeholder="ingrese su documento"
 											title="ingrese su documento"
 										/>
 									</div>

@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const CardArticle = props => {
 	const { store, actions } = useContext(Context);
-	const agregarFavorito = () => {};
+	const agregarFavorito = item => {
+		actions.addToCart(store.productoSeleccionado);
+	};
 	return (
 		//style={{ maxWidth: "540px" }}
 		<div className="card mb-3 mx-auto">

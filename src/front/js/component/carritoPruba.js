@@ -110,27 +110,29 @@ const CarritoPrueba = () => {
 							&nbsp;
 						</div>
 					</div>
-					<div>
-						<h3>Total : $ {total} </h3>
-						<button
-							className="btn btn-primary"
-							type="button"
-							onClick={() =>
-								actions.pagarMercadoPago({
-									items: store.formatoPago,
-									payment_methods: {
-										excluded_payment_types: [
-											{
-												id: "ticket"
-											}
-										]
-									}
-								})
-							}>
-							Confirmar
-						</button>
-						<div id="comprar" style={{ display: "inline" }} />
-					</div>
+					{store.carrito.length > 0 ? (
+						<div>
+							<h3>Total : $ {total} </h3>
+							<button
+								className="btn btn-primary me-4"
+								type="button"
+								onClick={() =>
+									actions.pagarMercadoPago({
+										items: store.formatoPago,
+										payment_methods: {
+											excluded_payment_types: [
+												{
+													id: "ticket"
+												}
+											]
+										}
+									})
+								}>
+								Confirmar
+							</button>
+							<div id="comprar" style={{ display: "inline" }} />
+						</div>
+					) : null}
 				</div>
 			) : (
 				<div className="alert alert-danger text-center" role="alert">

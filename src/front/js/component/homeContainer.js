@@ -46,9 +46,9 @@ export const HomeContainer = props => {
 						<div className="carousel-caption d-none d-md-block textodos">
 							<h5 className="fs-1 fst-italic titulo1">Llevá tu entrenamiento</h5>
 							<p className="titulo2">A OTRO NIVEL</p>
-							<button type="button" className="btn btn-outline-primary">
+							<a href="#informacion" className="btn btn-outline-primary">
 								Más información
-							</button>
+							</a>
 						</div>
 					</div>
 					<div className="carousel-item imagenhome" data-bs-interval="2000">
@@ -60,9 +60,9 @@ export const HomeContainer = props => {
 						<div className="carousel-caption d-none d-md-block textodos" data-bs-interval="2000">
 							<h5 className="fs-1 fst-italic titulo1">La última tecnología</h5>
 							<p className="titulo2">LA ENCONTRÁS ACÁ</p>
-							<button type="button" className="btn btn-outline-primary">
+							<a href="#informacion" className="btn btn-outline-primary">
 								Más información
-							</button>
+							</a>
 						</div>
 					</div>
 					<div className="carousel-item imagenhome">
@@ -74,9 +74,9 @@ export const HomeContainer = props => {
 						<div className="carousel-caption d-none d-md-block textodos">
 							<h5 className="fs-1 fst-italic titulo1">Limpiar la casa</h5>
 							<p className="titulo2">NUNCA FUE TAN FÁCIL</p>
-							<button type="button" className="btn btn-outline-primary">
+							<a href="#informacion" className="btn btn-outline-primary">
 								Más información
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,8 @@ export const HomeContainer = props => {
 				</button>
 			</div>
 
-			<h3 className="text-center">Smartwatches</h3>
+			<a name="informacion" />
+			<h3 className="text-center mt-5">Smartwatches</h3>
 			<br />
 
 			<div

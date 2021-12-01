@@ -18,7 +18,7 @@ const Admin = () => {
 							<div key={index} className="card w-50 mx-auto">
 								<div className="card-body d-flex justify-content-between">
 									{item.email}
-									<button onClick={() => console.log(item.id)} type="submit">
+									<button onClick={() => console.log(item.id)} type="submit" className="btn">
 										❌
 									</button>
 								</div>

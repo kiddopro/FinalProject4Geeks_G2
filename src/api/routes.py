@@ -195,10 +195,10 @@ def add_user():
         db.session.commit() 
     except: 
         return jsonify("No se pudo crear el usuario"),404
-    usuarios=Usuario.query.all()
-    usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
-    if not usuarios:
-        return jsonify("no se encontraron usuarios"),404
+    # usuarios=Usuario.query.all()
+    # usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
+    # if not usuarios:
+    #     return jsonify("no se encontraron usuarios"),404
         
     return jsonify(usuarios), 200
 

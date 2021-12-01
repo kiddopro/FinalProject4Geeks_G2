@@ -8,6 +8,7 @@ export const HomeContainer = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.loadSomeData();
+		actions.setUsuario(localStorage.getItem("uid"));
 	}, []);
 	return (
 		<div>

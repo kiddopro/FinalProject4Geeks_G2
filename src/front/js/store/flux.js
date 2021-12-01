@@ -46,7 +46,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			accesorios: [],
 			formatoPago: [],
 			usuario_id: undefined,
-			usuario: {}
+			usuario: {},
+			admin: false
 		},
 
 		actions: {
@@ -266,6 +267,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.clear();
 				setStore({ auth: false });
 				setStore({ carrito: [] });
+				setStore({ admin: false });
 			},
 			autorizado: booleano => {
 				setStore({ auth: booleano });
@@ -367,6 +369,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						const store = getStore();
 						setStore({ usuario: data });
+						store.usuario.email == "admin@admin" ? setStore({ admin: true }) : setStore({ admin: false });
 						console.log(store.usuario);
 					})
 					.catch(err => console.log(err));

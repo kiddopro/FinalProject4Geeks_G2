@@ -5,9 +5,9 @@ const Profile = () => {
 	const { store, actions } = useContext(Context);
 	const [usuario, setUsuario] = useState({});
 
-	useEffect(() => {
-		actions.setUsuario(localStorage.getItem("uid"));
-	}, []);
+	// useEffect(() => {
+	// 	actions.setUsuario(localStorage.getItem("uid"));
+	// }, []);
 
 	const dioClick = () => {
 		actions.actualizarUsuario(usuario);

@@ -30,11 +30,11 @@ sdk = mercadopago.SDK(os.environ.get("MP_AT"))
 
 
 
-# url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
-# url_restore=url_aux.replace("1","0")
-# #print(url_restore[11])
-# #print(url_restore)
-# cmail=os.environ.get("MAIL_APP")
+url_aux=os.environ.get("BACKEND_URL")+"/restore_password"
+url_restore=url_aux.replace("1","0")
+print(url_restore[11])
+print(url_restore)
+cmail=os.environ.get("MAIL_APP")
 
 #RECUPERACION CONTRASEÑA OLVIDADA 
 @api.route("/forgot_password", methods=["POST"])
@@ -72,12 +72,13 @@ def handle_hello():
 
 
 # Esto es solo para hacer una prueba
+# Para comprobar si envia un mail
 @api.route("/test", methods=['GET'])
 def index():
 
     msg = Message("Prueba de correo desde el proyecto",
                   sender=cmail,
-                  recipients=["martin.suarez.personal@gmail.com"])
+                  recipients=["jmantonaccio@gmail.com"])
     msg.html=f'<h3> Envio de Token para crear nueva contrase </h3>'
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200

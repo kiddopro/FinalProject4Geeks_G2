@@ -85,9 +85,9 @@ const CarritoPrueba = () => {
 									className="form-check-input"
 									type="radio"
 									name="flexRadio2"
-									id="flexRadioDefault1"
+									id="flexRadioDefault3"
 								/>
-								<label className="form-check-label" htmlFor="flexRadioDefault1">
+								<label className="form-check-label" htmlFor="flexRadioDefault3">
 									Transferencia a cuenta BROU/Santander
 								</label>
 							</div>
@@ -96,10 +96,10 @@ const CarritoPrueba = () => {
 									className="form-check-input"
 									type="radio"
 									name="flexRadio2"
-									id="flexRadioDefault2"
+									id="flexRadioDefault4"
 									checked
 								/>
-								<label className="form-check-label" htmlFor="flexRadioDefault2">
+								<label className="form-check-label" htmlFor="flexRadioDefault4">
 									Mercadopago (Hasta en 12 cuotas sin recargo)
 								</label>
 							</div>

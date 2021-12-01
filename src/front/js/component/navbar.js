@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/Navbar.scss";
 import { Link } from "react-router-dom";
@@ -6,6 +6,9 @@ import UserNavbar from "./userNavbar";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+	}, []);
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-light">
 			<div className="container-fluid px-0">

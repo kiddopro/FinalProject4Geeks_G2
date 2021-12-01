@@ -4,7 +4,9 @@ import { Context } from "../store/appContext";
 
 const UserNavbar = () => {
 	const { store, actions } = useContext(Context);
-
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+	}, []);
 	const salir = () => {
 		actions.salir();
 	};

@@ -238,14 +238,18 @@ def delete_usuario(id):
     usuario=Usuario.query.get(id)
     if usuario is None:
        raise APIException('Usuario no encontrado',status_code=404)
-    db.session.delete(usuario)                
-    db.session.commit()
-    usuarios=Usuario.query.all()
-    usuarios = list(map(lambda usu: usu.serialize(), usuarios ))
-    if not usuarios:
-       return jsonify("no se encontraron usuarios"),404
+    
+    try:
+        db.session.delete(usuario)                
+        db.session.commit()
+    except: 
+        return jsonify("No se pudo borrar el usuario"),404
+    # usuarios=Usuario.query.all()
+    # usuarios = list(map(lambda usu: usu.serialize(), usuarios ))
+    # if not usuarios:
+    #    return jsonify("no se encontraron usuarios"),404
         
-    return jsonify(usuarios), 200  
+    return jsonify("Se ha eliminado el usuario satisafactoriamente"), 200  
 
 # Endpoints --- Productos   
 #--------------------------------------------

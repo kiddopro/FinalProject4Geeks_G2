@@ -269,6 +269,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ auth: false });
 				setStore({ carrito: [] });
 				setStore({ admin: false });
+				Toast.fire({
+					icon: "info",
+					title: "Te has desconectado 😔"
+				});
 			},
 			autorizado: booleano => {
 				setStore({ auth: booleano });

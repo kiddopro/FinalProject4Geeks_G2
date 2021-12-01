@@ -3,9 +3,12 @@ import { Context } from "../store/appContext";
 
 const Admin = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		actions.getUsuarios();
-	}, []);
+	useEffect(
+		() => {
+			actions.getUsuarios();
+		},
+		[store.listaUsuarios]
+	);
 	return (
 		<div className="container-fluid">
 			<div className="row">

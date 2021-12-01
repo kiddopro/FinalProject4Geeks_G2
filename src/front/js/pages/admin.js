@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
+import Swal from "sweetalert2";
 
 const Admin = () => {
 	const { store, actions } = useContext(Context);
@@ -10,7 +11,24 @@ const Admin = () => {
 		[store.listaUsuarios]
 	);
 	const delUsuario = id => {
-		actions.borrarUsuario(id);
+		Swal.fire({
+			title: "¿Estas seguro?",
+			showDenyButton: true,
+			showCancelButton: false,
+			confirmButtonText: "Si",
+			denyButtonText: "Cancelar",
+			customClass: {
+				actions: "my-actions",
+				cancelButton: "order-2 right-gap",
+				confirmButton: "order-1",
+				denyButton: "order-3"
+			}
+		}).then(result => {
+			if (result.isConfirmed) {
+				actions.borrarUsuario(id);
+				Swal.fire("Se ha borrado exitosamente! ", "", "success");
+			}
+		});
 	};
 
 	return (

@@ -432,7 +432,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				fetch(process.env.BACKEND_URL + `/api/usuarios/${id}`, requestOptions)
-					.then(response => response.json())
+					.then(response => {
+						response.json();
+					})
 					.then(result => console.log(result))
 					.catch(error => console.log("error", error));
 			}

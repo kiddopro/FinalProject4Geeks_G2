@@ -83,9 +83,7 @@ export const Navbar = () => {
 												})
 											) : (
 												<li className="d-flex justify-content-end">
-													<a href="#" className="dropdown-item">
-														{"vacío"}
-													</a>
+													<a className="dropdown-item">{"vacío"}</a>
 												</li>
 											)}
 										</ul>

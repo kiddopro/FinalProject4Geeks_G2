@@ -274,6 +274,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "Te has desconectado 😔"
 				});
 			},
+			// mensaje mensaje
 			autorizado: booleano => {
 				setStore({ auth: booleano });
 			},

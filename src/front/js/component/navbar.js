@@ -51,7 +51,7 @@ export const Navbar = () => {
 
 							<div className="d-flex">
 								<Link to="/carrito">
-									<div className="dropdown">
+									<div className="dropdown dropstart">
 										<button
 											className="btn dropdown-toggle justify-content-end"
 											type="button"

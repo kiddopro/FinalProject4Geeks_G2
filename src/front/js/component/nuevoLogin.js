@@ -16,7 +16,8 @@ const NuevoLogin = () => {
 	return (
 		<>
 			{store.auth ? (
-				history.goBack()
+				// history.goBack()
+				<Redirect to="/" />
 			) : (
 				<div id="contenedor" className="container">
 					<div className="row">

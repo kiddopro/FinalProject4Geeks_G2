@@ -29,7 +29,7 @@ export const Navbar = () => {
 						<span className="navbar-toggler-icon" />
 					</button>
 					<div
-						className="botonprodu collapse navbar-collapse justify-content-center"
+						className="botonprodu collapse navbar-collapse justify-content-end"
 						id="navbarSupportedContent">
 						<ul className="navbar-nav">
 							<li className="nav-item productos">

@@ -237,7 +237,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							? [
 									localStorage.setItem("token", result.token),
 									setStore({ auth: true }),
-									setStore({ usuario_id: result.user })
+									localStorage.setItem("uid", result.user)
 							  ]
 							: null;
 						console.log(store.usuario_id);
@@ -356,16 +356,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(data);
 					})
 					.catch(error => console.log("error", error));
+			},
+			setUsuario: id => {
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${id}`)
+					.then(resp => resp.json())
+					.then(data => {
+						const store = getStore();
+						setStore({ usuario: data });
+						console.log(store.usuario);
+					})
+					.catch(err => console.log(err));
 			}
-			// setFotmatoPago: (item) => {
-			// 	const store = getStore();
-			// 	let obj = {
-			// 		title: item.nombre,
-			// 		quantity: 1,
-			// 		unit_price: item.precio
-			// 	}
-			// 	setStore({formatoPago: [...store.formatoPago, obj]});
-			// }
 		}
 	};
 };

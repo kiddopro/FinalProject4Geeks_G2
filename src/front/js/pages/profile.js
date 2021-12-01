@@ -1,8 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 
 const Profile = () => {
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+		// console.log(localStorage.getItem("uid"));
+	}, []);
 
 	return (
 		<>
@@ -10,7 +15,7 @@ const Profile = () => {
 				<div className="container bootstrap snippet">
 					<div className="row">
 						<div className="col-sm-10">
-							<h1>User name</h1>
+							<h1>{store.usuario.nombre}</h1>
 						</div>
 						<div className="col-sm-2">
 							<a href="/users" className="pull-right">
@@ -112,6 +117,7 @@ const Profile = () => {
 													<h4>Nombre completo</h4>
 												</label>
 												<input
+													value={store.usuario.nombre}
 													type="text"
 													className="form-control"
 													name="first_name"
@@ -142,6 +148,7 @@ const Profile = () => {
 													<h4>Teléfono</h4>
 												</label>
 												<input
+													value={store.usuario.telefono}
 													type="text"
 													className="form-control"
 													name="phone"
@@ -172,6 +179,7 @@ const Profile = () => {
 													<h4>Email</h4>
 												</label>
 												<input
+													value={store.usuario.email}
 													type="email"
 													className="form-control"
 													name="email"
@@ -199,6 +207,7 @@ const Profile = () => {
 													<h4>Documento</h4>
 												</label>
 												<input
+													value={store.usuario.documento}
 													type="text"
 													className="form-control"
 													id="documento"

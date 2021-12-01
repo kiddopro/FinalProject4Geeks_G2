@@ -113,16 +113,13 @@ const CarritoPrueba = () => {
 							type="button"
 							onClick={() =>
 								actions.pagarMercadoPago({
-									items: store.mercado,
+									items: store.formatoPago,
 									payment_methods: {
 										excluded_payment_types: [
 											{
 												id: "ticket"
 											}
 										]
-									},
-									back_urls: {
-										success: "https://3000-tan-squirrel-hb0cm5sb.ws-us20.gitpod.io/"
 									}
 								})
 							}>

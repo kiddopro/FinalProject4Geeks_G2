@@ -93,7 +93,8 @@ export const Navbar = () => {
 								</a>
 							</li> */}
 
-							<li className="nav-item dropstart">
+							<UserNavbar />
+							{/* <li className="nav-item dropstart">
 								<a
 									className="nav-link dropstart"
 									href="#"
@@ -127,7 +128,7 @@ export const Navbar = () => {
 										</a>
 									</li>
 								</ul>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>

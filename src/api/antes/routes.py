@@ -41,8 +41,7 @@ sdk = mercadopago.SDK(os.environ.get("MP_AT"))
 def forgotpassword():
     recover_email = request.json['email']
     recover_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(8)) #clave aleatoria nueva
-    print('entre a forgot password')
-    print(recover_email)
+   
     if not recover_email:
         return jsonify({"msg": "Debe ingresar el correo"}), 401
 
@@ -56,7 +55,7 @@ def forgotpassword():
     db.session.commit()
 	#luego se la envio al usuario por correo para que pueda ingresar
     msg = Message("Hi", recipients=[recover_email])
-    msg.html = f'<h1>Su nueva contraseña es: {recover_password}</h1>'
+    msg.html = f"""<h1>Su nueva contraseña es: {recover_password}</h1>"""
     current_app.mail.send(msg)
     return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
@@ -82,15 +81,16 @@ def index():
     current_app.mail.send(msg)
     return jsonify('Se ha enviado un correo'),200
 
-# Haciendo un pago desde el front enviando luego la respuesta en
-# las preferencias
+
 @api.route("/pago",methods=['POST'])
 def pago():
-    print("Entrando al metodo de pago")
+    print("Esto es solo una prueba de pago")
     # Crea un ítem en la preferencia
     body=request.get_json()
     print(body)
-    preference_data = body
+    preference_data = {
+        "items": body
+    }
     # del front llega arreglo de objetos
     preference_response = sdk.preference().create(preference_data)
     preference = preference_response["response"]
@@ -280,13 +280,12 @@ def add_producto():
     body_us=json.loads(request.data)
     #print (body_us)
     producto=Producto(nombre=body_us['nombre'],marca=body_us['marca'],precio=body_us['precio'],imagen=body_us['imagen'],descripcion=body_us['descripcion'],categoria=body_us['categoria'])
-  
     db.session.add(producto)               
     db.session.commit()  
     productos=Producto.query.all()
+    productos = list(map(lambda producto: producto.serialize(), productos ))
     if not productos:
         return jsonify("no se encontraron productos"),404
-    productos = list(map(lambda producto: producto.serialize(), productos ))
         
     return jsonify(productos), 200
 
@@ -355,14 +354,11 @@ def delete_producto(id):
 def add_carrito():
     # primero leo lo que viene en el body
     body=json.loads(request.data)
-    # print (body)
-    # print (body ["prod_id"])
-    # producto=Producto.query.filter_by(id=body['prod_id'])
-   
+    #print (body_fav)
     esta1=False
     esta2=False
     if "prod_id" in body:
-        producto=Producto.query.get(body['prod_id']) 
+        producto=Producto.query.get(body['prod_id'])
         if producto is None:
             raise APIException('Producto no encontrado',status_code=404)
         else:

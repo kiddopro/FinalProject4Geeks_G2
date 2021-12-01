@@ -4,12 +4,10 @@ import "../../styles/footer.scss";
 export const Footer = () => (
 	<div className="footer-dark bg-light">
 		<footer>
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row">
 					<hr className="linea" />
-					<div className="col-sm-6 col-md-3 item">
-						<br />
-
+					<div className="col-sm-4 col-md-4 item">
 						<h6 className="fw-bold contacto">Contacto</h6>
 						<ul className="redessociales">
 							<li>
@@ -47,11 +45,15 @@ export const Footer = () => (
 							</li>
 						</ul>
 					</div>
-					<div className="col-sm-6 col-md-3 item">
-						<br />
+					<div className="col-sm-4 col-md-4 item">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13089.950364054896!2d-56.17391110668515!3d-34.89421138631934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f81abf129825f%3A0xb9c6f293bee406f4!2sTres%20Cruces%20Shopping!5e0!3m2!1ses-419!2suy!4v1638114441474!5m2!1ses-419!2suy"
+							width="100%"
+							height="100"
+							loading="lazy"
+						/>
 					</div>
-					<div className="col-md-6 item text">
-						<br />
+					<div className="col-md-4 item text">
 						<h6 className="fw-bold">Sobre nosotros</h6>{" "}
 						<p>
 							<li className="opcion">
@@ -67,20 +69,6 @@ export const Footer = () => (
 								Todos nuestros productos cuentan con garantía contra defecto de fabricación.
 							</li>
 						</p>
-					</div>
-					<div className="col item social">
-						<a href="#">
-							<i className="icon ion-social-facebook" />
-						</a>
-						<a href="#">
-							<i className="icon ion-social-twitter" />
-						</a>
-						<a href="#">
-							<i className="icon ion-social-snapchat" />
-						</a>
-						<a href="#">
-							<i className="icon ion-social-instagram" />
-						</a>
 					</div>
 				</div>
 				<p className="copyright">Tecnoferta.uy 2021 - 097 629 613 - Montevideo, Uruguay</p>

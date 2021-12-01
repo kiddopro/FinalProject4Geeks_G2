@@ -7,7 +7,6 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Carrito } from "./pages/carrito";
-import { Favoritos } from "./pages/favoritos";
 import NuevoLogin from "./component/nuevoLogin";
 import injectContext from "./store/appContext";
 import ForgotPassword from "./pages/forgotPassword";
@@ -21,7 +20,6 @@ import RestorePassword from "./pages/restorePassword";
 
 import { useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
-import Profile from "./pages/profile";
 //create your first component
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -40,7 +38,7 @@ const Layout = () => {
 	const login = localStorage.getItem("token") != undefined ? true : false;
 
 	return (
-		<div>
+		<div className="">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -74,12 +72,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/change_password">
 							<CambiarContraseña />
-						</Route>
-						<Route exact path="/profile">
-							<Profile />
-						</Route>
-						<Route exact path="/favoritos">
-							<Favoritos />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

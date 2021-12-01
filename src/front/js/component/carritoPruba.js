@@ -113,18 +113,7 @@ const CarritoPrueba = () => {
 							type="button"
 							onClick={() =>
 								actions.pagarMercadoPago({
-									items: [
-										{
-											title: "Reloj SmartWatch",
-											quantity: 1,
-											unit_price: 120
-										},
-										{
-											title: "Otro producto",
-											quantity: 1,
-											unit_price: 120.2
-										}
-									],
+									items: store.mercado,
 									payment_methods: {
 										excluded_payment_types: [
 											{

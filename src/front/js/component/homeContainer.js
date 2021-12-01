@@ -108,7 +108,7 @@ export const HomeContainer = props => {
 						<div
 							className="card"
 							key={index}
-							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
 							<img src={item.imagen} className="card-img-top" alt="..." />
 							<div className="card-body">
 								<h5 className="card-title">{item.nombre}</h5>
@@ -150,7 +150,7 @@ export const HomeContainer = props => {
 						<div
 							className="card"
 							key={index}
-							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
 							<img src={item.imagen} className="card-img-top" alt="..." />
 							<div className="card-body">
 								<h5 className="card-title">{item.nombre}</h5>
@@ -192,7 +192,7 @@ export const HomeContainer = props => {
 						<div
 							className="card"
 							key={index}
-							style={{ width: "30%", display: "inline-block", margin: "10px" }}>
+							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
 							<img src={item.imagen} className="card-img-top" alt="..." />
 							<div className="card-body">
 								<h5 className="card-title">{item.nombre}</h5>

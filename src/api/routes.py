@@ -109,7 +109,7 @@ def login():
     #    return jsonify({"msg": "Bad email or password"}), 401
 
     token = create_access_token(identity=email)
-    return jsonify(token=token)  
+    return jsonify({"token": token, "user": user1.id})  
 # Perdida de contraseña - su tratamiento
 
 # @api.route('/forgot_password',methods=['POST'])
@@ -195,12 +195,12 @@ def add_user():
         db.session.commit() 
     except: 
         return jsonify("No se pudo crear el usuario"),404
-    usuarios=Usuario.query.all()
-    usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
-    if not usuarios:
-        return jsonify("no se encontraron usuarios"),404
+    # usuarios=Usuario.query.all()
+    # usuarios = list(map(lambda usuario: usuario.serialize(), usuarios ))
+    # if not usuarios:
+    #     return jsonify("no se encontraron usuarios"),404
         
-    return jsonify(usuarios), 200
+    return jsonify("usuario creado satisfactoriamente"), 200
 
 @api.route('/usuarios/<int:id>', methods=['PUT'])
 def update_usuario(id):

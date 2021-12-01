@@ -1,243 +1,576 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 
 const Profile = () => {
-	return (
-		<div className="container bootstrap snippets bootdey">
-			<div className="row">
-				<div className="profile-nav col-md-3">
-					<div className="panel">
-						<div className="user-heading round">
-							<a href="#">
-								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-							</a>
-							<h1>Camila Smith</h1>
-							<p>deydey@theEmail.com</p>
-						</div>
+	const { store, actions } = useContext(Context);
+	const [usuario, setUsuario] = useState({});
 
-						<ul className="nav nav-pills nav-stacked">
-							<li className="active">
-								<a href="#">
-									{" "}
-									<i className="fa fa-user" /> Profile
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									{" "}
-									<i className="fa fa-calendar" /> Recent Activity{" "}
-									<span className="label label-warning pull-right r-activity">9</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									{" "}
-									<i className="fa fa-edit" /> Edit profile
-								</a>
-							</li>
-						</ul>
+	useEffect(() => {
+		actions.setUsuario(localStorage.getItem("uid"));
+	}, []);
+
+	const dioClick = () => {
+		actions.actualizarUsuario(usuario);
+	};
+
+	return (
+		<>
+			{store.auth ? (
+				<div className="container bootstrap snippet">
+					<div className="row">
+						<div className="col-sm-10">
+							<h1>{store.usuario.nombre}</h1>
+						</div>
+						<div className="col-sm-2">
+							<a href="/users" className="pull-right">
+								{/* <img
+							title="profile image"
+							className="img-circle img-responsive"
+							src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"
+						/> */}
+							</a>
+						</div>
 					</div>
-				</div>
-				<div className="profile-info col-md-9">
-					<div className="panel">
-						<form>
-							<textarea
-								placeholder="Whats in your mind today?"
-								rows="2"
-								className="form-control input-lg p-text-area"
-							/>
-						</form>
-						<footer className="panel-footer">
-							<button className="btn btn-warning pull-right">Post</button>
-							<ul className="nav nav-pills">
-								<li>
-									<a href="#">
-										<i className="fa fa-map-marker" />
+					<div className="row">
+						<div className="col-sm-3">
+							<div className="text-center">
+								{/* <img
+							src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+							className="avatar img-circle img-thumbnail"
+							alt="avatar"
+						/> */}
+								<img src="https://avataaars.io/?avatarStyle=Circle&topType=WinterHat3&accessoriesType=Prescription02&hatColor=PastelYellow&facialHairType=BeardMedium&facialHairColor=Brown&clotheType=Overall&clotheColor=Gray02&eyeType=Close&eyebrowType=Default&mouthType=Twinkle&skinColor=Tanned" />
+								<h6 className="mt-3">Upload a different photo...</h6>
+								<input type="file" className="text-center center-block file-upload" />
+							</div>
+
+							{/* <div className="panel panel-default">
+						<div className="panel-heading">
+							Website <i className="fa fa-link fa-1x" />
+						</div>
+						<div className="panel-body">
+							<a href="http://bootnipets.com">bootnipets.com</a>
+						</div>
+					</div> */}
+
+							<ul className="list-group my-4">
+								<li className="list-group-item text-muted">
+									Actividad <i className="fa fa-dashboard fa-1x" />
+								</li>
+								<li className="list-group-item text-right">
+									<span className="pull-left">
+										<strong>Vendidos</strong>
+									</span>{" "}
+									125
+								</li>
+								<li className="list-group-item text-right">
+									<span className="pull-left">
+										<strong>Comentarios</strong>
+									</span>{" "}
+									13
+								</li>
+								<li className="list-group-item text-right">
+									<span className="pull-left">
+										<strong>Comprados</strong>
+									</span>{" "}
+									37
+								</li>
+								<li className="list-group-item text-right">
+									<span className="pull-left">
+										<strong>Seguidores</strong>
+									</span>{" "}
+									78
+								</li>
+							</ul>
+
+							{/* <div className="panel panel-default">
+						<div className="panel-heading">Social Media</div>
+						<div className="panel-body">
+							<i className="fa fa-facebook fa-2x" /> <i className="fa fa-github fa-2x" />{" "}
+							<i className="fa fa-twitter fa-2x" /> <i className="fa fa-pinterest fa-2x" />{" "}
+							<i className="fa fa-google-plus fa-2x" />
+						</div>
+					</div> */}
+						</div>
+						<div className="col-sm-9">
+							<ul className="nav nav-tabs">
+								<li className="active" m-1>
+									<a data-toggle="tab" href="#home" className="me-3">
+										Home
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className="fa fa-camera" />
+									<a data-toggle="tab" href="#messages" className="me-3">
+										Compras
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										<i className=" fa fa-film" />
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i className="fa fa-microphone" />
+									<a data-toggle="tab" href="#settings">
+										Ventas
 									</a>
 								</li>
 							</ul>
-						</footer>
-					</div>
-					<div className="panel">
-						<div className="bio-graph-heading">
-							Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac
-							magna metus.
-						</div>
-						<div className="panel-body bio-graph-info">
-							<h1>Bio Graph</h1>
-							<div className="row">
-								<div className="bio-row">
-									<p>
-										<span>First Name </span>: Camila
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Last Name </span>: Smith
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Country </span>: Australia
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Birthday</span>: 13 July 1983
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Occupation </span>: UI Designer
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Email </span>: jsmith@flatlab.com
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Mobile </span>: (12) 03 4567890
-									</p>
-								</div>
-								<div className="bio-row">
-									<p>
-										<span>Phone </span>: 88 (02) 123456
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div className="row">
-							<div className="col-md-6">
-								<div className="panel">
-									<div className="panel-body">
-										<div className="bio-chart">
-											<div style="display:inline;width:100px;height:100px;">
-												<canvas width="100" height="100px" />
+
+							<div className="tab-content">
+								<div className="tab-pane active" id="home">
+									<hr />
+									<form className="form" action="##" method="post" id="registrationForm">
+										<div className="form-group">
+											<div className="col-xs-6">
+												<label html="first_name">
+													<h4>Nombre completo</h4>
+												</label>
 												<input
-													className="knob"
-													data-width="100"
-													data-height="100"
-													data-displayprevious="true"
-													data-thickness=".2"
-													value="35"
-													data-fgcolor="#e06b7d"
-													data-bgcolor="#e8e8e8"
-													style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"
+													value={store.usuario.nombre}
+													type="text"
+													className="form-control"
+													name="first_name"
+													id="first_name"
+													placeholder="vacío"
+													onChange={e => setUsuario({ ...usuario, nombre: e.target.value })}
+													title="enter your first name if any."
 												/>
 											</div>
 										</div>
-										<div className="bio-desk">
-											<h4 className="red">Envato Website</h4>
-											<p>Started : 15 July</p>
-											<p>Deadline : 15 August</p>
-										</div>
+										{/* <div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="last_name">
+											<h4>Last name</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="last_name"
+											id="last_name"
+											placeholder="last name"
+											title="enter your last name if any."
+										/>
 									</div>
-								</div>
-							</div>
-							<div className="col-md-6">
-								<div className="panel">
-									<div className="panel-body">
-										<div className="bio-chart">
-											<div style="display:inline;width:100px;height:100px;">
-												<canvas width="100" height="100px" />
+								</div> */}
+
+										<div className="form-group">
+											<div className="col-xs-6">
+												<label html="phone">
+													<h4>Teléfono</h4>
+												</label>
 												<input
-													className="knob"
-													data-width="100"
-													data-height="100"
-													data-displayprevious="true"
-													data-thickness=".2"
-													value="63"
-													data-fgcolor="#4CC5CD"
-													data-bgcolor="#e8e8e8"
-													style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;"
+													value={store.usuario.telefono}
+													type="text"
+													className="form-control"
+													name="phone"
+													id="phone"
+													onChange={e => setUsuario({ ...usuario, telefono: e.target.value })}
+													placeholder="vacío"
+													title="enter your phone number if any."
 												/>
 											</div>
 										</div>
-										<div className="bio-desk">
-											<h4 className="terques">ThemeForest CMS </h4>
-											<p>Started : 15 July</p>
-											<p>Deadline : 15 August</p>
-										</div>
+
+										{/* <div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="mobile">
+											<h4>Mobile</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="mobile"
+											id="mobile"
+											placeholder="enter mobile number"
+											title="enter your mobile number if any."
+										/>
 									</div>
-								</div>
-							</div>
-							<div className="col-md-6">
-								<div className="panel">
-									<div className="panel-body">
-										<div className="bio-chart">
-											<div style="display:inline;width:100px;height:100px;">
-												<canvas width="100" height="100px" />
+								</div> */}
+										<div className="form-group">
+											<div className="col-xs-6">
+												<label htmlFor="email">
+													<h4>Email</h4>
+												</label>
 												<input
-													className="knob"
-													data-width="100"
-													data-height="100"
-													data-displayprevious="true"
-													data-thickness=".2"
-													value="75"
-													data-fgcolor="#96be4b"
-													data-bgcolor="#e8e8e8"
-													style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background: none;"
+													value={store.usuario.email}
+													type="email"
+													className="form-control"
+													name="email"
+													onChange={e => setUsuario({ ...usuario, email: e.target.value })}
+													id="email"
+													placeholder="vacío"
+													title="enter your email."
 												/>
 											</div>
 										</div>
-										<div className="bio-desk">
-											<h4 className="green">VectorLab Portfolio</h4>
-											<p>Started : 15 July</p>
-											<p>Deadline : 15 August</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-md-6">
-								<div className="panel">
-									<div className="panel-body">
-										<div className="bio-chart">
-											<div style="display:inline;width:100px;height:100px;">
-												<canvas width="100" height="100px" />
+										<div className="form-group">
+											<div className="col-xs-6">
+												<label htmlFor="email">
+													<h4>Dirección</h4>
+												</label>
 												<input
-													className="knob"
-													data-width="100"
-													data-height="100"
-													data-displayprevious="true"
-													data-thickness=".2"
-													value="50"
-													data-fgcolor="#cba4db"
-													data-bgcolor="#e8e8e8"
-													style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(203, 164, 219); padding: 0px; -webkit-appearance: none; background: none;"
+													value={store.usuario.direccion}
+													type="text"
+													className="form-control"
+													id="location"
+													placeholder="vacío"
+													onChange={e =>
+														setUsuario({ ...usuario, direccion: e.target.value })
+													}
+													title="enter a location"
 												/>
 											</div>
 										</div>
-										<div className="bio-desk">
-											<h4 className="purple">Adobe Muse Template</h4>
-											<p>Started : 15 July</p>
-											<p>Deadline : 15 August</p>
+										<div className="form-group">
+											<div className="col-xs-6">
+												<label htmlFor="email">
+													<h4>Documento</h4>
+												</label>
+												<input
+													value={store.usuario.documento}
+													type="text"
+													className="form-control"
+													id="documento"
+													onChange={e =>
+														setUsuario({ ...usuario, documento: e.target.value })
+													}
+													placeholder="vacío"
+													title="ingrese su documento"
+												/>
+											</div>
 										</div>
+										{/* <div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password">
+											<h4>Password</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password"
+											id="password"
+											placeholder="password"
+											title="enter your password."
+										/>
 									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password2">
+											<h4>Verify</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password2"
+											id="password2"
+											placeholder="password2"
+											title="enter your password2."
+										/>
+									</div>
+								</div> */}
+										<div className="form-group">
+											<div className="col-xs-12">
+												<br />
+												<button
+													className="btn btn-lg btn-success"
+													type="button"
+													onClick={() => dioClick()}>
+													<i className="glyphicon glyphicon-ok-sign" /> Save
+												</button>
+												<button className="btn btn-lg" type="reset">
+													<i className="glyphicon glyphicon-repeat" /> Reset
+												</button>
+											</div>
+										</div>
+									</form>
+
+									<hr />
+								</div>
+								<div className="tab-pane" id="messages">
+									<hr />
+									<form className="form" action="##" method="post" id="registrationForm">
+										{/* <div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="first_name">
+											<h4>First name</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="first_name"
+											id="first_name"
+											placeholder="first name"
+											title="enter your first name if any."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="last_name">
+											<h4>Last name</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="last_name"
+											id="last_name"
+											placeholder="last name"
+											title="enter your last name if any."
+										/>
+									</div>
+								</div>
+
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="phone">
+											<h4>Phone</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="phone"
+											id="phone"
+											placeholder="enter phone"
+											title="enter your phone number if any."
+										/>
+									</div>
+								</div>
+
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="mobile">
+											<h4>Mobile</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="mobile"
+											id="mobile"
+											placeholder="enter mobile number"
+											title="enter your mobile number if any."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="email">
+											<h4>Email</h4>
+										</label>
+										<input
+											type="email"
+											className="form-control"
+											name="email"
+											id="email"
+											placeholder="you@email.com"
+											title="enter your email."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="email">
+											<h4>Location</h4>
+										</label>
+										<input
+											type="email"
+											className="form-control"
+											id="location"
+											placeholder="somewhere"
+											title="enter a location"
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password">
+											<h4>Password</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password"
+											id="password"
+											placeholder="password"
+											title="enter your password."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password2">
+											<h4>Verify</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password2"
+											id="password2"
+											placeholder="password2"
+											title="enter your password2."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-12">
+										<br />
+										<button className="btn btn-lg btn-success" type="submit">
+											<i className="glyphicon glyphicon-ok-sign" /> Save
+										</button>
+										<button className="btn btn-lg" type="reset">
+											<i className="glyphicon glyphicon-repeat" /> Reset
+										</button>
+									</div>
+								</div>*/}
+										<h1 text-center text-info>
+											Proximamente
+										</h1>
+									</form>
+								</div>
+								<div className="tab-pane" id="settings">
+									<hr />
+									<form className="form" action="##" method="post" id="registrationForm">
+										{/*<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="first_name">
+											<h4>First name</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="first_name"
+											id="first_name"
+											placeholder="first name"
+											title="enter your first name if any."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="last_name">
+											<h4>Last name</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="last_name"
+											id="last_name"
+											placeholder="last name"
+											title="enter your last name if any."
+										/>
+									</div>
+								</div>
+
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="phone">
+											<h4>Phone</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="phone"
+											id="phone"
+											placeholder="enter phone"
+											title="enter your phone number if any."
+										/>
+									</div>
+								</div>
+
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="mobile">
+											<h4>Mobile</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											name="mobile"
+											id="mobile"
+											placeholder="enter mobile number"
+											title="enter your mobile number if any."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="email">
+											<h4>Email</h4>
+										</label>
+										<input
+											type="email"
+											className="form-control"
+											name="email"
+											id="email"
+											placeholder="you@email.com"
+											title="enter your email."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="email">
+											<h4>Location</h4>
+										</label>
+										<input
+											type="email"
+											className="form-control"
+											id="location"
+											placeholder="somewhere"
+											title="enter a location"
+										/>
+									</div>
+								</div>
+								 <div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password">
+											<h4>Password</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password"
+											id="password"
+											placeholder="password"
+											title="enter your password."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="password2">
+											<h4>Verify</h4>
+										</label>
+										<input
+											type="password"
+											className="form-control"
+											name="password2"
+											id="password2"
+											placeholder="password2"
+											title="enter your password2."
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-12">
+										<br />
+										<button className="btn btn-lg btn-success pull-right" type="submit">
+											<i className="glyphicon glyphicon-ok-sign" /> Save
+										</button>
+										<button className="btn btn-lg" type="reset">
+											<i className="glyphicon glyphicon-repeat" /> Reset
+										</button>
+									</div>
+								</div>*/}
+										<h1>Proximamente</h1>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			) : (
+				<div className="alert alert-danger text-center" role="alert">
+					<h3>Acceso denegado!</h3>
+					<h6>Debes estar logueado para ver tu perfil.</h6>
+				</div>
+			)}
+		</>
 	);
 };
 

@@ -39,7 +39,7 @@ const Profile = () => {
 						</div>
 					</div> */}
 
-					<ul className="list-group mt-3">
+					<ul className="list-group my-4">
 						<li className="list-group-item text-muted">
 							Actividad <i className="fa fa-dashboard fa-1x" />
 						</li>
@@ -104,7 +104,7 @@ const Profile = () => {
 								<div className="form-group">
 									<div className="col-xs-6">
 										<label html="first_name">
-											<h4>First name</h4>
+											<h4>Nombre completo</h4>
 										</label>
 										<input
 											type="text"
@@ -116,7 +116,7 @@ const Profile = () => {
 										/>
 									</div>
 								</div>
-								<div className="form-group">
+								{/* <div className="form-group">
 									<div className="col-xs-6">
 										<label htmlFor="last_name">
 											<h4>Last name</h4>
@@ -130,12 +130,12 @@ const Profile = () => {
 											title="enter your last name if any."
 										/>
 									</div>
-								</div>
+								</div> */}
 
 								<div className="form-group">
 									<div className="col-xs-6">
 										<label html="phone">
-											<h4>Phone</h4>
+											<h4>Teléfono</h4>
 										</label>
 										<input
 											type="text"
@@ -148,7 +148,7 @@ const Profile = () => {
 									</div>
 								</div>
 
-								<div className="form-group">
+								{/* <div className="form-group">
 									<div className="col-xs-6">
 										<label htmlFor="mobile">
 											<h4>Mobile</h4>
@@ -162,7 +162,7 @@ const Profile = () => {
 											title="enter your mobile number if any."
 										/>
 									</div>
-								</div>
+								</div> */}
 								<div className="form-group">
 									<div className="col-xs-6">
 										<label htmlFor="email">
@@ -181,14 +181,28 @@ const Profile = () => {
 								<div className="form-group">
 									<div className="col-xs-6">
 										<label htmlFor="email">
-											<h4>Location</h4>
+											<h4>Dirección</h4>
 										</label>
 										<input
-											type="email"
+											type="text"
 											className="form-control"
 											id="location"
 											placeholder="somewhere"
 											title="enter a location"
+										/>
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="col-xs-6">
+										<label htmlFor="email">
+											<h4>Documento</h4>
+										</label>
+										<input
+											type="text"
+											className="form-control"
+											id="documento"
+											placeholder="ingrese su documento"
+											title="ingrese su documento"
 										/>
 									</div>
 								</div>

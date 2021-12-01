@@ -420,6 +420,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(usuarios);
 					})
 					.catch(err => console.log(err));
+			},
+			borrarUsuario: id => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var requestOptions = {
+					method: "DELETE",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				fetch(process.env.BACKEND_URL + `/api/usuarios/${id}`, requestOptions)
+					.then(response => response.json())
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

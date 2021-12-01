@@ -3,9 +3,16 @@ import { Context } from "../store/appContext";
 
 const Admin = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		actions.getUsuarios();
-	}, []);
+	useEffect(
+		() => {
+			actions.getUsuarios();
+		},
+		[store.listaUsuarios]
+	);
+	const delUsuario = id => {
+		actions.borrarUsuario(id);
+	};
+
 	return (
 		<>
 			{store.auth && store.admin ? (
@@ -20,7 +27,7 @@ const Admin = () => {
 									<div key={index} className="card w-50 mx-auto">
 										<div className="card-body d-flex justify-content-between">
 											{item.email}
-											<button onClick={() => console.log(item.id)} type="submit" className="btn">
+											<button onClick={() => delUsuario(item.id)} type="button" className="btn">
 												❌
 											</button>
 										</div>

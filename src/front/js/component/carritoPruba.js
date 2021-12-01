@@ -63,6 +63,7 @@ const CarritoPrueba = () => {
 									type="radio"
 									name="flexRadioDefault"
 									id="flexRadioDefault1"
+									disabled
 								/>
 								<label className="form-check-label" htmlFor="flexRadioDefault1">
 									Envío a domicilio
@@ -77,7 +78,7 @@ const CarritoPrueba = () => {
 									checked
 								/>
 								<label className="form-check-label" htmlFor="flexRadioDefault2">
-									Retiro en Pick Up
+									Retiro en Pick Up <small className="text-danger">%100 off</small>
 								</label>
 							</div>
 							&nbsp;
@@ -88,6 +89,7 @@ const CarritoPrueba = () => {
 									type="radio"
 									name="flexRadio2"
 									id="flexRadioDefault3"
+									disabled
 								/>
 								<label className="form-check-label" htmlFor="flexRadioDefault3">
 									Transferencia a cuenta BROU/Santander

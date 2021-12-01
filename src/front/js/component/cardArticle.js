@@ -47,8 +47,11 @@ const CardArticle = props => {
 							<div className="card-text d-flex justify-content-between align-items-center">
 								<h2>${props.unit_cost}</h2>
 								<select className="w-25">
-									<option>Seleccionar colors</option>
+									<option>Seleccionar colores</option>
 									<option>Rojo</option>
+									<option>Amarillo</option>
+									<option>Negro</option>
+									<option>Gris</option>
 								</select>
 							</div>
 							<hr />

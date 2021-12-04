@@ -3,6 +3,7 @@ import Proptypes from "prop-types";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
+import CardProducto from "./cardProducto";
 
 export const HomeContainer = props => {
 	const { store, actions } = useContext(Context);
@@ -107,37 +108,14 @@ export const HomeContainer = props => {
 				style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				{store.smartwatch.map((item, index) => {
 					return (
-						<div
-							className="card"
+						<CardProducto
 							key={index}
-							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
-							<img src={item.imagen} className="card-img-top" alt="..." />
-							<div className="card-body">
-								<h5 className="card-title">{item.nombre}</h5>
-								<p className="card-text w-100">{item.descripcion}</p>
-								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.id}>
-									<button type="button" className="btn btn-outline-primary">
-										Ver más
-									</button>
-								</Link>
-								&nbsp;
-								<button
-									type="button"
-									onClick={() => actions.addToCart(item)}
-									className={
-										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
-									}>
-									Agregar al carrito
-								</button>
-								{/* &nbsp;
-								<button
-									onClick={() => actions.addFavorite(item.nombre)}
-									className="btn btn-outline-primary">
-									<i className="corazon fas fa-heart " />
-								</button> */}
-							</div>
-						</div>
+							nombre={item.nombre}
+							imagen={item.imagen}
+							precio={item.precio}
+							descripcion={item.descripcion}
+							id={item.id}
+						/>
 					);
 				})}
 			</div>
@@ -149,37 +127,14 @@ export const HomeContainer = props => {
 				style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				{store.smartphone.map((item, index) => {
 					return (
-						<div
-							className="card"
+						<CardProducto
 							key={index}
-							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
-							<img src={item.imagen} className="card-img-top" alt="..." />
-							<div className="card-body">
-								<h5 className="card-title">{item.nombre}</h5>
-								<p className="card-text w-100">{item.descripcion}</p>
-								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.id}>
-									<button type="button" className="btn btn-outline-primary">
-										Ver más
-									</button>
-								</Link>
-								&nbsp;
-								<button
-									type="button"
-									onClick={() => actions.addToCart(item)}
-									className={
-										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
-									}>
-									Agregar al carrito
-								</button>
-								{/* &nbsp;
-								<button
-									onClick={() => actions.addFavorite(item.nombre)}
-									className="btn btn-outline-primary">
-									<i className="corazon fas fa-heart " />
-								</button> */}
-							</div>
-						</div>
+							nombre={item.nombre}
+							imagen={item.imagen}
+							precio={item.precio}
+							descripcion={item.descripcion}
+							id={item.id}
+						/>
 					);
 				})}
 			</div>
@@ -191,37 +146,14 @@ export const HomeContainer = props => {
 				style={{ overflowX: "scroll", overflowY: "hidden" }}>
 				{store.accesorios.map((item, index) => {
 					return (
-						<div
-							className="card"
+						<CardProducto
 							key={index}
-							style={{ width: "20%", display: "inline-block", margin: "10px" }}>
-							<img src={item.imagen} className="card-img-top" alt="..." />
-							<div className="card-body">
-								<h5 className="card-title">{item.nombre}</h5>
-								<p className="card-text w-100">{item.descripcion}</p>
-								<p className="card-text">{"$" + item.precio + " USD"}</p>
-								<Link to={"/productos/" + item.id}>
-									<button type="button" className="btn btn-outline-primary">
-										Ver más
-									</button>
-								</Link>
-								&nbsp;
-								<button
-									type="button"
-									onClick={() => actions.addToCart(item)}
-									className={
-										store.auth ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"
-									}>
-									Agregar al carrito
-								</button>
-								{/* &nbsp;
-								<button
-									onClick={() => actions.addFavorite(item.nombre)}
-									className="btn btn-outline-primary">
-									<i className="corazon fas fa-heart " />
-								</button> */}
-							</div>
-						</div>
+							nombre={item.nombre}
+							imagen={item.imagen}
+							precio={item.precio}
+							descripcion={item.descripcion}
+							id={item.id}
+						/>
 					);
 				})}
 			</div>

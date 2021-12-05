@@ -13,7 +13,7 @@ const CardProducto = props => {
 					src={props.producto.imagen}
 					className="card-img-top img-fluid mx-auto"
 					alt="imagen del producto"
-					style={{ width: "100%" }}
+					style={{ width: "70%" }}
 				/>
 				<div className="card-body">
 					<h5 className="card-title">{props.producto.nombre}</h5>

@@ -4,7 +4,10 @@
 
 
 body{
-    background-color: #000;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(141deg, rgb(0, 0, 0) 0%, #202020 51%, #2c2c2c 75%);
+    
 }
 
 *::-webkit-scrollbar:horizontal{

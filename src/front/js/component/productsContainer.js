@@ -15,6 +15,7 @@ const ProductsContainer = props => {
 
 	return (
 		<div
+			id="contenedor-productos"
 			className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3 p-3"
 			style={{ overflowX: "scroll", overflowY: "hidden" }}>
 			{categoria.map((item, index) => {

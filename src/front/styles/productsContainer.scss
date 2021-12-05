@@ -1,9 +1,19 @@
 
 
 div#contenedor-productos::-webkit-scrollbar {
-    width: 8px;     /* Tamaño del scroll en vertical */
+    width: auto;     /* Tamaño del scroll en vertical */
     height: 8px;    /* Tamaño del scroll en horizontal */
-    color: gray;
-    border-radius: 4px;
-    background: rgb(255, 255, 255);
+    
 }
+
+div#contenedor-productos::-webkit-scrollbar-track{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+div#contenedor-productos::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255,.2);
+}
+
+

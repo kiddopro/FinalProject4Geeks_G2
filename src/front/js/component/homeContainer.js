@@ -1,9 +1,9 @@
 import React, { Component, useContext, useEffect } from "react";
-import Proptypes from "prop-types";
+
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-import { Link } from "react-router-dom";
-import CardProducto from "./cardProducto";
+
+import ProductsContainer from "./productsContainer";
 
 export const HomeContainer = props => {
 	const { store, actions } = useContext(Context);
@@ -103,60 +103,15 @@ export const HomeContainer = props => {
 			<h3 className="text-center mt-5">Smartwatches</h3>
 			<br />
 
-			<div
-				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
-				style={{ overflowX: "scroll", overflowY: "hidden" }}>
-				{store.smartwatch.map((item, index) => {
-					return (
-						<CardProducto
-							key={index}
-							nombre={item.nombre}
-							imagen={item.imagen}
-							precio={item.precio}
-							descripcion={item.descripcion}
-							id={item.id}
-						/>
-					);
-				})}
-			</div>
+			<ProductsContainer categoria="smartwatch" />
 			<br />
 			<h3 className="text-center">Celulares</h3>
 			<br />
-			<div
-				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
-				style={{ overflowX: "scroll", overflowY: "hidden" }}>
-				{store.smartphone.map((item, index) => {
-					return (
-						<CardProducto
-							key={index}
-							nombre={item.nombre}
-							imagen={item.imagen}
-							precio={item.precio}
-							descripcion={item.descripcion}
-							id={item.id}
-						/>
-					);
-				})}
-			</div>
+			<ProductsContainer categoria="smartphone" />
 			<br />
 			<h3 className="text-center">Accesorios</h3>
 			<br />
-			<div
-				className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
-				style={{ overflowX: "scroll", overflowY: "hidden" }}>
-				{store.accesorios.map((item, index) => {
-					return (
-						<CardProducto
-							key={index}
-							nombre={item.nombre}
-							imagen={item.imagen}
-							precio={item.precio}
-							descripcion={item.descripcion}
-							id={item.id}
-						/>
-					);
-				})}
-			</div>
+			<ProductsContainer categoria="accesorios" />
 			<br />
 		</div>
 	);

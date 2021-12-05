@@ -1,3 +1,13 @@
 /* 
     General Styles
 */
+
+
+body{
+    background-color: #000;
+}
+
+*::-webkit-scrollbar:horizontal{
+    scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+}

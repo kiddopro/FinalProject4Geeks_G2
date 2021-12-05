@@ -100,16 +100,16 @@ export const HomeContainer = props => {
 			</div>
 
 			<a name="informacion" />
-			<h3 className="text-center mt-5">Smartwatches</h3>
+			<h3 className="text-center mt-5 text-white">Smartwatches</h3>
 			<br />
 
 			<ProductsContainer categoria="smartwatch" />
 			<br />
-			<h3 className="text-center">Celulares</h3>
+			<h3 className="text-center text-white">Celulares</h3>
 			<br />
 			<ProductsContainer categoria="smartphone" />
 			<br />
-			<h3 className="text-center">Accesorios</h3>
+			<h3 className="text-center text-white">Accesorios</h3>
 			<br />
 			<ProductsContainer categoria="accesorios" />
 			<br />

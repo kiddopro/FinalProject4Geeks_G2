@@ -6,12 +6,18 @@ import CardProducto from "./cardProducto";
 
 const ProductsContainer = props => {
 	const { store, actions } = useContext(Context);
+	const categoria =
+		props.categoria == "smartwatch"
+			? store.smartwatch
+			: props.categoria == "smartphone"
+				? store.smartphone
+				: store.accesorios;
 
 	return (
 		<div
-			className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3"
+			className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3 p-5"
 			style={{ overflowX: "scroll", overflowY: "hidden" }}>
-			{store.smartwatch.map((item, index) => {
+			{categoria.map((item, index) => {
 				return (
 					<CardProducto
 						key={index}

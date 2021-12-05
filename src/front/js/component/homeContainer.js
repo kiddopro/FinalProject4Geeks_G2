@@ -13,7 +13,7 @@ export const HomeContainer = props => {
 	}, []);
 	return (
 		<div>
-			<div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
+			<div id="carouselExampleDark" className="carousel carousel-dark slide bg-white" data-bs-ride="carousel">
 				<div className="carousel-indicators">
 					<button
 						type="button"

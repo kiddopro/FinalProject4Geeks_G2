@@ -3,8 +3,7 @@
 div#contenedor-productos::-webkit-scrollbar {
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 8px;    /* Tamaño del scroll en horizontal */
- 
-    scrollbar-track-color: #000;
+    color: gray;
     border-radius: 4px;
     background: rgb(255, 255, 255);
 }

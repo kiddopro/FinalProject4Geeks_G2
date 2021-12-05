@@ -10,16 +10,16 @@ const CardProducto = props => {
 		<div className="col-md-3 col-12">
 			<div className="card h-100">
 				<img
-					src={props.imagen}
+					src={props.producto.imagen}
 					className="card-img-top img-fluid mx-auto"
 					alt="imagen del producto"
 					style={{ width: "50%" }}
 				/>
 				<div className="card-body">
-					<h5 className="card-title">{props.nombre}</h5>
-					<p className="card-text w-100">{props.descripcion}</p>
-					<p className="card-text">{"$" + props.precio + " USD"}</p>
-					<Link to={"/productos/" + props.id}>
+					<h5 className="card-title">{props.producto.nombre}</h5>
+					<p className="card-text w-100">{props.producto.descripcion}</p>
+					<p className="card-text">{"$" + props.producto.precio + " USD"}</p>
+					<Link to={"/productos/" + props.producto.id}>
 						<button type="button" className="btn btn-outline-dark">
 							Ver más
 						</button>
@@ -27,7 +27,7 @@ const CardProducto = props => {
 					&nbsp;
 					<button
 						type="button"
-						onClick={() => actions.addToCart(item)}
+						onClick={() => actions.addToCart(props.producto)}
 						className={store.auth ? "btn btn-outline-dark" : "btn btn-outline-dark disabled"}>
 						Agregar al carrito
 					</button>
@@ -44,11 +44,7 @@ const CardProducto = props => {
 };
 
 CardProducto.propTypes = {
-	nombre: PropTypes.string,
-	imagen: PropTypes.string,
-	descripcion: PropTypes.string,
-	id: PropTypes.number,
-	precio: PropTypes.number
+	producto: PropTypes.object
 };
 
 export default CardProducto;

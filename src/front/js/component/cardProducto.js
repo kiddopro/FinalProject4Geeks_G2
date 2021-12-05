@@ -16,8 +16,8 @@ const CardProducto = props => {
 					style={{ width: "70%" }}
 				/>
 				<div className="card-body">
-					<h5 className="card-title">{props.producto.nombre}</h5>
-					<p className="card-text w-100">{props.producto.descripcion}</p>
+					<h5 className="card-title fw-bold">{props.producto.nombre}</h5>
+					{/* <p className="card-text w-100">{props.producto.descripcion}</p> */}
 					<p className="card-text">{"$" + props.producto.precio + " USD"}</p>
 					<Link to={"/productos/" + props.producto.id}>
 						<button type="button" className="btn btn-outline-dark">

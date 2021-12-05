@@ -12,6 +12,7 @@ import NuevoLogin from "./component/nuevoLogin";
 import injectContext from "./store/appContext";
 import ForgotPassword from "./pages/forgotPassword";
 import CambiarContraseña from "./pages/cambiar_contraseña";
+import Hom2 from "./component/home2";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -47,7 +48,8 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							{/* <Home /> */}
+							<Hom2 />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

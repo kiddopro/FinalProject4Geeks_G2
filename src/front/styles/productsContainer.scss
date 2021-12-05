@@ -16,4 +16,8 @@ div#contenedor-productos::-webkit-scrollbar-thumb{
     background-color: rgba(255, 255, 255,.2);
 }
 
+div#contenedor-productos::-webkit-scrollbar-thumb:hover{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255,.4);
+}
 

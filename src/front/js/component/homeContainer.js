@@ -13,7 +13,10 @@ export const HomeContainer = props => {
 	}, []);
 	return (
 		<div>
-			<div id="carouselExampleDark" className="carousel carousel-dark slide bg-white" data-bs-ride="carousel">
+			<div
+				id="carouselExampleDark"
+				className="carousel carousel-dark slide bg-white rounded-pill"
+				data-bs-ride="carousel">
 				<div className="carousel-indicators">
 					<button
 						type="button"
@@ -37,28 +40,27 @@ export const HomeContainer = props => {
 					/>
 				</div>
 				<div className="carousel-inner">
-					<div className="carousel-item active imagenhome" data-bs-interval="5000">
+					<div className="carousel-item active imagenhome" data-bs-interval="4000">
 						<img
 							src="https://res.cloudinary.com/silvinaas/image/upload/v1636416721/tecno/gtr2e_sffumc.jpg"
-							className="d-inline w-100"
 							alt="..."
 						/>
 
 						<div className="carousel-caption d-none d-md-block textodos">
 							<h5 className="fs-1 fst-italic titulo1">Llevá tu entrenamiento</h5>
 							<p className="titulo2">A OTRO NIVEL</p>
-							<a href="#informacion" className="btn btn-outline-primary">
+							<a href="#informacion" className="btn btn-outline-light">
 								Más información
 							</a>
 						</div>
 					</div>
-					<div className="carousel-item imagenhome" data-bs-interval="2000">
+					<div className="carousel-item imagenhome" data-bs-interval="4000">
 						<img
 							src="https://res.cloudinary.com/silvinaas/image/upload/v1636418698/tecno/iphone12_rgqda1.jpg"
 							className="d-block w-100"
 							alt="..."
 						/>
-						<div className="carousel-caption d-none d-md-block textodos" data-bs-interval="2000">
+						<div className="carousel-caption d-none d-md-block textodos" data-bs-interval="4000">
 							<h5 className="fs-1 fst-italic titulo1">La última tecnología</h5>
 							<p className="titulo2">LA ENCONTRÁS ACÁ</p>
 							<a href="#informacion" className="btn btn-outline-primary">

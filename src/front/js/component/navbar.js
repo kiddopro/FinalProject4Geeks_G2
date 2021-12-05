@@ -10,7 +10,7 @@ export const Navbar = () => {
 		actions.setUsuario(localStorage.getItem("uid"));
 	}, []);
 	return (
-		<nav className="navbar navbar-expand navbar-light">
+		<nav className="navbar navbar-expand navbar-light sticky-top rounded">
 			<div className="container-fluid">
 				<Link to="/">
 					<a className="navbar-brand logo">

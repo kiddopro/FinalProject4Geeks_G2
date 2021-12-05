@@ -15,7 +15,7 @@ export const HomeContainer = props => {
 		<div>
 			<div
 				id="carouselExampleDark"
-				className="carousel carousel-dark slide bg-white rounded-pill"
+				className="carousel carousel-dark slide bg-white rounded-pill "
 				data-bs-ride="carousel">
 				<div className="carousel-indicators">
 					<button
@@ -44,12 +44,13 @@ export const HomeContainer = props => {
 						<img
 							src="https://res.cloudinary.com/silvinaas/image/upload/v1636416721/tecno/gtr2e_sffumc.jpg"
 							alt="..."
+							className="d-block w-100"
 						/>
 
-						<div className="carousel-caption d-none d-md-block textodos">
-							<h5 className="fs-1 fst-italic titulo1">Llevá tu entrenamiento</h5>
-							<p className="titulo2">A OTRO NIVEL</p>
-							<a href="#informacion" className="btn btn-outline-light">
+						<div className="carousel-caption  textodos">
+							<h5 className="titulo1">Llevá tu entrenamiento</h5>
+							<h3 className="titulo2">A OTRO NIVEL</h3>
+							<a href="#informacion" className="btn btn-light">
 								Más información
 							</a>
 						</div>
@@ -60,10 +61,10 @@ export const HomeContainer = props => {
 							className="d-block w-100"
 							alt="..."
 						/>
-						<div className="carousel-caption d-none d-md-block textodos" data-bs-interval="4000">
-							<h5 className="fs-1 fst-italic titulo1">La última tecnología</h5>
-							<p className="titulo2">LA ENCONTRÁS ACÁ</p>
-							<a href="#informacion" className="btn btn-outline-primary">
+						<div className="carousel-caption textodos" data-bs-interval="4000">
+							<h5 className="titulo1">La última tecnología</h5>
+							<h3 className="titulo2">LA ENCONTRÁS ACÁ</h3>
+							<a href="#informacion" className="btn btn-light">
 								Más información
 							</a>
 						</div>
@@ -74,10 +75,10 @@ export const HomeContainer = props => {
 							className="d-block w-100"
 							alt="..."
 						/>
-						<div className="carousel-caption d-none d-md-block textodos">
-							<h5 className="fs-1 fst-italic titulo1">Limpiar la casa</h5>
-							<p className="titulo2">NUNCA FUE TAN FÁCIL</p>
-							<a href="#informacion" className="btn btn-outline-primary">
+						<div className="carousel-caption textodos">
+							<h5 className="titulo1">Limpiar la casa</h5>
+							<h3 className="titulo2">NUNCA FUE TAN FÁCIL</h3>
+							<a href="#informacion" className="btn btn-light">
 								Más información
 							</a>
 						</div>

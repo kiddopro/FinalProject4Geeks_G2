@@ -10,16 +10,16 @@ export const Navbar = () => {
 		actions.setUsuario(localStorage.getItem("uid"));
 	}, []);
 	return (
-		<nav className="navbar navbar-expand navbar-light bg-light">
-			<div className="container-fluid px-0">
-				<a className="navbar-brand logo">
-					<Link to="/">
+		<nav className="navbar navbar-expand navbar-light">
+			<div className="container-fluid">
+				<Link to="/">
+					<a className="navbar-brand logo">
 						<img
 							className="logo img-fluid"
 							src="https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png"
 						/>
-					</Link>
-				</a>
+					</a>
+				</Link>
 				<div className="collapse navbar-collapse">
 					<button
 						className="navbar-toggler"
@@ -35,11 +35,13 @@ export const Navbar = () => {
 						className="botonprodu collapse navbar-collapse justify-content-end"
 						id="navbarSupportedContent">
 						<ul className="navbar-nav">
-							<li className="nav-item productos">
-								<a className="nav-link active fortnite todoslosprod" aria-current="page">
-									<Link to="/">Todos los productos</Link>
-								</a>
-							</li>
+							<Link to="/">
+								<li className="nav-item productos">
+									<a className="nav-link active fortnite todoslosprod text-white" aria-current="page">
+										Todos los productos
+									</a>
+								</li>
+							</Link>
 							{/* <form className="d-flex">
 								<input
 									className="form-control me-2 fortnite"

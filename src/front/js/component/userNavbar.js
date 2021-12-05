@@ -13,9 +13,9 @@ const UserNavbar = () => {
 	return (
 		<>
 			{!store.auth ? (
-				<li className="nav-item dropstart">
+				<li className="nav-item dropstart ">
 					<a
-						className="nav-link dropstart"
+						className="nav-link dropstart iconoUsuario"
 						href="#"
 						id="navbarDropdown"
 						role="button"
@@ -24,26 +24,26 @@ const UserNavbar = () => {
 						<i className="fas fa-user" />
 					</a>
 					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<Link to="/signin">
+						<Link to="/signin">
+							<li>
 								<a className="dropdown-item fortnite" href="#">
 									Registrarse
 								</a>
-							</Link>
-						</li>
-						<li>
-							<Link to="/login">
+							</li>
+						</Link>
+						<Link to="/login">
+							<li>
 								<a className="dropdown-item fortnite" href="#">
 									Ingresar
 								</a>
-							</Link>
-						</li>
+							</li>
+						</Link>
 					</ul>
 				</li>
 			) : (
-				<li className="nav-item dropstart">
+				<li className="nav-item dropstart ">
 					<a
-						className="nav-link dropstart"
+						className="nav-link dropstart iconoUsuario"
 						href="#"
 						id="navbarDropdown"
 						role="button"
@@ -52,22 +52,22 @@ const UserNavbar = () => {
 						<i className="fas fa-user" />
 					</a>
 					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<Link to="/profile">
-								<a className="dropdown-item fortnite">Mi perfil</a>
-							</Link>
-						</li>
-						<li>
-							<Link to="/change_password">
-								<a className="dropdown-item fortnite">Cambiar contraseña</a>
-							</Link>
-						</li>
-						{store.admin ? (
+						<Link to="/profile">
 							<li>
-								<Link to="/admin">
-									<a className="dropdown-item fortnite">Admin</a>
-								</Link>
+								<a className="dropdown-item fortnite">Mi perfil</a>
 							</li>
+						</Link>
+						<Link to="/change_password">
+							<li>
+								<a className="dropdown-item fortnite">Cambiar contraseña</a>
+							</li>
+						</Link>
+						{store.admin ? (
+							<Link to="/admin">
+								<li>
+									<a className="dropdown-item fortnite">Admin</a>
+								</li>
+							</Link>
 						) : null}
 						<li>
 							<hr className="dropdown-divider" />

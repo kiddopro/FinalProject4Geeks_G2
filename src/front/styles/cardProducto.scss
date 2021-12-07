@@ -1,6 +1,7 @@
 
 div#contenedor-productos{
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 div.card:hover, div.card:focus{

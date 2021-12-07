@@ -16,7 +16,7 @@ const ProductsContainer = props => {
 	return (
 		<div
 			id="contenedor-productos"
-			className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3 p-3"
+			className="scrolling-wrapper row flex-row flex-nowrap row-cols-1 row-cols-md-3 p-3 m-0"
 			style={{ overflowX: "scroll", overflowY: "hidden" }}>
 			{categoria.map((item, index) => {
 				return <CardProducto key={index} producto={item} />;

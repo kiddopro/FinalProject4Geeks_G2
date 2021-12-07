@@ -23,19 +23,26 @@
   .imagenhome{
     height: auto;
   }
+
+  .titulo1{
+    font-size: 5rem;
+  }
+  .titulo2{
+    font-size: 2rem;
+  }
 }
 
 .titulo1{
   text-transform: uppercase;
   color: rgb(255, 255, 255);
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: 0 0 3px rgba(0,0,0,.9);
   max-width: 100%;
 }
 
 .titulo2{
 
-  font-size: 2rem ;
+  font-size: 1rem ;
   text-shadow: 0 0 3px rgba(0,0,0,.9);
   max-width: 100%;
   color: white;

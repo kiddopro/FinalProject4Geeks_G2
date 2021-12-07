@@ -2,7 +2,11 @@
 
 .imagenhome{
     width: 100%;
+    position: relative;
+    top: 100%;
     height: 700px;
+    max-width: 100%;
+  
     
 }
 
@@ -12,6 +16,9 @@
 }
 
 .titulo1{
+  position: relative;
+  filter: none;
+  z-index: 1000 !important;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
   font-size: 3rem !important;

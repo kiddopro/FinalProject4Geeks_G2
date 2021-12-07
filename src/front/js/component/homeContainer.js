@@ -71,7 +71,7 @@ export const HomeContainer = props => {
 					</div>
 					<div className="carousel-item imagenhome">
 						<img
-							src="https://res.cloudinary.com/silvinaas/image/upload/v1636418700/tecno/xiaomimivacuum_ntuko0.jpg"
+							src="https://images.pexels.com/photos/4107242/pexels-photo-4107242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
 							className="d-block w-100"
 							alt="..."
 						/>

@@ -48,8 +48,8 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							{/* <Home /> */}
-							<Hom2 />
+							<Home />
+							{/* <Hom2 /> */}
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

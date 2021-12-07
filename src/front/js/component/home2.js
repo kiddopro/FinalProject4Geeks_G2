@@ -14,7 +14,7 @@ export const Hom2 = props => {
 	}, []);
 	return (
 		<Fragment>
-			<div id="bgVideo">
+			{/* <div id="bgVideo">
 				<ReactPlayer
 					url={require("../../img/Nft Video - 74779.mp4")}
 					width="100%"
@@ -38,7 +38,7 @@ export const Hom2 = props => {
 			<h3 className="text-center text-white">Accesorios</h3>
 			<br />
 			<ProductsContainer categoria="accesorios" />
-			<br />
+			<br /> */}
 		</Fragment>
 	);
 };

@@ -1,6 +1,6 @@
 
 
-div.card:hover{
+div.card:hover, div.card:focus{
     // box-shadow: 0 0 10px rgb(255, 255, 255 / .9);
     transform: scale(1.0125);
 }

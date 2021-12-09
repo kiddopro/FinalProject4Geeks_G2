@@ -51,7 +51,13 @@ const UserNavbar = () => {
 						aria-expanded="false">
 						<i className="fas fa-user" />
 					</a>
-					<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+					<ul className="dropdown-menu p-0 m-0" aria-labelledby="navbarDropdown">
+						<li className=" text-center">
+							<a className="dropdown-item">{store.usuario.nombre}</a>
+						</li>
+						<li>
+							<hr className="dropdown-divider" />
+						</li>
 						<Link to="/profile">
 							<li>
 								<a className="dropdown-item fortnite">Mi perfil</a>

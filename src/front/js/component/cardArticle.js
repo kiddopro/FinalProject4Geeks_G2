@@ -56,10 +56,10 @@ const CardArticle = props => {
 								</select>
 							</div>
 							<hr />
-							<small className="card-text text-secondary">
+							<p className="card-text text-secondary">
 								{props.description}
 								{/* <small className="text-muted">Last updated 3 mins ago</small> */}
-							</small>
+							</p>
 							<hr />
 							<div className="d-flex justify-content-between align-items-center">
 								{store.auth ? (

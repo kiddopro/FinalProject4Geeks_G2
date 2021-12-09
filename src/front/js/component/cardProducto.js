@@ -20,7 +20,7 @@ const CardProducto = props => {
 					{/* <p className="card-text w-100">{props.producto.descripcion}</p> */}
 					<p className="card-text">{"$" + props.producto.precio + " USD"}</p>
 					<Link to={"/productos/" + props.producto.id}>
-						<button type="button" className="btn btn-outline-dark">
+						<button type="button" className="btn btn-dark">
 							Ver más
 						</button>
 					</Link>
@@ -28,7 +28,7 @@ const CardProducto = props => {
 					<button
 						type="button"
 						onClick={() => actions.addToCart(props.producto)}
-						className={store.auth ? "btn btn-outline-dark" : "btn btn-outline-dark disabled"}>
+						className={store.auth ? "btn btn-dark" : "btn btn-outline-dark disabled"}>
 						Agregar al carrito
 					</button>
 					{/* &nbsp;

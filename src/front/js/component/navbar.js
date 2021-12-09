@@ -67,13 +67,15 @@ export const Navbar = () => {
 											&nbsp;
 											<span className="badge bg-secondary">{store.carrito.length}</span>
 										</button>
-										<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+										<ul
+											className="dropdown-menu bg-dark listaCarrito"
+											aria-labelledby="dropdownMenuButton1">
 											{store.carrito.length > 0 ? (
 												store.carrito.map((carritoitem, index) => {
 													console.log(carritoitem);
 													return (
 														<li key={index} className="d-flex justify-content-end">
-															<a className="dropdown-item">
+															<a className="dropdown-item text-white">
 																{carritoitem.nombre}
 
 																<button
@@ -88,7 +90,7 @@ export const Navbar = () => {
 												})
 											) : (
 												<li className="d-flex justify-content-end">
-													<a className="dropdown-item">{"vacío"}</a>
+													<a className="dropdown-item text-white">{"vacío"}</a>
 												</li>
 											)}
 										</ul>

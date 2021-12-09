@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Fira+Sans+Condensed:wght@800&family=Montserrat:wght@500&family=Paytone+One&display=swap');
-
+// @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Fira+Sans+Condensed:wght@800&family=Montserrat:wght@500&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap');
 
 .fortnite{
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: 'Josefin Slab', serif;
 }
 
 .botonprodu{
@@ -28,6 +28,10 @@
 
 .iconoUsuario{
     color: #fff !important;
+}
+.listaCarrito li a:hover{
+    background: linear-gradient(141deg, rgb(0, 0, 0) 0%, #292929 51%, #3b3b3b 75%) !important;
+    color: white !important
 }
 
 .corazon{

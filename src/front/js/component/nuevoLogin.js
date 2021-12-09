@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/loginContainer.scss";
 
 const NuevoLogin = () => {
 	const { actions, store } = useContext(Context);
@@ -88,7 +89,7 @@ const NuevoLogin = () => {
 							<div className="buttons d-flex justify-content-between m-2">
 								<button
 									type="submit"
-									className="btn btn-primary letra"
+									className="btn btn-dark letra"
 									onClick={() => {
 										login();
 									}}>
@@ -96,7 +97,7 @@ const NuevoLogin = () => {
 								</button>
 
 								<Link to="/signin">
-									<button type="button" className="btn btn-primary letra">
+									<button type="button" className="btn btn-dark letra">
 										Registrate
 									</button>
 								</Link>

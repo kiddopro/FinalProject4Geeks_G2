@@ -11,7 +11,7 @@ const CardArticle = props => {
 	return (
 		//style={{ maxWidth: "540px" }}
 		<div className="card mb-3 mx-auto">
-			<div className="row g-0">
+			<div className="row g-0 p-5">
 				<div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
 					<img src={props.image} className="img-fluid rounded-start w-50" alt="imagen articulo" />
 					<div
@@ -62,7 +62,7 @@ const CardArticle = props => {
 							<hr />
 							<div className="d-flex justify-content-between align-items-center">
 								{store.auth ? (
-									<button type="button" className="btn btn-primary" onClick={() => agregarFavorito()}>
+									<button type="button" className="btn btn-dark" onClick={() => agregarFavorito()}>
 										Agregar al carrito
 									</button>
 								) : (
@@ -71,13 +71,13 @@ const CardArticle = props => {
 											Debes iniciar sesión para agregar el producto al carrito
 										</small>
 										<br />
-										<button type="button" className="btn btn-primary disabled">
+										<button type="button" className="btn btn-dark disabled">
 											Agregar al carrito
 										</button>
 									</div>
 								)}
 								<Link to="/">
-									<button type="button" className="btn btn-primary">
+									<button type="button" className="btn btn-dark">
 										Volver
 									</button>
 								</Link>

@@ -74,23 +74,26 @@ export const Navbar = () => {
 												store.carrito.map((carritoitem, index) => {
 													console.log(carritoitem);
 													return (
-														<li key={index} className="d-flex justify-content-end">
+														<li
+															key={index}
+															className="d-flex justify-content-between align-items-center w-100">
 															<a className="dropdown-item text-white">
 																{carritoitem.nombre}
-
-																<button
-																	type="button"
-																	className="btn-close ms-3 btn btn-outline-danger"
-																	aria-label="Close"
-																	onClick={() => actions.removeFromCart(index)}
-																/>
 															</a>
+															<button
+																type="button"
+																className="dropdown-item btn-close btn-outline-danger"
+																aria-label="Close"
+																onClick={() => actions.removeFromCart(index)}
+															/>
 														</li>
 													);
 												})
 											) : (
 												<li className="d-flex justify-content-end">
-													<a className="dropdown-item text-white">{"vacío"}</a>
+													<a className="dropdown-item text-white pointer-default">
+														{"vacío"}
+													</a>
 												</li>
 											)}
 										</ul>

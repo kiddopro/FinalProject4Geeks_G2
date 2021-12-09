@@ -53,11 +53,11 @@ const ForgotPassword = () => {
 					</div>
 
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" className="btn btn-primary letra" onClick={() => forgotPassword()}>
+						<button type="button" className="btn btn-dark letra" onClick={() => forgotPassword()}>
 							Confirmar
 						</button>
 						<Link to="/login">
-							<button type="submit" className="btn btn-primary letra">
+							<button type="submit" className="btn btn-dark letra">
 								Volver
 							</button>
 						</Link>

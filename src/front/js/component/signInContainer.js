@@ -110,12 +110,12 @@ const SignInContainer = () => {
 						</div>
 					</div>
 					<div className="buttons d-flex justify-content-between m-2">
-						<button type="button" onClick={() => create()} className="btn btn-primary letra">
+						<button type="button" onClick={() => create()} className="btn btn-dark letra">
 							Crear
 						</button>
 
 						<Link to="/login">
-							<button type="button" className="btn btn-primary letra">
+							<button type="button" className="btn btn-dark letra">
 								Volver
 							</button>
 						</Link>

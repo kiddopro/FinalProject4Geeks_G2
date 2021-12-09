@@ -75,9 +75,9 @@ input:focus{
     font-size: 12px;
 }
 
-.letra{
-    font-family: 'Montserrat', sans-serif;
-}
+// .letra{
+//     font-family: 'Montserrat', sans-serif;
+// }
 
 .sombra{
     text-shadow: 0 0 12px #fff;
@@ -98,7 +98,12 @@ input:focus{
 }
 
 .contraseña{
-    text-decoration: none;
+    text-decoration: underline !important;
+    color: rgb(0, 0, 0 / .9);
+}
+
+.contraseña:hover{
+    color: rgb(255, 255, 255) !important;
 }
 
 .carro{

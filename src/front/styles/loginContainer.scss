@@ -1,4 +1,5 @@
-$background-logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635995084/gradienta-m_7p45JfXQo-unsplash_mtxnu5.jpg";
+$background-logo: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+// "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635995084/gradienta-m_7p45JfXQo-unsplash_mtxnu5.jpg";
 $logo: "https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635985840/logo_FINAL_tw0rfp.png";
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Fira+Sans+Condensed:wght@800&family=Montserrat:wght@500&family=Paytone+One&display=swap');
 
@@ -40,12 +41,18 @@ input:focus{
 #left{
     // position: relative;
     background-image: url($background-logo);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size:100%;
+    // width: 100%; con esta opción queda la imagen como header de la carta
     background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
 
 }
 
+
+.right-side{
+    margin: auto;
+}
 
 // #left-side{
 //     background-image: url("https://res.cloudinary.com/dmrzqrcpq/image/upload/v1635995084/gradienta-m_7p45JfXQo-unsplash_mtxnu5.jpg");

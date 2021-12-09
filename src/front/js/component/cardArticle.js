@@ -61,7 +61,7 @@ const CardArticle = props => {
 								{/* <small className="text-muted">Last updated 3 mins ago</small> */}
 							</p>
 							<hr />
-							<div className="d-flex justify-content-between align-items-center">
+							<div className="d-flex justify-content-between align-items-center botones">
 								{store.auth ? (
 									<button type="button" className="btn btn-dark" onClick={() => agregarFavorito()}>
 										Agregar al carrito

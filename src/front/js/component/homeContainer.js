@@ -1,7 +1,6 @@
 import React, { Component, useContext, useEffect } from "react";
 
 import { Context } from "../store/appContext";
-import "../../styles/home.scss";
 
 import ProductsContainer from "./productsContainer";
 

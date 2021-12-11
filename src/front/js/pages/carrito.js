@@ -4,7 +4,6 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import CarritoContainer from "../component/carritoContainer";
 import CarritoPrueba from "../component/carritoPruba";
 
-import "../../styles/home.scss";
 import Login from "./login";
 import { Redirect } from "react-router-dom";
 

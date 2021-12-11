@@ -9,6 +9,8 @@ import "../styles/index.scss";
 import "../styles/cardProducto.scss";
 import "../styles/changePassword.scss";
 import "../styles/cardArticle.scss";
+import "../styles/loginContainer.scss";
+import "../styles/home.scss";
 //import your own components
 import Layout from "./layout";
 

@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 //include your index.scss file into the bundle
 import "../styles/index.scss";
+import "../styles/cardProducto.scss";
 import "../styles/changePassword.scss";
+import "../styles/cardArticle.scss";
 //import your own components
 import Layout from "./layout";
 

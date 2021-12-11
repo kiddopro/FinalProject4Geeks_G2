@@ -2,13 +2,12 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../../styles/cardProducto.scss";
 
 const CardProducto = props => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="col-md-3 col-12">
-			<div className="card h-100">
+			<div className="card h-100 card-scale">
 				<img
 					src={props.producto.imagen}
 					className="card-img-top img-fluid mx-auto"

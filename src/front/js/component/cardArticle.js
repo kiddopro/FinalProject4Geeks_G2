@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../../styles/cardArticle.scss";
+// import "../../styles/cardArticle.scss";
 
 const CardArticle = props => {
 	const { store, actions } = useContext(Context);
@@ -11,7 +11,7 @@ const CardArticle = props => {
 	};
 	return (
 		//style={{ maxWidth: "540px" }}
-		<div className="card mb-3 mx-auto">
+		<div className="card mb-3 mx-auto card-scale-none">
 			<div className="row g-0 p-5">
 				<div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
 					<img src={props.image} className="img-fluid rounded-start w-50" alt="imagen articulo" />

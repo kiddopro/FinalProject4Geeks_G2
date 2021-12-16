@@ -4,7 +4,7 @@ import os
 
 #print("resultado --->",os.environ.get("BACKEND_URL"))
 #api_endpoint_usuarios=os.environ.get("BACKEND_URL")+"/api/usuarios"
-api_endpoint_usuarios="https://3001-scarlet-loon-vgt2upfi.ws-us21.gitpod.io/api/usuarios"
+api_endpoint_usuarios="https://3001-teal-krill-jne15462.ws-us23.gitpod.io/api/usuarios"
 nombres=["Juan","Silvina","Martin","Administrador"]
 emails=["jmantonaccio@gmail.com","Silvinaas4@gmail.com","martin.suarez.personal@gmail.com","admin@admin"]
 pass2=["5544","1234","4321","admin"]
